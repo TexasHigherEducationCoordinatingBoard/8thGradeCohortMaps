@@ -1,0 +1,124 @@
+.mapsection {
+    display: flex; 
+    width:80%; 
+    margin:auto; 
+    height: 350px
+}
+.maps {
+  position: absolute;
+  height: 300px;
+  margin-top: 20px;
+  /* bottom: 0; */
+  width: 80%;
+}
+
+.menu {
+    background: #fff;
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    left: 10px;
+    border-radius: 3px;
+    width: 120px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .menu a {
+    font-size: 13px;
+    color: #404040;
+    display: block;
+    margin: 0;
+    padding: 0;
+    padding: 10px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    text-align: center;
+  }
+
+  .menu a:last-child {
+    border: none;
+  }
+
+  .menu a:hover {
+    background-color: #f8f8f8;
+    color: #404040;
+  }
+
+  .menu a.active {
+    background-color: #3887be;
+    color: #ffffff;
+  }
+
+  .menu a.active:hover {
+    background: #3074a4;
+  }
+
+
+
+  .legendTall {
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    padding: 10px;
+    position: absolute;
+    right: 10px;
+    bottom: 30px;
+    z-index: 1;
+}
+
+.legendTall h4 {
+    margin: 0 0 10px;
+    font-size: 12pt;
+}
+
+.legendTall div span {
+    border-radius: 50%;
+    display: inline-block;
+    height: 10px;
+    margin-right: 5px;
+    width: 10px;
+}
+
+.legend2 {
+    background-color: #fff;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    /* box-shadow: 0 1px 2px rgba(0,0,0,0.10); */
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    padding: 5px;
+    position: relative;
+    z-index: 1;
+    width: 290px;
+    margin: auto;
+  }
+  
+  
+  @media only screen and (min-width: 768px) {
+    .legend2 {top: 10px; right:10px;  position: absolute;}
+  
+  }
+  .legend2-title {
+    margin: 0;
+    text-align: center;
+  }
+  
+  .legend2keycontainer{
+    display: flex; 
+    flex-direction: row-reverse;
+    justify-content: space-evenly;  
+  } 
+  
+  .legend2key{
+    display: inline-block;
+    width: 25px;
+  }
+  
+  .legend2 div span {
+    border-radius: 50%;
+    display: block;
+    height: 12px;
+    width: 12px;
+    margin: auto;
+  }
