@@ -4,8 +4,9 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <meta name="viewport" content='initial-scale=1,maximum-scale=1,shrink-to-fit=no' />
   <title>Insights from the 8th Grade Cohort Longitudina Study</title>
+
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@TXHigherEdBoard" />
   <meta name="twitter:creator" content="@johndinning" />
@@ -19,8 +20,7 @@
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.css' rel='stylesheet' />
   <!-- Bootstrap minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <link href='css/cohort.css' rel='stylesheet' />
   <script type="text/javascript" src="Resources/sources_layers.js"></script>
   <script>
@@ -32,59 +32,47 @@
 <body>
 
   <!-- Bootstrap Navbar -->
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">THECB</a>
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li class="active">
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">Page 1</a>
-          </li>
-          <li>
-            <a href="#">Page 2</a>
-          </li>
-          <li>
-            <a href="#">Page 3</a>
-          </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a href="#">
-              <span class="glyphicon glyphicon-user"></span> Sign Up</a>
-          </li>
-          <li>
-            <a href="#">
-              <span class="glyphicon glyphicon-log-in"></span> Login</a>
-          </li>
-        </ul>
-      </div>
+  
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <a class="navbar-brand" href="#">Top navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline mt-2 mt-md-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
     </div>
   </nav>
 
-  <article>
-    <h1>Insights from the 8th Grade Cohort Longitudina Study</h1>
-    <p>
-      <strong>By JOHN DINNING</strong> December 2017</p>
-    <div class="prose">
+
+  <article role="main" class="container">
+    <h1>Insights from the 8th Grade Cohort longitudinal Study</h1>
+    <p><strong>By JOHN DINNING</strong> December 2017</p>
+    <br>
+    <div>
       Intro about the importance of an educated population and the aqgencies strategic plan. To contribute to the educated population
       students must enroll and complete. 8th grade cohort longitudinal study show show the variation n these rates across
       the state
     </div>
 
     <div class="mapsection">
-      <div class=mapTitle>Enrollment and Graduation Rates for each TEA Region</div>
-      <div class='maps' id='mapid1'>
-        <iframe src="Resources/PlaceholderImage.png" width="100%" height="500" frameborder="0" allowfullscreen>
+      <h4>Enrollment and Graduation Rates for each TEA Region</h4>
+      <div class="embed-responsive embed-responsive-4by3">
+        <iframe class="embed-responsive-item" src="https://johndinning.github.io/TexasAttainment/" allowfullscreen>
           <p>
             <a href="https://THISWEBSITE/OverallRates">
               This browsers does not support iframes. Click her to view the map.
@@ -94,17 +82,17 @@
       </div>
     </div>
 
-    <div class="prose">
+    <div>
       Hispanic, African Americans, and in particular, Africn American males have lower rates of higher ed attainment than the population
       as a whole. Supporting efforts to improve attainment rates of these groups is a goal if the THECB strategic plan These
       populations are more concentrated in some parts of the state.
     </div>
 
     <div class="mapsection">
-      <div class=mapTitle>Distribution of target populations across the state.</div>
-      <div class='maps' id='mapid2'>
-        <iframe src="Resources/PlaceholderImage.png" width="100%" height="500" frameborder="0" allowfullscreen>
-          <p>
+      <h4>Distribution of target populations across the state.</h4>
+      <div class="embed-responsive embed-responsive-4by3">
+        <iframe class="embed-responsive-item" src="https://johndinning.github.io/TexasAttainment/" allowfullscreen>
+              <p>
             <a href="https://THISWEBSITE/TargetPopDistribution">
               This browsers does not support iframes. Click her to view the map.
             </a>
@@ -113,15 +101,15 @@
       </div>
     </div>
 
-    <div class="prose">
+    <div>
       Enrollment rates for target populations vary significantly across the state. Enrollment was central to the agencies former
       strategic plan, Closing the Gaps.
     </div>
 
     <div class="mapsection">
-      <div class=mapTitle>Enrollment Rates for Target Groups</div>
-      <div class='maps' id='mapid3'>
-        <iframe src="Enrollment" width="100%" height="500" frameborder="0" allowfullscreen>
+      <h4>Enrollment Rates for Target Groups</h4>
+           <div class="embed-responsive embed-responsive-4by3">
+        <iframe class="embed-responsive-item" src="TargetPopEnrollment" allowfullscreen>
           <p>
             <a href="https://THISWEBSITE/Enrollment">
               This browsers does not support iframes. Click her to view the map.
@@ -131,16 +119,16 @@
       </div>
     </div>
 
-    <div class="prose">
+    <div>
       But given the investment in time and mony that students put into hugher education, not completing a credential can leave
       studens burdened with debt and with little to benefit. The new strategic plan focuses on completions.
     </div>
 
     <div class="mapsection">
-      <div class=mapTitle>Completion Rates for Target Groups</div>
-      <div class='maps' id='mapid4'>
-        <iframe src="Completion" width="100%" height="500" frameborder="0" allowfullscreen>
-          <p>
+      <h4>Completion Rates for Target Groups</h4>
+      <div class="embed-responsive embed-responsive-4by3">
+        <iframe class="embed-responsive-item" src="TargetPopCompletion" allowfullscreen>
+                    <p>
             <a href="https://THISWEBSITE/Completion">
               This browsers does not support iframes. Click her to view the map.
             </a>
@@ -151,14 +139,13 @@
 
 
     <script type="text/javascript" src="Resources/style.js"></script>
-    <script type="text/javascript" src="CohortScript.js"></script>
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-      crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
 </body>
 </article>
