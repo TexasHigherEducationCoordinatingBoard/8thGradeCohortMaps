@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8' />
+  <title>Complestions for Target Groups</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css' rel='stylesheet' />
+  <link href='style.css' rel='stylesheet' />
+  <style>
+   
+  </style>
+  <script type="text/javascript" src="cohortMapStyle.js"></script>
+  <script type="text/javascript" src="Completion.js"></script>
+</head>
+
+<body>
+
+  <nav id="menu"></nav>
+  <div id="map"></div>
+
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoiam9obmRpbm5pbmciLCJhIjoiY2oxazR5NjNvMDFveDJ5b2FzbWZwbjFpbiJ9.bixlFwP8Kf43qHa7Z6XK8g';
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: cohortStyle,
+      center: [-99.19, 31.30],
+      zoom: 4,
+      maxZoom: 15,
+      minZoom: 4,
+      maxBounds: [[-140, 15], [-60, 45]]
+    });
+
+    map.on('load', function () {
+      map.addSource('Cohort', {
+        'type': 'vector',
+        'url': 'mapbox://johndinning.cvggpjmd'
+      });
+      addLayerNav(map);
+      map.addLayer({
+        'id': 'AApCompDiff',
+        'type': 'fill',
+        'source': 'Cohort',
+        'source-layer': 'Cohort2006TEARegionPolys',
+        "layout": {
+          'visibility': 'visible'
+        },
+        'paint': {
+          'fill-color': {
+            property: 'AAComppDi', 
+            type: 'exponential',
+            stops: [
+              [-16.5, '#a50026'],
+              [-14.0, '#d73027'],
+              [-11.5, '#f46d43'],
+              [-9.0, '#fdae61'],
+              [-6.5, '#fee08b'],
+              [-4.0, '#ffffbf'],
+              [-1.5, '#d9ef8b'],
+              [1.0, '#a6d96a'],
+              [3.5, '#66bd63']
+            ],
+          },
+        }
+      }, 'state'
+      );
+      map.addLayer({
+        "id": "AApCompDiffText",
+        "type": "symbol",
+        "source": "Cohort",
+        "source-layer": "Cohort2006TEARegionPoints",
+        "layout": {
+          'visibility': 'visible',
+          "text-field": "{AAComppDi}" + " pp",
+          "text-font": [
+            "DIN Offc Pro Medium",
+            "Arial Unicode MS Bold"
+          ],
+          "text-size": 12
+        }
+      }
+      );
+
+      map.addLayer({
+        'id': 'HisppCompDiff',
+        'type': 'fill',
+        'source': 'Cohort',
+        'source-layer': 'Cohort2006TEARegionPolys',
+        "layout": {
+          'visibility': 'none'
+        },
+        'paint': {
+          'fill-color': {
+            property: 'HisComppDi',
+            stops: [
+              [-16.5, '#a50026'],
+              [-14.0, '#d73027'],
+              [-11.5, '#f46d43'],
+              [-9.0, '#fdae61'],
+              [-6.5, '#fee08b'],
+              [-4.0, '#ffffbf'],
+              [-1.5, '#d9ef8b'],
+              [1.0, '#a6d96a'],
+              [3.5, '#66bd63']
+            ],
+          },
+        }
+      }, 'state'
+      );
+      map.addLayer({
+        "id": "HisppCompDiffText",
+        "type": "symbol",
+        "source": "Cohort",
+        "source-layer": "Cohort2006TEARegionPoints",
+        "layout": {
+          'visibility': 'none',
+          "text-field": "{HisComppDi}" + " pp",
+          "text-font": [
+            "DIN Offc Pro Medium",
+            "Arial Unicode MS Bold"
+          ],
+          "text-size": 12
+        }
+      }
+      );
+      map.addLayer({
+        'id': 'AAmpCompDiff',
+        'type': 'fill',
+        'source': 'Cohort',
+        'source-layer': 'Cohort2006TEARegionPolys',
+        "layout": {
+          'visibility': 'none'
+        },
+        'paint': {
+          'fill-color': {
+            property: 'AAmComppDi',
+            type: 'exponential',
+            stops: [
+              [-16.5, '#a50026'],
+              [-14.0, '#d73027'],
+              [-11.5, '#f46d43'],
+              [-9.0, '#fdae61'],
+              [-6.5, '#fee08b'],
+              [-4.0, '#ffffbf'],
+              [-1.5, '#d9ef8b'],
+              [1.0, '#a6d96a'],
+              [3.5, '#66bd63']
+            ],
+          },
+        }
+      }, 'state'
+      );
+      map.addLayer({
+        "id": "AAmpCompDiffText",
+        "type": "symbol",
+        "source": "Cohort",
+        "source-layer": "Cohort2006TEARegionPoints",
+        "layout": {
+          'visibility': 'none',
+          "text-field": "{AAmComppDi}" + " pp",
+          "text-font": [
+            "DIN Offc Pro Medium",
+            "Arial Unicode MS Bold"
+          ],
+          "text-size": 12
+        }
+      }
+      );
+    });
+
+// </script>
+
+  <div class='legend2'>
+    <!-- see https://www.mapbox.com/mapbox-gl-js/example/updating-choropleth/ -->
+   <div class="legend2-title">Percentage Point (pp) Difference from Overall Cohort</div>
+     <div class="legend2keycontainer">
+      <div class="legend2key"><span style='background-color: #66bd63'></span>+3.5</div>
+      <div class="legend2key"><span style='background-color: #a6d96a'></span>+1.0</div>
+      <div class="legend2key"><span style='background-color: #d9ef8b'></span>-1.5</div>
+      <div class="legend2key"><span style='background-color: #ffffbf'></span>-4.0</div>
+      <div class="legend2key"><span style='background-color: #fee08b'></span>-6.5</div>
+      <div class="legend2key"><span style='background-color: #fdae61'></span>-9.0</div>
+      <div class="legend2key"><span style='background-color: #f46d43'></span>-11.5</div>
+      <div class="legend2key"><span style='background-color: #d73027'></span>-14.0</div>
+      <div class="legend2key"><span style='background-color: #a50026'></span>-16.5</div>
+   </div>
+  </div>
+</body>
+</html>
