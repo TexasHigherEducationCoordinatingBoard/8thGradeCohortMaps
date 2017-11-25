@@ -16,17 +16,27 @@
 </head>
 
 <body>
-
-  <nav id="menu"></nav>
+    <nav id="menu"></nav>
+    
   <div id="map"></div>
-
+  <div class='legend2'>
+      <!-- see https://www.mapbox.com/mapbox-gl-js/example/updating-choropleth/ -->
+     <div class="legend2-title">Percentage Point (pp) Difference from Overall Cohort</div>
+     <div class="legend2keycontainer">
+      <div class="legend2key"><span style='background-color: #d9ef8b'></span>+4</div>
+      <div class="legend2key"><span style='background-color: #ffffbf'></span>0</div>
+      <div class="legend2key"><span style='background-color: #fee08b'></span>-4</div>
+      <div class="legend2key"><span style='background-color: #fdae61'></span>-8</div>
+      <div class="legend2key"><span style='background-color: #f46d43'></span>-12</div>
+      <div class="legend2key"><span style='background-color: #d73027'></span>-16</div>
+    </div></div>
   <script>
     mapboxgl.accessToken = 'pk.eyJ1Ijoiam9obmRpbm5pbmciLCJhIjoiY2oxazR5NjNvMDFveDJ5b2FzbWZwbjFpbiJ9.bixlFwP8Kf43qHa7Z6XK8g';
     var map = new mapboxgl.Map({
       container: 'map',
       style: cohortStyle,
       center: [-99.19, 31.30],
-      zoom: 4.5,
+      zoom: 4,
       maxZoom: 15,
       minZoom: 4,
       maxBounds: [[-140, 15], [-60, 45]]
@@ -51,15 +61,12 @@
             property: 'AAComppDi', 
             type: 'exponential',
             stops: [
-              [-16.5, '#a50026'],
-              [-14.0, '#d73027'],
-              [-11.5, '#f46d43'],
-              [-9.0, '#fdae61'],
-              [-6.5, '#fee08b'],
-              [-4.0, '#ffffbf'],
-              [-1.5, '#d9ef8b'],
-              [1.0, '#a6d96a'],
-              [3.5, '#66bd63']
+              [-16, '#d73027'],
+              [-12, '#f46d43'],
+              [-8, '#fdae61'],
+              [-4, '#fee08b'],
+              [0, '#ffffbf'],
+              [4, '#d9ef8b']
             ],
           },
         }
@@ -94,15 +101,12 @@
           'fill-color': {
             property: 'HisComppDi',
             stops: [
-              [-16.5, '#a50026'],
-              [-14.0, '#d73027'],
-              [-11.5, '#f46d43'],
-              [-9.0, '#fdae61'],
-              [-6.5, '#fee08b'],
-              [-4.0, '#ffffbf'],
-              [-1.5, '#d9ef8b'],
-              [1.0, '#a6d96a'],
-              [3.5, '#66bd63']
+            [-16, '#d73027'],
+            [-12, '#f46d43'],
+            [-8, '#fdae61'],
+            [-4, '#fee08b'],
+            [0, '#ffffbf'],
+            [4, '#d9ef8b']
             ],
           },
         }
@@ -137,15 +141,12 @@
             property: 'AAmComppDi',
             type: 'exponential',
             stops: [
-              [-16.5, '#a50026'],
-              [-14.0, '#d73027'],
-              [-11.5, '#f46d43'],
-              [-9.0, '#fdae61'],
-              [-6.5, '#fee08b'],
-              [-4.0, '#ffffbf'],
-              [-1.5, '#d9ef8b'],
-              [1.0, '#a6d96a'],
-              [3.5, '#66bd63']
+            [-16, '#d73027'],
+            [-12, '#f46d43'],
+            [-8, '#fdae61'],
+            [-4, '#fee08b'],
+            [0, '#ffffbf'],
+            [4, '#d9ef8b']
             ],
           },
         }
@@ -170,21 +171,5 @@
     });
 
 // </script>
-
-  <div class='legend2'>
-    <!-- see https://www.mapbox.com/mapbox-gl-js/example/updating-choropleth/ -->
-   <div class="legend2-title">Percentage Point (pp) Difference from Overall Cohort</div>
-     <div class="legend2keycontainer">
-      <div class="legend2key"><span style='background-color: #66bd63'></span>+3.5</div>
-      <div class="legend2key"><span style='background-color: #a6d96a'></span>+1.0</div>
-      <div class="legend2key"><span style='background-color: #d9ef8b'></span>-1.5</div>
-      <div class="legend2key"><span style='background-color: #ffffbf'></span>-4.0</div>
-      <div class="legend2key"><span style='background-color: #fee08b'></span>-6.5</div>
-      <div class="legend2key"><span style='background-color: #fdae61'></span>-9.0</div>
-      <div class="legend2key"><span style='background-color: #f46d43'></span>-11.5</div>
-      <div class="legend2key"><span style='background-color: #d73027'></span>-14.0</div>
-      <div class="legend2key"><span style='background-color: #a50026'></span>-16.5</div>
-   </div>
-  </div>
 </body>
 </html>
