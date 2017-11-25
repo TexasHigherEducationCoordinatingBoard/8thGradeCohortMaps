@@ -26,9 +26,9 @@
       container: 'map',
       style: cohortStyle,
       center: [-99.19, 31.30],
-      zoom: 4.5,
+      zoom: 6,
       maxZoom: 15,
-      minZoom: 5,
+      minZoom: 3,
       maxBounds: [[-140, 15], [-60, 45]]
     });
 
@@ -37,7 +37,14 @@
         'type': 'vector',
         'url': 'mapbox://johndinning.cvggpjmd'
       });
-      addLayerNav(map);
+      map.addControl(new mapboxgl.NavigationControl({position:'top-right' }));
+      // Disable map rotation using right click + drag
+      map.dragRotate.disable();
+      // Disable map rotation using touch rotation gesture
+      map.touchZoomRotate.disableRotation();
+      addLayerNav(map); // The funtions defined in the separate js doc
+      map.scrollZoom.disable();
+      map.fitBounds(bbox, linear=true); //fit Texas at any zoom and ease to
       map.addLayer({
         'id': 'AApEnrollDiff',
         'type': 'fill',
@@ -51,16 +58,13 @@
             property: 'AAEnrpDi', //Perc Point difference in enrollment
             type: 'exponential',
             stops: [
-              [-16.5, '#a50026'],
-              [-14.0, '#d73027'],
-              [-11.5, '#f46d43'],
-              [-9.0, '#fdae61'],
-              [-6.5, '#fee08b'],
-              [-4.0, '#ffffbf'],
-              [-1.5, '#d9ef8b'],
-              [1.0, '#a6d96a'],
-              [3.5, '#66bd63']
-            ],
+            [-16, '#d73027'],
+            [-12, '#f46d43'],
+            [-8, '#fdae61'],
+            [-4, '#fee08b'],
+            [0, '#ffffbf'],
+            [4, '#d9ef8b']
+          ],
           },
         }
       }, 'state'
@@ -94,16 +98,13 @@
           'fill-color': {
             property: 'HisEnrpDi', //Perc Point difference in enrollment                    type: 'exponential',
             stops: [
-              [-16.5, '#a50026'],
-              [-14.0, '#d73027'],
-              [-11.5, '#f46d43'],
-              [-9.0, '#fdae61'],
-              [-6.5, '#fee08b'],
-              [-4.0, '#ffffbf'],
-              [-1.5, '#d9ef8b'],
-              [1.0, '#a6d96a'],
-              [3.5, '#66bd63']
-            ],
+            [-16, '#d73027'],
+            [-12, '#f46d43'],
+            [-8, '#fdae61'],
+            [-4, '#fee08b'],
+            [0, '#ffffbf'],
+            [4, '#d9ef8b']
+          ],
           },
         }
       }, 'state'
@@ -137,16 +138,13 @@
             property: 'AAmEnrpDi', //Perc Point difference in enrollment
             type: 'exponential',
             stops: [
-              [-16.5, '#a50026'],
-              [-14.0, '#d73027'],
-              [-11.5, '#f46d43'],
-              [-9.0, '#fdae61'],
-              [-6.5, '#fee08b'],
-              [-4.0, '#ffffbf'],
-              [-1.5, '#d9ef8b'],
-              [1.0, '#a6d96a'],
-              [3.5, '#66bd63']
-            ],
+            [-16, '#d73027'],
+            [-12, '#f46d43'],
+            [-8, '#fdae61'],
+            [-4, '#fee08b'],
+            [0, '#ffffbf'],
+            [4, '#d9ef8b']
+          ],
           },
         }
       }, 'state'
@@ -175,16 +173,13 @@
     <!-- see https://www.mapbox.com/mapbox-gl-js/example/updating-choropleth/ -->
    <div class="legend2-title">Percentage Point (pp) Difference from Overall Cohort</div>
      <div class="legend2keycontainer">
-      <div class="legend2key"><span style='background-color: #66bd63'></span>+3.5</div>
-      <div class="legend2key"><span style='background-color: #a6d96a'></span>+1.0</div>
-      <div class="legend2key"><span style='background-color: #d9ef8b'></span>-1.5</div>
-      <div class="legend2key"><span style='background-color: #ffffbf'></span>-4.0</div>
-      <div class="legend2key"><span style='background-color: #fee08b'></span>-6.5</div>
-      <div class="legend2key"><span style='background-color: #fdae61'></span>-9.0</div>
-      <div class="legend2key"><span style='background-color: #f46d43'></span>-11.5</div>
-      <div class="legend2key"><span style='background-color: #d73027'></span>-14.0</div>
-      <div class="legend2key"><span style='background-color: #a50026'></span>-16.5</div>
-   </div>
+        <div class="legend2key"><span style='background-color: #d9ef8b'></span>+4</div>
+        <div class="legend2key"><span style='background-color: #ffffbf'></span>0</div>
+        <div class="legend2key"><span style='background-color: #fee08b'></span>-4</div>
+        <div class="legend2key"><span style='background-color: #fdae61'></span>-8</div>
+        <div class="legend2key"><span style='background-color: #f46d43'></span>-12</div>
+        <div class="legend2key"><span style='background-color: #d73027'></span>-16</div>
+     </div>
   </div>
 </body>
 </html>

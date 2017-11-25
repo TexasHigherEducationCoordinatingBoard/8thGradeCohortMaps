@@ -1,3 +1,4 @@
+bbox=[[-107.02, 25.62], [-93.38, 36.72]];
 
 const toggleableLayers = [
     { ids: ['AApCompDiff', 'AApCompDiffText'], name: ['African American'] },

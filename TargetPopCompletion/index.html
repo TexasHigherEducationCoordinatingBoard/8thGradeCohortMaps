@@ -36,9 +36,9 @@
       container: 'map',
       style: cohortStyle,
       center: [-99.19, 31.30],
-      zoom: 4,
+      zoom: 6,
       maxZoom: 15,
-      minZoom: 4,
+      minZoom: 3,
       maxBounds: [[-140, 15], [-60, 45]]
     });
 
@@ -47,7 +47,14 @@
         'type': 'vector',
         'url': 'mapbox://johndinning.cvggpjmd'
       });
-      addLayerNav(map);
+      map.addControl(new mapboxgl.NavigationControl({position:'top-right' }));
+      // Disable map rotation using right click + drag
+      map.dragRotate.disable();
+      // Disable map rotation using touch rotation gesture
+      map.touchZoomRotate.disableRotation();
+      addLayerNav(map);  // The funtions defined in the separate js doc
+      map.scrollZoom.disable(); //no mousewheel zoom
+      map.fitBounds(bbox, linear=true); //fit Texas at any zoom and ease to
       map.addLayer({
         'id': 'AApCompDiff',
         'type': 'fill',

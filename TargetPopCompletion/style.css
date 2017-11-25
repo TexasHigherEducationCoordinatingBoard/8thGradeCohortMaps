@@ -9,7 +9,12 @@ body {
   bottom: 0;
   width: 100%;
 }
-#menu {
+
+.mapboxgl-ctrl-compass {
+  display: none !important;
+  }
+
+  #menu {
   background: #fff;
   position: absolute;
   z-index: 1;
@@ -90,9 +95,8 @@ width: 12px;
 margin: auto;
 }
 
-
 @media only screen and (min-width: 768px) {
-.legend2 {top: 10px; right:10px;  position: absolute;}
+.legend2 {top: 10px; right:45px;  position: absolute;}
 .legend2 {display: inline}
 #map {top: 0;}
 #menu {top: 10px; left: 10px;width: 120px;}
