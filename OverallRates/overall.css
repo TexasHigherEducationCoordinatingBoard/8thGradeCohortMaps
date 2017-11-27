@@ -1,9 +1,14 @@
 body { 
-    margin:0; padding:0; 
+    margin: 4%;
+    margin-top: 0;
+    padding: 0; 
 }
 
 #map { 
-    position:absolute; top:0; bottom:0; width:100%; 
+    position:absolute; 
+    top: 25px; 
+    bottom:0; 
+    width:92%; 
 }
 
 .mapboxgl-ctrl-compass {
@@ -50,26 +55,29 @@ p {
 
 #menu {
     background: #fff;
-    position: absolute;
+    position: relative;
+    display: flex;
     z-index: 1;
-    top: 10px;
+    /* top: 10px; */
     left: 10px;
     border-radius: 3px;
-    width: 65px;
+    width: 200px;
     border: 1px solid rgba(0,0,0,0.4);
     font-family: 'Open Sans', sans-serif;
+    margin: auto;
 }
 
 #menu a {
     font-size: 11px;
     color: #404040;
-    display: block;
+    display: inline-flex;
+    flex-grow: 1;
     margin: 0;
     padding: 0;
     padding: 5px;
     text-decoration: none;
     border-bottom: 1px solid rgba(0,0,0,0.25);
-    text-align: center;
+    justify-content: center;
 }
 
 #menu a:last-child {
@@ -94,6 +102,8 @@ p {
     /* .legend2 {top: 10px; right:45px;  position: absolute;}
     .legend2 {display: inline}
     #map {top: 0;} */
-    #menu {top: 10px; left: 10px;width: 120px;}
+    #map {top: 40px; width:80%}
+    body {margin: 10%; margin-top: 0}
+    #menu {width: 270px;}
     #menu a {font-size: 13px;  padding: 10px;}
     }
