@@ -3,6 +3,11 @@ body{
   min-height: 75rem;
   }
 
+.section {
+    width: 80%; margin: auto
+}
+
+
 h1 {
   font-family: serif;
   margin-bottom: 0;
@@ -24,4 +29,6 @@ h4 {
 
 @media only screen and (min-width: 768px) {  
 .aspect-ratio {padding-top: 42.857143%;}
+.titlesection {width: 80%; margin: auto; text-align: center}
+.section {width: 50%; margin: auto}
 }

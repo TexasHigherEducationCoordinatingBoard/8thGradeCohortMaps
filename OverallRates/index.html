@@ -19,7 +19,7 @@
     <nav id="menu"></nav>
     
   <div id="map"></div>
-  <div class='map-overlay' id='features'><h2>8th Grade Cohort</h2><div id='pd'><p>Hover over a region.</p></div></div>
+  <div class='map-overlay' id='features'><div id='pd'><h3>8th Grade Cohort</h3><p>Hover over a region.</p></div></div>
   <div class='map-overlay' id='legend'></div>
       <!-- see https://www.mapbox.com/mapbox-gl-js/example/updating-choropleth/ -->
      <div class="legend2-title">Percentage Point (pp) Difference from Overall Cohort</div>
@@ -32,7 +32,7 @@
     var map = new mapboxgl.Map({
       container: 'map',
       style: cohortStyle,
-      center: [-99.19, 31.30],
+      center: [-101.8, 31.9], //offset to make room for info window
       zoom: 5,
       maxZoom: 15,
       minZoom: 3,
@@ -138,10 +138,13 @@ map.on('mousemove', function(e) {
       layers: ['TotpComp', 'TotpEnroll']
     });
   
-    if (region.length > 0) {
-      document.getElementById('pd').innerHTML = '<h3><strong>' + region[0].id + 'for the ' + region[0].properties.name + '</strong></h3><p><strong><em>' + region[0].properties.density + '</strong> people per square mile</em></p>';
+    //Enrollment Rates
+    if ((region.length > 0) && (document.getElementById("menu").firstChild.className=='active')) {
+      document.getElementById('pd').innerHTML = '<p><em>There were ' + region[0].properties.TotCoho.toLocaleString() + ' 8th graders in the <strong>' + region[0].properties.RegName + ' Region</strong> public schools in the 2006-2007 school year. By the Spring of 2016, <strong>' + region[0].properties.TotpEnr + '% had enrolled in a Texas college or University.</strong></em></p>';
+    } else if ((region.length > 0) && (document.getElementById("menu").lastChild.className=='active')) {
+      document.getElementById('pd').innerHTML = '<p><em>There were ' + region[0].properties.TotCoho.toLocaleString() + ' 8th graders in the <strong>' + region[0].properties.RegName + ' Region</strong> public schools in the 2006-2007 school year. By the Spring of 2016, <strong>' + region[0].properties.TotpComp + '% had completed a higher ed degree or certificate in a Texas.</strong></em></p>';
     } else {
-      document.getElementById('pd').innerHTML = '<p>Hover over a region.</p>';
+      document.getElementById('pd').innerHTML = '<h2>8th Grade Cohort</h2><p>Hover over a region.</p>';
     }
   });
 
