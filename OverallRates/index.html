@@ -130,7 +130,24 @@
         }
       }
       );
+      map.addSource("highlight", {
+      "type": "geojson",
+      "data": {
+        "type": "FeatureCollection",
+        "features": []
+      }
     });
+    map.addLayer({
+      "id": "highlight",
+        "type": "line",
+        "source": "highlight",
+        "layout": {},
+        "paint": {
+            "line-color": "#692a85",
+            "line-width": 3
+    }
+    });
+  });
 
 // For the Info Window (Example used queryRenderedFeatures, I use querySourceFeatures here)
 map.on('mousemove', function(e) {
@@ -145,6 +162,13 @@ map.on('mousemove', function(e) {
       document.getElementById('pd').innerHTML = '<p><em>There were ' + region[0].properties.TotCoho.toLocaleString() + ' 8th graders in the <strong>' + region[0].properties.RegName + ' Region</strong> public schools in the 2006-2007 school year. By the Spring of 2016, <strong>' + region[0].properties.TotpComp + '% had completed a higher ed degree or certificate in a Texas.</strong></em></p>';
     } else {
       document.getElementById('pd').innerHTML = '<h2>8th Grade Cohort</h2><p>Hover over a region.</p>';
+    }
+
+    if (region.length > 0) {
+      map.getSource('highlight').setData({
+        "type": "FeatureCollection",
+        "features": region
+      });
     }
   });
 
