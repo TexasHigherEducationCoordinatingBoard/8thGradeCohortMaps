@@ -21,9 +21,6 @@
   <div id="map"></div>
   <div class='map-overlay' id='features'><div id='pd'><h3>8th Grade Cohort</h3><p>Hover over a region.</p></div></div>
   <div class='map-overlay' id='legend'></div>
-      <!-- see https://www.mapbox.com/mapbox-gl-js/example/updating-choropleth/ -->
-     <div class="legend2-title">Percentage Point (pp) Difference from Overall Cohort</div>
-
 
      <script type="text/javascript" src="overall.js"></script>
     
@@ -53,6 +50,7 @@
       map.scrollZoom.disable(); //no mousewheel zoom
       map.fitBounds(bbox, linear=true); //fit Texas at any zoom and ease to
       addLayerNav(map);
+      loadLegend(map);
       map.addLayer({
         'id': 'TotpComp',
         'type': 'fill',
@@ -154,8 +152,7 @@ map.on('mousemove', function(e) {
     var region = map.queryRenderedFeatures(e.point, {
       layers: ['TotpComp', 'TotpEnroll']
     });
-  
-    //Enrollment Rates
+
     if ((region.length > 0) && (document.getElementById("menu").firstChild.className=='active')) {
       document.getElementById('pd').innerHTML = '<p><em>There were ' + region[0].properties.TotCoho.toLocaleString() + ' 8th graders in the <strong>' + region[0].properties.RegName + ' Region</strong> public schools in the 2006-2007 school year. By the Spring of 2016, <strong>' + region[0].properties.TotpEnr + '% had enrolled in a Texas college or University.</strong></em></p>';
     } else if ((region.length > 0) && (document.getElementById("menu").lastChild.className=='active')) {
