@@ -1,61 +1,6 @@
 bbox=[[-107.02, 25.62], [-93.38, 36.72]];
 
 
-function removeLegend(){
-    let legend = document.getElementById("legend");
-    while (legend.hasChildNodes()){
-        legend.removeChild(legend.firstChild);
-    }
-}
-// create legend
-function refreshLegend(){
-    removeLegend();
-
-//Enrollment
-    if (document.getElementById("menu").firstChild.className = 'active'){
-        {let stops = ['49%', '51%', '53%', '55%', '57%'];
-        let colors = ['#eff3ff','#bdd7e7','#6baed6','#3182bd','#08519c'];}
-    } 
-    else {
-        {let stops = ['17%', '19%', '21%', '23%'];
-        let colors = ['#edf8e9', '#bae4b3', '#74c476', '#238b45'];}
-    }
-    for (i=0; i<stops.length; i++) {
-        var stop = stops[i];
-        var color = colors[i];
-        var item = document.createElement('div');
-        var key = document.createElement('span');
-        key.className = 'legend-key';
-        key.style.backgroundColor = color;
-
-        var value = document.createElement('span');
-        value.innerHTML = stop;
-        item.appendChild(key);
-        item.appendChild(value);
-        legend.appendChild(item);
-    }
-}
-
-
-function loadLegend(){
-    let stops = ['49%', '51%', '53%', '55%', '57%'];
-    let colors = ['#eff3ff','#bdd7e7','#6baed6','#3182bd','#08519c'];
-    for (i=0; i<stops.length; i++) {
-        var stop = stops[i];
-        var color = colors[i];
-        var item = document.createElement('div');
-        var key = document.createElement('span');
-        key.className = 'legend-key';
-        key.style.backgroundColor = color;
-
-        var value = document.createElement('span');
-        value.innerHTML = stop;
-        item.appendChild(key);
-        item.appendChild(value);
-        legend.appendChild(item);
-    }
-}
-
 //create menu
 const toggleableLayers = [
     { ids: ['TotpEnroll', 'TotpEnrollText'], name: ['Enrollment Rates'] },
@@ -82,7 +27,13 @@ function setOnLinkClickHandler(link, layer) {
         layer.ids.forEach(function (layerId) {
             map.setLayoutProperty(layerId, 'visibility', 'visible');
         });
-
+        if (link.textContent=='Completion Rates'){
+            document.getElementById('compLegend').style.display='block';
+            document.getElementById('enrollLegend').style.display='none';
+        } else {
+            document.getElementById('enrollLegend').style.display='block';
+            document.getElementById('compLegend').style.display='none';
+        }
     };
 }
 
@@ -100,4 +51,4 @@ function addLayerNav(map) {
 };
 
 //refresh legend on click
-document.getElementById("legend").addEventListener("click", removeLegend());
+// document.getElementById("legend").addEventListener("click", removeLegend());

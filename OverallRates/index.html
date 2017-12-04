@@ -20,7 +20,21 @@
     
   <div id="map"></div>
   <div class='map-overlay' id='features'><div id='pd'><h3>8th Grade Cohort</h3><p>Hover over a region.</p></div></div>
-  <div class='map-overlay' id='legend'></div>
+  <div class='map-overlay legend' id='enrollLegend'>
+      <h4>Enrollment Rates</h4>
+    <div><span style='background-color: #08519c'></span>57%</div>
+    <div><span style='background-color: #3182bd'></span>55%</div>
+    <div><span style='background-color: #6baed6'></span>53%</div>
+    <div><span style='background-color: #9ecae1'></span>51%</div>
+    <div><span style='background-color: #c6dbef'></span>49%</div>
+  </div>
+  <div class='map-overlay legend' id='compLegend' style='display: none'>
+      <h4>Completion Rates</h4>
+    <div><span style='background-color: #006837'></span>23%</div>
+    <div><span style='background-color: #31a354'></span>21%</div>
+    <div><span style='background-color: #78c679'></span>19%</div>
+    <div><span style='background-color: #c2e699'></span>17%</div>
+  </div>
 
      <script type="text/javascript" src="overall.js"></script>
     
@@ -50,7 +64,6 @@
       map.scrollZoom.disable(); //no mousewheel zoom
       map.fitBounds(bbox, linear=true); //fit Texas at any zoom and ease to
       addLayerNav(map);
-      loadLegend(map);
       map.addLayer({
         'id': 'TotpComp',
         'type': 'fill',
@@ -64,10 +77,10 @@
             property: 'TotpComp', 
             type: 'exponential',
             stops: [
-            [17, '#edf8e9'],
-            [19, '#bae4b3'],
-            [21, '#74c476'],
-            [23, '#238b45']
+            [17, '#c2e699'],
+            [19, '#78c679'],
+            [21, '#31a354'],
+            [23, '#006837']
             ],
           },
         }
@@ -102,8 +115,8 @@
           'fill-color': {
             property: 'TotpEnr',
             stops: [
-              [49,'#eff3ff'],
-              [51, '#bdd7e7'],
+              [49,'#c6dbef'],
+              [51, '#9ecae1'],
               [53, '#6baed6'],
               [55, '#3182bd'],
               [57, '#08519c']
@@ -129,25 +142,23 @@
       }
       );
       map.addSource("highlight", {
-      "type": "geojson",
-      "data": {
-        "type": "FeatureCollection",
-        "features": []
-      }
-    });
+        'type': 'vector',
+        'url': 'mapbox://johndinning.cvggpjmd'
+      });
     map.addLayer({
-      "id": "highlight",
-        "type": "line",
+      "id": "highlight-hover",
+        "type": "fill",
         "source": "highlight",
-        "layout": {},
+        'source-layer': 'Cohort2006TEARegionPolys',
         "paint": {
-            "line-color": "#692a85",
-            "line-width": 3
-    }
+            "fill-color": "#692a85",
+            "fill-opacity": 1
+    },
+        "filter": ['==',"TEAReg", ""]
     });
   });
 
-// For the Info Window (Example used queryRenderedFeatures, I use querySourceFeatures here)
+// For the Info Window
 map.on('mousemove', function(e) {
     var region = map.queryRenderedFeatures(e.point, {
       layers: ['TotpComp', 'TotpEnroll']
@@ -160,15 +171,23 @@ map.on('mousemove', function(e) {
     } else {
       document.getElementById('pd').innerHTML = '<h2>8th Grade Cohort</h2><p>Hover over a region.</p>';
     }
-
-    if (region.length > 0) {
-      map.getSource('highlight').setData({
-        "type": "FeatureCollection",
-        "features": region
-      });
-    }
   });
 
+  map.on("mousemove", "TotpComp", function(e) {
+    map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);;
+  });
+
+  map.on("mouseleave", "TotpComp", function(e) {
+    map.setFilter("highlight-hover", ["==", "TEAReg",""]);;
+  });
+
+  map.on("mousemove", "TotpEnroll", function(e) {
+    map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);;
+  });
+
+  map.on("mouseleave", "TotpEnroll", function(e) {
+    map.setFilter("highlight-hover", ["==", "TEAReg",""]);;
+  });
 // </script>
 </body>
 </html>
