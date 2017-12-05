@@ -40,7 +40,7 @@ p {
 .map-overlay {
     position: absolute;
     bottom: 0;
-    left: 4%;
+    left: 5%;
     background: rgba(255, 255, 255, 0.8);
     margin-right: 20px;
     font-family: Arial, sans-serif;
@@ -69,7 +69,7 @@ p {
 #features {
     top: 0;
     height: 170px;
-    margin-top: 20px;
+    margin-top: 35px;
     width: 175px;
   }
 
@@ -125,5 +125,6 @@ p {
     body {padding-left: 10%; padding-right: 10%;}
     #menu {width: 270px;}
     #menu a {font-size: 13px;  padding: 10px;}
-    .map-overlay {left: 10%}
+    .map-overlay {left: 11%}
+    #features {margin-top: 45px;}
 }
