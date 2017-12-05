@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8' />
+  <title>Distribution of Target Populations</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.1/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.1/mapbox-gl.css' rel='stylesheet' />
+  <link href='TargetPopDistribution.css' rel='stylesheet' />
+  <style>
+   
+  </style>
+  <script type="text/javascript" src="cohortMapStyle.js"></script>
+ 
+</head>
+
+<body>
+    <nav id="menu"></nav>
+    
+  <div id="map"></div>
+  <div class='map-overlay' id='features'><div id='pd'><h3>8th Grade Cohort</h3><p>Hover over a region.</p></div></div>
+  <div class='map-overlay legend' id='AALegend'>
+      <h4>Number of Students</h4>
+    <div><span style='background-color: #08519c'></span>57%</div>
+    <div><span style='background-color: #3182bd'></span>55%</div>
+    <div><span style='background-color: #6baed6'></span>53%</div>
+    <div><span style='background-color: #9ecae1'></span>51%</div>
+    <div><span style='background-color: #c6dbef'></span>49%</div>
+  </div>
+
+
+     <script type="text/javascript" src="TargetPopDistribution.js"></script>
+    
+    <script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoiam9obmRpbm5pbmciLCJhIjoiY2oxazR5NjNvMDFveDJ5b2FzbWZwbjFpbiJ9.bixlFwP8Kf43qHa7Z6XK8g';
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: cohortStyle,
+      center: [-101.8, 31.9], //offset to make room for info window
+      zoom: 5,
+      maxZoom: 15,
+      minZoom: 3,
+      maxBounds: [[-140, 15], [-60, 45]]
+    });
+
+    map.on('load', function () {
+      map.addSource('Cohort', {
+        'type': 'vector',
+        'url': 'mapbox://johndinning.cvggpjmd'
+      });
+      map.addControl(new mapboxgl.NavigationControl({position:'top-right' }));
+      // Disable map rotation using right click + drag
+      map.dragRotate.disable();
+      // Disable map rotation using touch rotation gesture
+      map.touchZoomRotate.disableRotation();
+      map.getCanvas().style.cursor = 'default'; //keep pointer
+      map.scrollZoom.disable(); //no mousewheel zoom
+      map.fitBounds(bbox, linear=true); //fit Texas at any zoom and ease to
+      addLayerNav(map);
+      map.addLayer({
+        "id": "AACohoCircle",
+        "type": "circle",
+        "source": "Cohort",
+        "source-layer": "Cohort2006TEARegionPoints",
+        "layout": {'visibility': 'visible'},
+        paint: {
+          'circle-color': '#D49A66',
+          // Add data-driven styles for circle radius
+          'circle-radius': {
+            property: 'AACoho',
+            type: 'exponential',
+            stops: [
+              [56, 8],
+              [28716, 50]
+            ]
+          },
+          'circle-opacity': 0.8
+        }
+      });
+      map.addLayer({
+        "id": "AACohoNum",
+        "type": "symbol",
+        "source": "Cohort",
+        "source-layer": "Cohort2006TEARegionPoints",
+        "layout": {
+          // 'visibility': 'visible',
+          "text-field": "{AACoho}",
+          "text-font": [
+            "DIN Offc Pro Medium",
+            "Arial Unicode MS Bold"
+          ],
+          "text-size": 12
+        },
+        "filter": ['==',"TEAReg", ""]
+      }
+      );
+      map.addLayer({
+        "id": "HispCohoCircle",
+        "type": "circle",
+        "source": "Cohort",
+        "source-layer": "Cohort2006TEARegionPoints",
+        "layout": {'visibility': 'none'},
+        paint: {
+          'circle-color': '#D49A66',
+          // Add data-driven styles for circle radius
+          'circle-radius': {
+            property: 'HisCoho',
+            type: 'exponential',
+            stops: [
+            [56, 8],
+            [28716, 50]
+            ]
+          },
+          'circle-opacity': .8
+        }
+      });
+      map.addLayer({
+        "id": "HispCohoNum",
+        "type": "symbol",
+        "source": "Cohort",
+        "source-layer": "Cohort2006TEARegionPoints",
+        "layout": {
+          // 'visibility': 'none',
+          "text-field": "{HisCoho}",
+          "text-font": [
+            "DIN Offc Pro Medium",
+            "Arial Unicode MS Bold"
+          ],
+          "text-size": 12
+        },
+        "filter": ['==',"TEAReg", ""]
+      }
+      );
+
+      map.addSource("highlight", {
+        'type': 'vector',
+        'url': 'mapbox://johndinning.cvggpjmd'
+      });
+    map.addLayer({
+      "id": "highlight-hover",
+        "type": "fill",
+        "source": "highlight",
+        'source-layer': 'Cohort2006TEARegionPolys',
+        "paint": {
+            "fill-color": "#692a85",
+            "fill-opacity": .2
+    },
+        "filter": ['==',"TEAReg", ""]
+    });
+  });
+
+// For the Info Window
+map.on('mousemove', function(e) {
+    var region = map.queryRenderedFeatures(
+      e.point, {
+      layers: ['HispCohoCircle', 'AACohoCircle']
+    }
+  );
+
+    if ((region.length > 0) && (document.getElementById("menu").firstChild.className=='active')) {
+      document.getElementById('pd').innerHTML = '<p><em>There were ' + region[0].properties.TotCoho.toLocaleString() + ' 8th graders in the <strong>' + region[0].properties.RegName + ' Region</strong> public schools in the 2006-2007 school year. By the Spring of 2016, <strong>' + region[0].properties.TotpEnr + '% had enrolled in a Texas college or University.</strong></em></p>';
+    } else if ((region.length > 0) && (document.getElementById("menu").lastChild.className=='active')) {
+      document.getElementById('pd').innerHTML = '<p><em>There were ' + region[0].properties.TotCoho.toLocaleString() + ' 8th graders in the <strong>' + region[0].properties.RegName + ' Region</strong> public schools in the 2006-2007 school year. By the Spring of 2016, <strong>' + region[0].properties.TotpComp + '% had completed a higher ed degree or certificate in a Texas.</strong></em></p>';
+    } else {
+      document.getElementById('pd').innerHTML = '<h2>8th Grade Cohort</h2><p>Hover over a region.</p>';
+    }
+  });
+
+  map.on("mousemove", "AACohoCircle", function(e) {
+    map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
+    map.setFilter("AACohoNum", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
+  });
+
+  map.on("mouseleave", "AACohoCircle", function(e) {
+    map.setFilter("highlight-hover", ["==", "TEAReg",""]);
+    map.setFilter("AACohoNum", ["==", "TEAReg",""]);
+  });
+
+  map.on("mousemove", "HispCohoCircle", function(e) {
+    map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
+    map.setFilter("HispCohoNum", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
+  });
+
+  map.on("mouseleave", "HispCohoCircle", function(e) {
+    map.setFilter("highlight-hover", ["==", "TEAReg",""]);
+    map.setFilter("HispCohoNum", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
+  });
+// </script>
+</body>
+</html>
