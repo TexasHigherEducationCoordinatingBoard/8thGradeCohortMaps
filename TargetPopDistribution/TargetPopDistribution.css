@@ -52,7 +52,7 @@ p {
     padding: 10px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     line-height: 18px;
-    height: 135px;
+    height: 160px;
     margin-bottom: 35px;
     width: 100px;
   }
@@ -60,15 +60,16 @@ p {
 
   .legend div span {
     display: inline-block;
-    border-radius: 20%;
-    width: 10px;
-    height: 10px;
+    border-radius: 50%;
+    /* width: 10px;
+    height: 10px; */
     margin-right: 5px;
+    background-color: #D49A66;
   }
   
 #features {
     top: 0;
-    height: 170px;
+    height: 120px;
     margin-top: 35px;
     width: 175px;
   }

@@ -42,3 +42,15 @@ function addLayerNav(map) {
     });
     document.getElementById("menu").firstChild.className = 'active';
 };
+
+  // Store an array of quantiles for the Legend
+  var max = 28716;
+  var fifth = 28716 / 5;
+  var quantiles = [];
+  for (i=0; i<5; i++) {
+    var quantile = (i + 1) * fifth;
+    quantiles.push(quantile);
+  }
+
+
+
