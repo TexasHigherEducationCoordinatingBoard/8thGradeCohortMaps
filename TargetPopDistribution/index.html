@@ -19,7 +19,7 @@
     <nav id="menu"></nav>
     
   <div id="map"></div>
-  <div class='map-overlay' id='features'><div id='pd'><h3>8th Grade Cohort</h3><p>Hover over a region.</p></div></div>
+  <div class='map-overlay' id='features'><div id='pd'><h2>Target Populations by Region</h2><p class='fp'>Hover over a circle!</p></div></div>
  
 
      <script type="text/javascript" src="TargetPopDistribution.js"></script>
@@ -154,34 +154,46 @@ map.on('mousemove', function(e) {
     }
   );
 
-    if ((region.length > 0) && (document.getElementById("menu").firstChild.className=='active')) {
-      document.getElementById('pd').innerHTML = '<p><em><strong>' + region[0].properties.RegName + ' Region<br><table><tr><td>African Americans: </td><td>' + region[0].properties.AApCoho + '%</td></tr><tr><td>Hispanics: </td><td>' + region[0].properties.HispCoho + '%</td></tr></strong></em></p>';
-    } else if ((region.length > 0) && (document.getElementById("menu").lastChild.className=='active')) {
-      document.getElementById('pd').innerHTML = '<p><em>There were ' + region[0].properties.TotCoho.toLocaleString() + ' 8th graders in the <strong>' + region[0].properties.RegName + ' Region</strong> public schools in the 2006-2007 school year. By the Spring of 2016, <strong>' + region[0].properties.TotpComp + '% had completed a higher ed degree or certificate in a Texas.</strong></em></p>';
+    if (region.length > 0) {
+      document.getElementById('pd').innerHTML = '<h3>' + region[0].properties.RegName + " Region</h3><p>(percentage of total cohort)</p><table><tr><td>African Americans: </td><td>" + region[0].properties.AApCoho + '%</td></tr><tr><td>Hispanics: </td><td>' + region[0].properties.HispCoho + '%</td></tr></p>';
     } else {
-      document.getElementById('pd').innerHTML = '<h2>Regional Stats</h2><p>Hover over a circle!</p>';
+      document.getElementById('pd').innerHTML = '<h2>Target Populations by Region</h2><p style="font-size: 0.85em; margin: 10px;">Hover over a circle!</p>';
     }
   });
 
+  var popup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false
+    });
+
+
   map.on("mousemove", "AACohoCircle", function(e) {
     map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
-    map.setFilter("AACohoNum", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
+    map.getCanvas().style.cursor = 'pointer';
+    popup.setLngLat(e.features[0].geometry.coordinates)
+        .setHTML( "There were " + e.features[0].properties.AACoho.toLocaleString() + " African Americans in a cohort of " + e.features[0].properties.TotCoho.toLocaleString() + ". Of those, " + e.features[0].properties.AAnEnr.toLocaleString() + " went to college in Texas and " + e.features[0].properties.AAnComp.toLocaleString() + " finished within 6 years.")
+        .addTo(map);
   });
 
   map.on("mouseleave", "AACohoCircle", function(e) {
     map.setFilter("highlight-hover", ["==", "TEAReg",""]);
-    map.setFilter("AACohoNum", ["==", "TEAReg",""]);
+    map.getCanvas().style.cursor = '';
+    popup.remove();
   });
 
   map.on("mousemove", "HispCohoCircle", function(e) {
     map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
-    map.setFilter("HispCohoNum", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
+    map.getCanvas().style.cursor = 'pointer';
+    popup.setLngLat(e.features[0].geometry.coordinates)
+        .setHTML( "There were " + e.features[0].properties.HisCoho.toLocaleString() + " Hispanics in a cohort of " + e.features[0].properties.TotCoho.toLocaleString() + ". Of those, " + e.features[0].properties.HisnEnr.toLocaleString() + " went to college in Texas and " + e.features[0].properties.HisnComp.toLocaleString() + " finished within 6 years.")
+        .addTo(map);
   });
 
   map.on("mouseleave", "HispCohoCircle", function(e) {
     map.setFilter("highlight-hover", ["==", "TEAReg",""]);
-    map.setFilter("HispCohoNum", ["==", "TEAReg", ""]);
+    map.getCanvas().style.cursor = '';
+    popup.remove();
   });
-// </script>
+</script>
 </body>
 </html>
