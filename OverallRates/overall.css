@@ -55,6 +55,7 @@ p {
     height: 135px;
     margin-bottom: 35px;
     width: 100px;
+    display: none; /*hide on mobile*/
   }
 
 
@@ -127,4 +128,5 @@ p {
     #menu a {font-size: 13px;  padding: 10px;}
     .map-overlay {left: 11%}
     #features {margin-top: 45px;}
+    .legend {display: block;}
 }
