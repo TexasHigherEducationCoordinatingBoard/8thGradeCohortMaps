@@ -27,10 +27,10 @@ function setOnLinkClickHandler(link, layer) {
         layer.ids.forEach(function (layerId) {
             map.setLayoutProperty(layerId, 'visibility', 'visible');
         });
-        if (link.textContent=='Completion Rates'){
+        if ((link.textContent=='Completion Rates') && (window.matchMedia("(min-width: 1224px)").matches)){
             document.getElementById('compLegend').style.display='block';
             document.getElementById('enrollLegend').style.display='none';
-        } else {
+        } else if ((link.textContent=='Enrollment Rates') && (window.matchMedia("(min-width: 1224px)").matches)){
             document.getElementById('enrollLegend').style.display='block';
             document.getElementById('compLegend').style.display='none';
         }
