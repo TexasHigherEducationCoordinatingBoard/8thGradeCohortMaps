@@ -20,10 +20,7 @@
     
   <div id="map"></div>
   <div class='map-overlay' id='features'><div id='pd'><h3>8th Grade Cohort</h3><p>Hover over a region.</p></div></div>
-  <div class='map-overlay legend' id='circleLegend'>
-      <h4>Number of Students</h4>
-  </div>
-
+ 
 
      <script type="text/javascript" src="TargetPopDistribution.js"></script>
     
@@ -32,8 +29,8 @@
     var map = new mapboxgl.Map({
       container: 'map',
       style: cohortStyle,
-      center: [-98, 32], //offset to make room for info window
-      zoom: 6,
+      center: [-99, 32], //offset to make room for info window
+      zoom: 4.5,
       maxZoom: 15,
       minZoom: 3,
       maxBounds: [[-140, 15], [-60, 45]]
@@ -50,6 +47,7 @@
       // Disable map rotation using touch rotation gesture
       map.touchZoomRotate.disableRotation();
       map.getCanvas().style.cursor = 'default'; //keep pointer
+      // map.fitBounds(bbox, linear=true); //fit Texas at any zoom and ease to
       map.scrollZoom.disable(); //no mousewheel zoom
       addLayerNav(map);
       map.addLayer({
@@ -145,32 +143,7 @@
     },
         "filter": ['==',"TEAReg", ""]
     });
-    
-    // By default, exponential property functions have a base of 1.
-    // Exponential functions with a base of 1 are linear.
-    // The relationship between the radius of any point and the number of pedestrians is:
-    // radius = rateOfChange * numberOfPedestrians + radiusAtZero
-    var minRadius = 8;
-    var maxRadius = 60;
-    var minTargetPop = 56;
-    var maxTargetPop = 28716;
 
-    // Find the rateOfChange using two points
-    var rateOfChange = (maxRadius - minRadius) / (maxTargetPop - minTargetPop);
-
-    // Use the rateOfChange to solve for for radiusAtZero
-    // radius = rateOfChange * numberOfPedestrians + radiusAtZero
-    var radiusAtZero = maxRadius - (rateOfChange * maxTargetPop);
-
-    var legend = document.getElementById('circleLegend');
-    function circleSize(quantile) {
-      var radius = (rateOfChange * quantile) + radiusAtZero;
-      var diameter = radius * 2;
-      return diameter;
-    }
-    quantiles.forEach(function(quantile){
-      legend.insertAdjacentHTML('beforeend', '<div><span style="width:' + circleSize(quantile) + 'px;height:' + circleSize(quantile) + 'px;margin: 0 ' + [(20 - circleSize(quantile)) / 2 ] + 'px"></span><p>' + quantile + '</p></div>');
-    });
   });
 
 // For the Info Window
@@ -182,11 +155,11 @@ map.on('mousemove', function(e) {
   );
 
     if ((region.length > 0) && (document.getElementById("menu").firstChild.className=='active')) {
-      document.getElementById('pd').innerHTML = '<p><em>There were ' + region[0].properties.TotCoho.toLocaleString() + ' 8th graders in the <strong>' + region[0].properties.RegName + ' Region</strong> public schools in the 2006-2007 school year. By the Spring of 2016, <strong>' + region[0].properties.TotpEnr + '% had enrolled in a Texas college or University.</strong></em></p>';
+      document.getElementById('pd').innerHTML = '<p><em><strong>' + region[0].properties.RegName + ' Region<br><table><tr><td>African Americans: </td><td>' + region[0].properties.AApCoho + '%</td></tr><tr><td>Hispanics: </td><td>' + region[0].properties.HispCoho + '%</td></tr></strong></em></p>';
     } else if ((region.length > 0) && (document.getElementById("menu").lastChild.className=='active')) {
       document.getElementById('pd').innerHTML = '<p><em>There were ' + region[0].properties.TotCoho.toLocaleString() + ' 8th graders in the <strong>' + region[0].properties.RegName + ' Region</strong> public schools in the 2006-2007 school year. By the Spring of 2016, <strong>' + region[0].properties.TotpComp + '% had completed a higher ed degree or certificate in a Texas.</strong></em></p>';
     } else {
-      document.getElementById('pd').innerHTML = '<h2>8th Grade Cohort</h2><p>Hover over a region.</p>';
+      document.getElementById('pd').innerHTML = '<h2>Regional Stats</h2><p>Hover over a circle!</p>';
     }
   });
 
@@ -207,7 +180,7 @@ map.on('mousemove', function(e) {
 
   map.on("mouseleave", "HispCohoCircle", function(e) {
     map.setFilter("highlight-hover", ["==", "TEAReg",""]);
-    map.setFilter("HispCohoNum", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
+    map.setFilter("HispCohoNum", ["==", "TEAReg", ""]);
   });
 // </script>
 </body>
