@@ -57,7 +57,7 @@ AAmales['AAmpEnr']=100*AAmales['AAmpEnr']
 AAmales['AAmpComp']=100*AAmales['AAmpComp']
 
 print(AAmales)
-AAmales.to_csv('AAmales.csv', index=False)
+#AAmales.to_csv('AAmales.csv', index=False)
 
 
 # This next part gets us:
@@ -94,8 +94,8 @@ Hisp.columns=['TEAReg','RegName','HisCoho', 'HisnEnr','HisnComp','HispEnr','Hisp
 #print(AA_Hisp_collapsed)
 print(AA)
 print(Hisp)
-AA.to_csv('AA.csv')
-Hisp.to_csv('Hisp.csv')
+#AA.to_csv('AA.csv')
+#Hisp.to_csv('Hisp.csv')
 
 
 # This next part gets us:
@@ -115,7 +115,27 @@ Allmales.columns=['TEAReg', 'RegName','TotmCoho', 'TotmnEnr','TotmnComp','TotmpE
 
 
 print(Allmales)
-Allmales.to_csv('Allmales.csv')
+#Allmales.to_csv('Allmales.csv')
+
+
+# In[5]:
+
+
+xlEcon = pd.read_excel('Data\CohortWorkbook2006.xlsx', sheetname='TEA Region by Eco', header=None, index_col=None, skiprows=6)
+
+#Keep the columns I need
+xlEcon2=xlEcon[[0,1,2,3,16,17,20,21]]
+EconTemp=xlEcon2.loc[xlEcon2[2]=='Economically Disadvantaged'].copy()
+
+EconTemp2=EconTemp.drop([2], axis=1).copy()
+
+#Get Region Totals and drop the rows I don't need
+Econ=EconTemp2[:20].copy()
+Econ.columns=['TEAReg','RegName','EcoCoho', 'EconEnr', 'EcopEnr', 'EconComp', 'EcopComp']
+
+Econ['EcopEnr']=100*Econ['EcopEnr']
+Econ['EcopComp']=100*Econ['EcopComp']
+print(Econ)
 
 
 # # Here we get overall totals by region for comparison
@@ -123,7 +143,7 @@ Allmales.to_csv('Allmales.csv')
 #  1. All students for comparison to Ethnicity breakouts
 # 
 
-# In[5]:
+# In[6]:
 
 
 xl = pd.read_excel('Data\CohortWorkbook2006.xlsx', sheetname='Summary', header=None, index_col=None, skiprows=16)
@@ -139,12 +159,12 @@ RegTotals['TotpEnr']=100*RegTotals['TotpEnr']
 RegTotals['TotpComp']=100*RegTotals['TotpComp']
 
 print(RegTotals)
-RegTotals.to_csv('RegTotals.csv', index=False)
+#RegTotals.to_csv('RegTotals.csv', index=False)
 
 
 # ### Now get statewide Cohort totals for Hispanics and African Americans
 
-# In[6]:
+# In[7]:
 
 
 xl = pd.read_excel('Data\CohortWorkbook2006.xlsx', sheetname='Summary', header=None, index_col=None, skiprows=38)
@@ -160,48 +180,77 @@ StatewideCohortTotals.columns=['Gender','Eth','Cohort']
 StatewideCohortTotals=StatewideCohortTotals.groupby(["Eth"]).sum().copy()
 
 print(StatewideCohortTotals)
-StatewideCohortTotals.to_csv('StatewideCohortTotals.csv', index=False)
+#StatewideCohortTotals.to_csv('StatewideCohortTotals.csv', index=False)
+
+
+# ### Now get statewide Cohort totals for Econ Disadvantage
+
+# In[8]:
+
+
+xl = pd.read_excel('Data\CohortWorkbook2006.xlsx', sheetname='Summary', header=None, index_col=None, skiprows=52)
+
+#Keep the columns I need
+xl2=xl[[0,1,2]]
+
+#Get Region Totals and drop the rows I don't need
+StatewideCohortEcon=xl2[:4]
+StatewideCohortEcon.columns=['Eco','Eth','Cohort']
+
+#Get African American and Hispanic Statewide Cohort Totals
+StatewideCohortEcon=StatewideCohortEcon.groupby(["Eco"]).sum().copy()
+
+print(StatewideCohortEcon)
 
 
 # ### And now merge the tables
 
-# In[7]:
+# In[9]:
 
 
 All=pd.merge(AA, AAmales,on=['TEAReg', 'RegName']).copy()
 All=pd.merge(All, Hisp,on=['TEAReg', 'RegName']).copy()
 All=pd.merge(All, Allmales,on=['TEAReg', 'RegName']).copy()
 All=pd.merge(All, RegTotals,on=['TEAReg', 'RegName']).copy()
+All=pd.merge(All, Econ,on=['TEAReg', 'RegName']).copy()
 
-#Calculate Hisp and AA % of statewide cohort for each TEA Region
+
+#Calculate Hisp, AA, and Econ % of statewide cohort for each TEA Region
 All['AATXCoho']=StatewideCohortTotals.loc['African American','Cohort']
 All['HisTXCoho']=StatewideCohortTotals.loc['Hispanic','Cohort']
+All['EcoTXCoho']=StatewideCohortEcon.loc['Economically Disadvantaged','Cohort']
 All['AApTXCoho']=100*All['AACoho']/All['AATXCoho']
 All['HisTXCoho']=100*All['HisCoho']/All['HisTXCoho']
+All['EcoTXCoho']=100*All['EcoCoho']/All['EcoTXCoho']
 
-#Calculate % point differences for AA/Hisp/AAmales enrollmnet and completion rates from total
+
+#Calculate % point differences for AA/Hisp/AAmales/Eco enrollmnet and completion rates from total
 All['AAEnrpDi']=All['AApEnr']-All['TotpEnr']
 All['HisEnrpDi']=All['HispEnr']-All['TotpEnr']
 All['AAmEnrpDi']=All['AAmpEnr']-All['TotmpEnr']
+All['EcoEnrpDi']=All['EcopEnr']-All['TotpEnr']
 All['AAComppDi']=All['AApComp']-All['TotpComp']
 All['HisComppDi']=All['HispComp']-All['TotpComp']
 All['AAmComppDi']=All['AAmpComp']-All['TotmpComp']
+All['EcoComppDi']=All['EcopComp']-All['TotpComp']
 
 #Drop unneeded variables
-Final=All.drop(['HisTXCoho','AATXCoho'], axis=1).copy() #Keep the columns I need
+Final=All.drop(['HisTXCoho','AATXCoho', 'EcoTXCoho'], axis=1).copy() #Keep the columns I need
 
 
-#Make perc of total for AA, Hisp, and AA_males
+#Make perc of total for AA, Hisp, Eco, and AA_males
 Final['AApCoho']=100*All['AACoho']/All['TotCoho']
 Final['HispCoho']=100*All['HisCoho']/All['TotCoho']
 Final['AAmpCoho']=100*All['AAmCoho']/All['TotmCoho']
+Final['EcopCoho']=100*All['EcoCoho']/All['TotCoho']
 
 #set percentages to have just one decimal place
 Processed = Final.round({'AApEnr': 0, 'AApComp': 0, 'AAmpEnr': 0, 'AAmpComp': 0, 
              'HispEnr': 0, 'HispComp': 0, 'TotmpEnr': 0, 'TotmpComp': 0, 
              'TotpEnr': 0, 'TotpComp': 0, 'AApTXCoho': 0, 'AAEnrpDi': 0, 
              'HisEnrpDi': 0, 'AAmEnrpDi': 0, 'AAComppDi': 0, 'HisComppDi': 
-             0, 'AAmComppDi': 0, 'AApCoho': 0, 'HispCoho': 0, 'AAmpCoho': 0}).copy()
+             0, 'AAmComppDi': 0, 'AApCoho': 0, 'HispCoho': 0, 'AAmpCoho': 0,
+             'EcopEnr': 0, 'EcopComp': 0, 'EcoEnrpDi': 0, 'EcoComppDi': 0, 'EcopCohoi': 0}).copy()
 
 Processed.to_csv('ProcessedData.csv', index=False)
 print(Processed)
@@ -216,7 +265,7 @@ print(Processed)
 #     
 #     
 
-# In[8]:
+# In[10]:
 
 
 #get TEARegion file and unzip
@@ -228,24 +277,47 @@ zippedRegions.extractall('Data/rawESC_Regions')
 arcpy.DeleteField_management("Data/rawESC_Regions/ESC_Regions.shp", 
                              ["FID_1", "OBJECTID", "CITY", 'REGION', 'ORG_E_ID', 'WEBSITE', 'SHAPE_Leng'])
 
+#List fields in dataset
+fields = arcpy.ListFields('Data/rawESC_Regions/ESC_Regions.shp')
 
-# In[9]:
+for field in fields:
+    print("{0} is a type of {1} with a length of {2}"
+          .format(field.name, field.type, field.length))
+
+
+# In[11]:
 
 
 # Create a File Geodatabase and copy shapefile data
 # uncomment the following line the first time code is run
 arcpy.CreateFileGDB_management('Data',"Cohort.gdb")
 
+
+
+
+# arcpy.MakeFeatureLayer_management ('Data/rawESC_Regions/ESC_Regions.shp', "TempRegion")
+
+# #Simplify the shapefile polygons
+# arcpy.SimplifyPolygon_cartography ("TempRegion", 'Data/Cohort.gdb/ESC_Regions', "POINT_REMOVE", 0.001)
+
+
+
 arcpy.FeatureClassToGeodatabase_conversion('Data/rawESC_Regions/ESC_Regions.shp', 'Data/Cohort.gdb')
 
-#List fields in dataset
-fields = arcpy.ListFields('Data/Cohort.gdb/ESC_Regions')
-for field in fields:
-    print("{0} is a type of {1} with a length of {2}"
-          .format(field.name, field.type, field.length))
 
 
-# In[10]:
+
+# arcpy.DeleteField_management("Data/Cohort.gdb/ESC_Regions", ["InPoly_FID", "SimPgnFlag", "MaxSimpTol", 'MinSimpTol']) 
+
+# #List fields in dataset
+# fields = arcpy.ListFields('Data/Cohort.gdb/ESC_Regions')
+
+# for field in fields:
+#     print("{0} is a type of {1} with a length of {2}"
+#           .format(field.name, field.type, field.length))
+
+
+# In[12]:
 
 
 #Add Cohort data to GeoDataBase
@@ -255,7 +327,7 @@ arcpy.TableToTable_conversion('ProcessedData.csv', 'Data/Cohort.gdb', 'CohortDat
 arcpy.JoinField_management('Data/Cohort.gdb/ESC_Regions', 'OBJECTID','Data/Cohort.gdb/CohortData', 'TEAReg')
 
 
-# In[11]:
+# In[13]:
 
 
 os.makedirs('Data/FinalShapefiles')
@@ -267,7 +339,7 @@ arcpy.FeatureClassToShapefile_conversion ('Data/Cohort.gdb/ESC_Regions', 'Data/F
 # 
 # (Requires the advanced license)
 
-# In[12]:
+# In[14]:
 
 
 #  Set local variables
@@ -278,16 +350,18 @@ outFeatureClass = "Data/Cohort.gdb/ESC_Points"
 arcpy.FeatureToPoint_management(inFeatures, outFeatureClass)
 
 
-# In[13]:
+# In[15]:
 
 
 #Export merged TEARegion Points to shapefile
 arcpy.FeatureClassToShapefile_conversion ('Data/Cohort.gdb/ESC_Points', 'Data/FinalShapefiles')
 
 
-# ### Now go to linux and use the GDAL to convert shapefiles to geojson and then use the Tippecanoe tool to make .MBtiles
+# ### Now go to http://mapshaper.org/ and convert shapefiles to json
 # 
+# ### Or, go to linux and use the GDAL to convert shapefiles to geojson. 
 # 
+# ### Then use the Tippecanoe tool to make .MBtiles
 # 
 # I used the following commands:
 # 
