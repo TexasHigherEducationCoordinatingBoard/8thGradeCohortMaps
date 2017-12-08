@@ -250,7 +250,7 @@ Processed = Final.round({'AApEnr': 0, 'AApComp': 0, 'AAmpEnr': 0, 'AAmpComp': 0,
              'TotpEnr': 0, 'TotpComp': 0, 'AApTXCoho': 0, 'AAEnrpDi': 0, 
              'HisEnrpDi': 0, 'AAmEnrpDi': 0, 'AAComppDi': 0, 'HisComppDi': 
              0, 'AAmComppDi': 0, 'AApCoho': 0, 'HispCoho': 0, 'AAmpCoho': 0,
-             'EcopEnr': 0, 'EcopComp': 0, 'EcoEnrpDi': 0, 'EcoComppDi': 0, 'EcopCohoi': 0}).copy()
+             'EcopEnr': 0, 'EcopComp': 0, 'EcoEnrpDi': 0, 'EcoComppDi': 0, 'EcopCohoi': 0, 'EcopCoho':0}).copy()
 
 Processed.to_csv('ProcessedData.csv', index=False)
 print(Processed)
@@ -277,13 +277,6 @@ zippedRegions.extractall('Data/rawESC_Regions')
 arcpy.DeleteField_management("Data/rawESC_Regions/ESC_Regions.shp", 
                              ["FID_1", "OBJECTID", "CITY", 'REGION', 'ORG_E_ID', 'WEBSITE', 'SHAPE_Leng'])
 
-#List fields in dataset
-fields = arcpy.ListFields('Data/rawESC_Regions/ESC_Regions.shp')
-
-for field in fields:
-    print("{0} is a type of {1} with a length of {2}"
-          .format(field.name, field.type, field.length))
-
 
 # In[11]:
 
@@ -292,29 +285,14 @@ for field in fields:
 # uncomment the following line the first time code is run
 arcpy.CreateFileGDB_management('Data',"Cohort.gdb")
 
-
-
-
-# arcpy.MakeFeatureLayer_management ('Data/rawESC_Regions/ESC_Regions.shp', "TempRegion")
-
-# #Simplify the shapefile polygons
-# arcpy.SimplifyPolygon_cartography ("TempRegion", 'Data/Cohort.gdb/ESC_Regions', "POINT_REMOVE", 0.001)
-
-
-
 arcpy.FeatureClassToGeodatabase_conversion('Data/rawESC_Regions/ESC_Regions.shp', 'Data/Cohort.gdb')
 
+#List fields in dataset
+fields = arcpy.ListFields('Data/Cohort.gdb/ESC_Regions')
 
-
-
-# arcpy.DeleteField_management("Data/Cohort.gdb/ESC_Regions", ["InPoly_FID", "SimPgnFlag", "MaxSimpTol", 'MinSimpTol']) 
-
-# #List fields in dataset
-# fields = arcpy.ListFields('Data/Cohort.gdb/ESC_Regions')
-
-# for field in fields:
-#     print("{0} is a type of {1} with a length of {2}"
-#           .format(field.name, field.type, field.length))
+for field in fields:
+    print("{0} is a type of {1} with a length of {2}"
+          .format(field.name, field.type, field.length))
 
 
 # In[12]:
@@ -357,14 +335,10 @@ arcpy.FeatureToPoint_management(inFeatures, outFeatureClass)
 arcpy.FeatureClassToShapefile_conversion ('Data/Cohort.gdb/ESC_Points', 'Data/FinalShapefiles')
 
 
-# ### Now go to http://mapshaper.org/ and convert shapefiles to json
-# 
-# ### Or, go to linux and use the GDAL to convert shapefiles to geojson. 
-# 
-# ### Then use the Tippecanoe tool to make .MBtiles
+# ### Now, go to linux and use the GDAL to convert shapefiles to geojson. Then use the Tippecanoe tool to make .MBtiles
 # 
 # I used the following commands:
 # 
 # * ogr2ogr -f GeoJSON Cohort2006TEARegionPolys.json Data/FinalShapefiles/ESC_Regions.shp -progress
 # * ogr2ogr -f GeoJSON Cohort2006TEARegionPoints.json Data/FinalShapefiles/ESC_Points.shp -progress
-# * tippecanoe --output=Cohort2006TEARegionData.mbtiles Cohort2006TEARegionPoints.json Cohort2006TEARegionPolys.json -r1 --drop-fraction-as-needed --no-feature-limit --no-tile-size-limit --maximum-zoom=15 --minimum-zoom=3 --exclude=OBJECTID_1 --detect-shared-borders
+# * tippecanoe --output=Cohort2006TEARegionData.mbtiles Cohort2006TEARegionPoints.json Cohort2006TEARegionPolys.json -r1 --drop-fraction-as-needed  --simplification=9 --maximum-zoom=15 --minimum-zoom=3 --exclude=OBJECTID_1 --detect-shared-borders
