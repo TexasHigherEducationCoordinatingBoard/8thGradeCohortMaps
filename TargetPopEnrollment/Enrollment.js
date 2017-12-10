@@ -4,6 +4,7 @@ const toggleableLayers = [
     { ids: ['AApEnrollDiff', 'AApEnrollDiffText'], name: ['African American'] },
     { ids: ['HisppEnrollDiff', 'HisppEnrollDiffText'], name: ['Hispanic'] },
     { ids: ['AAmpEnrollDiff', 'AAmpEnrollDiffText'], name: ['African American Males'] },
+    { ids: ['EcopEnrollDiff', 'EcopEnrollDiffText'], name: ['Economically Disadvantaged'] },    
 ];
 
 function hideAllLayers() {
