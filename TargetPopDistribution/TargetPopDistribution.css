@@ -25,6 +25,9 @@ h3 {
   text-align: center;
 }
 
+h4 {
+    margin: 5px;
+}
 
 p {
   font-size: 0.65em;
@@ -32,6 +35,13 @@ p {
   margin-bottom: 10px;
   text-align: center;
 }
+
+td {
+    font-size: 0.85em;
+}
+
+
+
 
 .fp{
     font-size: 0.85em;
@@ -57,43 +67,54 @@ p {
     padding: 10px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     line-height: 18px;
-    height: 160px;
+    height: 120px;
     margin-bottom: 35px;
     width: 100px;
+    display: none;
   }
 
+  #HisLegend {
+      height: 190px;
+  }
+
+  #EcoLegend {
+    height: 140px;
+}
 
   .legend div span {
     display: inline-block;
     border-radius: 50%;
-    /* width: 10px;
-    height: 10px; */
+    width: 10px;
+    height: 10px;
     margin-right: 5px;
     background-color: #D49A66;
   }
   
 #features {
     top: 0;
-    height: 140px;
+    height: 165px;
     margin-top: 35px;
     width: 150px;
   }
 
   .mapboxgl-popup {
     max-width: 200px;
+    z-index: 1;
 } 
 
 #menu {
     background: #fff;
     position: relative;
     display: flex;
-    z-index: 1;
+    /* z-index: 1; */
     left: 10px;
     border-radius: 3px;
     width: 200px;
     border: 1px solid rgba(0,0,0,0.4);
     font-family: 'Open Sans', sans-serif;
     margin: auto;
+    /* justify-content: center; */
+    /* align-items: center; */
 }
 
 #menu a {
@@ -101,13 +122,14 @@ p {
     color: #404040;
     display: inline-flex;
     flex-grow: 1;
-    width: 50%;
+    width: 33.3%;
     margin: 0;
-    padding: 0;
+    /* padding: 0; */
     padding: 5px;
     text-decoration: none;
-    border-bottom: 1px solid rgba(0,0,0,0.25);
+    border-right: 1px solid rgba(0,0,0,0.25);
     justify-content: center;
+    text-align: center;
 }
 
 #menu a:last-child {
@@ -133,8 +155,12 @@ p {
     .legend2 {display: inline}*/
     #map {top: 40px; width:80%}
     body {padding-left: 10%; padding-right: 10%;}
-    #menu {width: 270px;}
-    #menu a {font-size: 13px;  padding: 10px;}
+    #menu {width: 320px;}
+    #menu a {font-size: 13px;  padding: 4px;}
     .map-overlay {left: 11%}
     #features {margin-top: 45px;}
 }
+
+@media only screen and (min-width: 1224px) {
+    .legend {display: block;}
+}   
