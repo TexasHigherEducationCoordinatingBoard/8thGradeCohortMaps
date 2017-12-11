@@ -27,6 +27,7 @@ function setOnLinkClickHandler(link, layer) {
         layer.ids.forEach(function (layerId) {
             map.setLayoutProperty(layerId, 'visibility', 'visible');
         });
+        document.getElementById('pd').innerHTML = '<h2>8th Grade Cohort</h2><p>Hover over a region!</p>';
         if ((link.textContent=='Completion Rates') && (window.matchMedia("(min-width: 1224px)").matches)){
             document.getElementById('compLegend').style.display='block';
             document.getElementById('enrollLegend').style.display='none';

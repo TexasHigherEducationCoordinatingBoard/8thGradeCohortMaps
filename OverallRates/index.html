@@ -19,7 +19,7 @@
     <nav id="menu"></nav>
     
   <div id="map"></div>
-  <div class='map-overlay' id='features'><div id='pd'><h3>8th Grade Cohort</h3><p>Hover over a region.</p></div></div>
+  <div class='map-overlay' id='features'><div id='pd'><h3>8th Grade Cohort</h3><p>Hover over a region!</p></div></div>
   <div class='map-overlay legend' id='enrollLegend'>
       <h4>Enrollment Rates</h4>
     <div><span style='background-color: #08519c'></span>57%</div>
@@ -169,7 +169,7 @@ map.on('mousemove', function(e) {
     } else if ((region.length > 0) && (document.getElementById("menu").lastChild.className=='active')) {
       document.getElementById('pd').innerHTML = '<p><em>There were ' + region[0].properties.TotCoho.toLocaleString() + ' 8th graders in the <strong>' + region[0].properties.RegName + ' Region</strong> public schools in the 2006-2007 school year. By the Spring of 2016, <strong>' + region[0].properties.TotpComp + '% had completed a higher ed degree or certificate in a Texas.</strong></em></p>';
     } else {
-      document.getElementById('pd').innerHTML = '<h2>8th Grade Cohort</h2><p>Hover over a region.</p>';
+      document.getElementById('pd').innerHTML = '<h2>8th Grade Cohort</h2><p>Hover over a region!</p>';
     }
   });
 
