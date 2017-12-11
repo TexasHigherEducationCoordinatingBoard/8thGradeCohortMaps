@@ -316,7 +316,7 @@ map.on('mousemove', function(e) {
   );
 
     if (region.length > 0) {
-      document.getElementById('pd').innerHTML = '<h3>' + region[0].properties.RegName + " Region</h3><p>(percentage of total cohort)</p><table><tr><td>African Americans: </td><td>" + region[0].properties.AApCoho + '%</td></tr><tr><td>Hispanics: </td><td>' + region[0].properties.HispCoho + '%</td></tr><tr><td>Econmic Disadvantage: </td><td>' + region[0].properties.EcopCoho + '%</td></tr></p>';
+      document.getElementById('pd').innerHTML = '<h3>' + region[0].properties.RegName + " Region</h3><p>(percentage of total cohort)</p><table><tr><td>African Americans: </td><td>" + region[0].properties.AApCoho + '%</td></tr><tr><td>Hispanics: </td><td>' + region[0].properties.HispCoho + '%</td></tr><tr><td>Economic Disadvantage: </td><td>' + region[0].properties.EcopCoho + '%</td></tr></p>';
     } else {
       document.getElementById('pd').innerHTML = '<h2>Target Populations by Region</h2><p style="font-size: 0.85em; margin: 10px;">Hover over a circle!</p>';
     }

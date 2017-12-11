@@ -4,7 +4,7 @@ body{
   }
 
 .section {
-    width: 80%; margin: auto
+  width: 90%; margin: auto
 }
 
 
@@ -13,14 +13,26 @@ h1 {
   margin-bottom: 0;
 }
 
-h4 {
+h4{
   padding-top: 15px;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+h4, h5 {
   text-align: center;
+  width:80%; margin: auto;
+}
+
+h5 {
+  font-size: 0.85em;
+  font-style: italic;
 }
 
 .mapsection {
-    padding-bottom: 35px;
-    width: 100%;
+  padding-top: 15px;
+  padding-bottom: 35px;
+  width: 100%;
 }
 
 .aspect-ratio {
@@ -30,5 +42,6 @@ h4 {
 @media only screen and (min-width: 768px) {  
 .aspect-ratio {padding-top: 42.857143%;}
 .titlesection {width: 80%; margin: auto; text-align: center}
-.section {width: 50%; margin: auto}
+.section {width: 70%}
+h4, h5 {width:60%}
 }
