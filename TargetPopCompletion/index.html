@@ -214,8 +214,96 @@
         }
       }
       );
+      map.addLayer({
+        "id": "RegionLines",
+        "type": "line",
+        "source": "Cohort",
+        "source-layer": "Cohort2006TEARegionPolys",
+        "layout": {'visibility': 'visible'},
+        paint: {
+          "line-color": "#808080",
+          "line-width": 1
+          }
+      }); 
+      map.addSource("highlight", {
+        'type': 'vector',
+        'url': 'mapbox://johndinning.cvggpjmd'
+      });
+    map.addLayer({
+      "id": "highlight-hover",
+        "type": "fill",
+        "source": "highlight",
+        'source-layer': 'Cohort2006TEARegionPolys',
+        "paint": {
+            "fill-color": "#99ff99",
+            "fill-opacity": .8
+    },
+        "filter": ['==',"TEAReg", ""]
+    });
     });
 
-// </script>
+    
+var popup = new mapboxgl.Popup({
+  closeButton: false,
+  closeOnClick: false
+});
+
+
+map.on("mousemove", "AApCompDiff", function(e) {
+  map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
+  map.getCanvas().style.cursor = 'pointer';
+  popup.setLngLat(e.lngLat)
+    .setHTML('<strong>Completion Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr + '%</td></tr><tr><td>Econ. Dis.: </td><td>' + e.features[0].properties.EcopEnr + '%</td></tr></p>')
+    .addTo(map);
+});
+
+map.on("mouseleave", "AApCompDiff", function(e) {
+  map.setFilter("highlight-hover", ["==", "TEAReg",""]);
+  map.getCanvas().style.cursor = '';
+  popup.remove();
+});
+
+map.on("mousemove", "AAmpCompDiff", function(e) {
+  map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
+  map.getCanvas().style.cursor = 'pointer';
+  popup.setLngLat(e.lngLat)
+    .setHTML('<strong>Completion Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr + '%</td></tr><tr><td>Econ. Dis.: </td><td>' + e.features[0].properties.EcopEnr + '%</td></tr></p>')
+    .addTo(map);
+});
+
+map.on("mouseleave", "AAmpCompDiff", function(e) {
+  map.setFilter("highlight-hover", ["==", "TEAReg",""]);
+  map.getCanvas().style.cursor = '';
+  popup.remove();
+});
+
+map.on("mousemove", "HisppCompDiff", function(e) {
+  map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
+  map.getCanvas().style.cursor = 'pointer';
+  popup.setLngLat(e.lngLat)
+    .setHTML('<strong>Completion Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr + '%</td></tr><tr><td>Econ. Dis.: </td><td>' + e.features[0].properties.EcopEnr + '%</td></tr></p>')
+    .addTo(map);
+});
+
+map.on("mouseleave", "HisppCompDiff", function(e) {
+  map.setFilter("highlight-hover", ["==", "TEAReg",""]);
+  map.getCanvas().style.cursor = '';
+  popup.remove();
+});
+
+map.on("mousemove", "EcopCompDiff", function(e) {
+  map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
+  map.getCanvas().style.cursor = 'pointer';
+  popup.setLngLat(e.lngLat)
+    .setHTML('<strong>Completion Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr + '%</td></tr><tr><td>Econ. Dis.: </td><td>' + e.features[0].properties.EcopEnr + '%</td></tr></p>')
+    .addTo(map);
+});
+
+map.on("mouseleave", "EcopCompDiff", function(e) {
+  map.setFilter("highlight-hover", ["==", "TEAReg",""]);
+  map.getCanvas().style.cursor = '';
+  popup.remove();
+});
+</script>
 </body>
 </html>
