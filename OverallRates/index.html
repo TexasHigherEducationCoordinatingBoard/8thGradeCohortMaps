@@ -141,6 +141,18 @@
         }
       }
       );
+      map.addLayer({
+        "id": "RegionLines",
+        "type": "line",
+        "source": "Cohort",
+        "source-layer": "Cohort2006TEARegionPolys",
+        "layout": {'visibility': 'visible'},
+        paint: {
+          "line-color": "#808080",
+          "line-width": 1,
+          "line-opacity": 0.3
+          }
+      }); 
       map.addSource("highlight", {
         'type': 'vector',
         'url': 'mapbox://johndinning.cvggpjmd'
