@@ -28,19 +28,6 @@ function setOnLinkClickHandler(link, layer) {
         layer.ids.forEach(function (layerId) {
             map.setLayoutProperty(layerId, 'visibility', 'visible');
         });
-        if ((link.textContent=='African American') && (window.matchMedia("(min-width: 1224px)").matches)){
-            document.getElementById('AALegend').style.display='block';
-            document.getElementById('HisLegend').style.display='none';
-            document.getElementById('EcoLegend').style.display='none';
-        } else if ((link.textContent=='Hispanic') && (window.matchMedia("(min-width: 1224px)").matches)){
-            document.getElementById('HisLegend').style.display='block';
-            document.getElementById('AALegend').style.display='none';
-            document.getElementById('EcoLegend').style.display='none';
-        } else if ((link.textContent=='Economically Disadvantaged') && (window.matchMedia("(min-width: 1224px)").matches)){
-            document.getElementById('EcoLegend').style.display='block';
-            document.getElementById('AALegend').style.display='none';
-            document.getElementById('HisLegend').style.display='none';
-        }
     };
 }
 
