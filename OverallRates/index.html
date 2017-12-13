@@ -93,7 +93,7 @@
         "source-layer": "Cohort2006TEARegionPoints",
         "layout": {
           'visibility': 'none',
-          "text-field": "{TotpComp}" + "%",
+          "text-field": "{TotpComp_}" + "%",
           "text-font": [
             "DIN Offc Pro Medium",
             "Arial Unicode MS Bold"
@@ -132,7 +132,7 @@
         "source-layer": "Cohort2006TEARegionPoints",
         "layout": {
           'visibility': 'visible',
-          "text-field": "{TotpEnr}" + "%",
+          "text-field": "{TotpEnr_}" + "%",
           "text-font": [
             "DIN Offc Pro Medium",
             "Arial Unicode MS Bold"
@@ -150,7 +150,7 @@
         paint: {
           "line-color": "#808080",
           "line-width": 1,
-          "line-opacity": 0.3
+          "line-opacity": 0.6
           }
       }); 
       map.addSource("highlight", {
@@ -177,9 +177,9 @@ map.on('mousemove', function(e) {
     });
 
     if ((region.length > 0) && (document.getElementById("menu").firstChild.className=='active')) {
-      document.getElementById('pd').innerHTML = '<p><em>There were ' + region[0].properties.TotCoho.toLocaleString() + ' 8th graders in the <strong>' + region[0].properties.RegName + ' Region</strong> public schools in the 2006-2007 school year. By the Spring of 2016, <strong>' + region[0].properties.TotpEnr + '% had enrolled in a Texas college or University.</strong></em></p>';
+      document.getElementById('pd').innerHTML = '<p><em>There were ' + region[0].properties.TotCoho.toLocaleString() + ' 8th graders in the <strong>' + region[0].properties.RegName + ' Region</strong> in the 2006-2007 school year. By the Spring of 2016, <strong>' + region[0].properties.TotpEnr_ + '% had enrolled in a Texas college or University.</strong></em></p>';
     } else if ((region.length > 0) && (document.getElementById("menu").lastChild.className=='active')) {
-      document.getElementById('pd').innerHTML = '<p><em>There were ' + region[0].properties.TotCoho.toLocaleString() + ' 8th graders in the <strong>' + region[0].properties.RegName + ' Region</strong> public schools in the 2006-2007 school year. By the Spring of 2016, <strong>' + region[0].properties.TotpComp + '% had completed a higher ed degree or certificate in a Texas.</strong></em></p>';
+      document.getElementById('pd').innerHTML = '<p><em>There were ' + region[0].properties.TotCoho.toLocaleString() + ' 8th graders in the <strong>' + region[0].properties.RegName + ' Region</strong> in the 2006-2007 school year. By the Spring of 2016, <strong>' + region[0].properties.TotpComp_ + '% had completed a higher ed degree or certificate in a Texas.</strong></em></p>';
     } else {
       document.getElementById('pd').innerHTML = '<h2>8th Grade Cohort</h2><p>Hover over a region!</p>';
     }

@@ -76,7 +76,7 @@
         "source-layer": "Cohort2006TEARegionPoints",
         "layout": {
           'visibility': 'visible',
-          "text-field": "{AAEnrpDi}" + " pp",
+          "text-field": "{AAEnrpD_}" + " pp",
           "text-font": [
             "DIN Offc Pro Medium",
             "Arial Unicode MS Bold"
@@ -116,7 +116,7 @@
         "source-layer": "Cohort2006TEARegionPoints",
         "layout": {
           'visibility': 'none',
-          "text-field": "{HisEnrpDi}" + " pp",
+          "text-field": "{HisEnrpD_}" + " pp",
           "text-font": [
             "DIN Offc Pro Medium",
             "Arial Unicode MS Bold"
@@ -156,7 +156,7 @@
         "source-layer": "Cohort2006TEARegionPoints",
         "layout": {
           'visibility': 'none',
-          "text-field": "{AAmEnrpDi}" + " pp",
+          "text-field": "{AAmEnrpD_}" + " pp",
           "text-font": [
             "DIN Offc Pro Medium",
             "Arial Unicode MS Bold"
@@ -196,7 +196,7 @@
         "source-layer": "Cohort2006TEARegionPoints",
         "layout": {
           'visibility': 'none',
-          "text-field": "{EcoEnrpDi}" + " pp",
+          "text-field": "{EcoEnrpD_}" + " pp",
           "text-font": [
             "DIN Offc Pro Medium",
             "Arial Unicode MS Bold"
@@ -262,7 +262,7 @@ map.on("mousemove", "AApEnrollDiff", function(e) {
   map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
   map.getCanvas().style.cursor = 'pointer';
   popup.setLngLat(e.lngLat)
-      .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr + '%</td></tr><tr><td>Econ. Dis.: </td><td>' + e.features[0].properties.EcopEnr + '%</td></tr></p>')
+      .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Econ. Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr></p>')
       .addTo(map);
 });
 
@@ -276,7 +276,7 @@ map.on("mousemove", "AAmpEnrollDiff", function(e) {
   map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
   map.getCanvas().style.cursor = 'pointer';
   popup.setLngLat(e.lngLat)
-      .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr + '%</td></tr><tr><td>Econ. Dis.: </td><td>' + e.features[0].properties.EcopEnr + '%</td></tr></p>')
+      .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Econ. Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr></p>')
       .addTo(map);
 });
 
@@ -290,7 +290,7 @@ map.on("mousemove", "HisppEnrollDiff", function(e) {
   map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
   map.getCanvas().style.cursor = 'pointer';
   popup.setLngLat(e.lngLat)
-    .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr + '%</td></tr><tr><td>Econ. Dis.: </td><td>' + e.features[0].properties.EcopEnr + '%</td></tr></p>')
+    .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Econ. Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr></p>')
     .addTo(map);
 });
 
@@ -304,7 +304,7 @@ map.on("mousemove", "EcopEnrollDiff", function(e) {
   map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
   map.getCanvas().style.cursor = 'pointer';
   popup.setLngLat(e.lngLat)
-    .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr + '%</td></tr><tr><td>Econ. Dis.: </td><td>' + e.features[0].properties.EcopEnr + '%</td></tr></p>')
+    .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Econ. Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr></p>')
     .addTo(map);
 });
 

@@ -64,30 +64,7 @@
       // map.fitBounds(bbox, linear=true); //fit Texas at any zoom and ease to
       map.scrollZoom.disable(); //no mousewheel zoom
       addLayerNav(map);
-      // map.addLayer({
-      //   "id": "AACohoCircle",
-      //   "type": "circle",
-      //   "source": "Cohort",
-      //   "source-layer": "Cohort2006TEARegionPoints",
-      //   "layout": {'visibility': 'visible'},
-      //   paint: {
-      //     'circle-color': '#D49A66',
-      //     // Add data-driven styles for circle radius
-      //     'circle-radius': {
-      //       property: 'AACoho',
-      //       type: 'exponential',
-      //       stops: [
-      //         [{zoom:5, value: 56}, 10],
-      //         [{zoom: 5, value: 28716}, 75],
-      //         [{zoom:8, value: 56}, 20],
-      //         [{zoom: 8, value: 28716}, 150],
-      //       ]
-      //     },
-      //     'circle-opacity': 0.8
-      //   }
-      // });
-
-      map.addLayer({
+           map.addLayer({
         'id': 'AACohoFill',
         'type': 'fill',
         'source': 'Cohort',
@@ -122,37 +99,15 @@
         "source-layer": "Cohort2006TEARegionPoints",
         "layout": {
           'visibility': 'visible',
-          "text-field": "{AApCoho}%",
+          "text-field": "{AApCoho_}%",
           "text-font": [
             "DIN Offc Pro Medium",
             "Arial Unicode MS Bold"
           ],
           "text-size": 12
         },
-        // "filter": ['==',"TEAReg", ""]
       }
       );
-      // map.addLayer({
-      //   "id": "HisCohoCircle",
-      //   "type": "circle",
-      //   "source": "Cohort",
-      //   "source-layer": "Cohort2006TEARegionPoints",
-      //   "layout": {'visibility': 'none'},
-      //   paint: {
-      //     'circle-radius': {
-      //       property: 'HisCoho',
-      //       type: 'exponential',
-      //       stops: [
-      //       [{zoom:5, value: 56}, 8],
-      //       [{zoom: 5, value: 28716}, 60],
-      //       [{zoom:8, value: 56}, 16],
-      //       [{zoom: 8, value: 28716}, 120],
-      //       ]
-      //     },
-      //     'circle-opacity': .8,
-      //     'circle-color': '#D49A66'
-      //   }
-      // });
       map.addLayer({
         'id': 'HisCohoFill',
         'type': 'fill',
@@ -187,37 +142,15 @@
         "source-layer": "Cohort2006TEARegionPoints",
         "layout": {
           'visibility': 'none',
-          "text-field": "{HispCoho}%",
+          "text-field": "{HispCoho_}%",
           "text-font": [
             "DIN Offc Pro Medium",
             "Arial Unicode MS Bold"
           ],
           "text-size": 12
         },
-        // "filter": ['==',"TEAReg", ""]
       }
       );
-      // map.addLayer({
-      //   "id": "EcoCohoCircle",
-      //   "type": "circle",
-      //   "source": "Cohort",
-      //   "source-layer": "Cohort2006TEARegionPoints",
-      //   "layout": {'visibility': 'none'},
-      //   paint: {
-      //     'circle-radius': {
-      //       property: 'EcoCoho',
-      //       type: 'exponential',
-      //       stops: [
-      //       [{zoom:5, value: 56}, 8],
-      //       [{zoom: 5, value: 28716}, 60],
-      //       [{zoom:8, value: 56}, 16],
-      //       [{zoom: 8, value: 28716}, 120],
-      //       ]
-      //     },
-      //     'circle-opacity': .8,
-      //     'circle-color': '#D49A66'
-      //   }
-      // });
       map.addLayer({
         'id': 'EcoCohoFill',
         'type': 'fill',
@@ -252,14 +185,13 @@
         "source-layer": "Cohort2006TEARegionPoints",
         "layout": {
           'visibility': 'none',
-          "text-field": "{EcopCoho}%",
+          "text-field": "{EcopCoho_}%",
           "text-font": [
             "DIN Offc Pro Medium",
             "Arial Unicode MS Bold"
           ],
           "text-size": 12
         },
-        // "filter": ['==',"TEAReg", ""]
       }
       );
 
@@ -302,7 +234,7 @@ map.on('mousemove', function(e) {
   );
 
     if (region.length > 0) {
-      document.getElementById('pd').innerHTML = '<h3>' + region[0].properties.RegName + " Region</h3><p>(percentage of total cohort)</p><table><tr><td>African Americans: </td><td>" + region[0].properties.AApCoho + '%</td></tr><tr><td>Hispanics: </td><td>' + region[0].properties.HispCoho + '%</td></tr><tr><td>Economic Disadvantage: </td><td>' + region[0].properties.EcopCoho + '%</td></tr></p>';
+      document.getElementById('pd').innerHTML = '<h3>' + region[0].properties.RegName + " Region</h3><p>(percentage of total cohort)</p><table><tr><td>African Americans: </td><td>" + region[0].properties.AApCoho.toFixed(1) + '%</td></tr><tr><td>Hispanics: </td><td>' + region[0].properties.HispCoho.toFixed(1) + '%</td></tr><tr><td>Economic Disadvantage: </td><td>' + region[0].properties.EcopCoho.toFixed(1) + '%</td></tr></p>';
     } else {
       document.getElementById('pd').innerHTML = '<h2>Target Populations by Region</h2><p style="font-size: 0.85em; margin: 10px;">Hover over a circle!</p>';
     }
