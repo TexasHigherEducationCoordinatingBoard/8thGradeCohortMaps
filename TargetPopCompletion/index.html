@@ -254,7 +254,7 @@ map.on("mousemove", "AApCompDiff", function(e) {
   map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
   map.getCanvas().style.cursor = 'pointer';
   popup.setLngLat(e.lngLat)
-    .setHTML('<strong>Completion Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Econ. Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr></p>')
+    .setHTML('<strong>Completion Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpComp.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApComp.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispComp.toFixed(1) + '%</td></tr><tr><td>Econ. Dis.: </td><td>' + e.features[0].properties.EcopComp.toFixed(1) + '%</td></tr></p>')
     .addTo(map);
 });
 
@@ -268,7 +268,7 @@ map.on("mousemove", "AAmpCompDiff", function(e) {
   map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
   map.getCanvas().style.cursor = 'pointer';
   popup.setLngLat(e.lngLat)
-    .setHTML('<strong>Completion Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Econ. Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr></p>')
+    .setHTML('<strong>Completion Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpComp.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApComp.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispComp.toFixed(1) + '%</td></tr><tr><td>Econ. Dis.: </td><td>' + e.features[0].properties.EcopComp.toFixed(1) + '%</td></tr></p>')
     .addTo(map);
 });
 
@@ -282,7 +282,7 @@ map.on("mousemove", "HisppCompDiff", function(e) {
   map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
   map.getCanvas().style.cursor = 'pointer';
   popup.setLngLat(e.lngLat)
-    .setHTML('<strong>Completion Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Econ. Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr></p>')
+    .setHTML('<strong>Completion Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpComp.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApComp.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispComp.toFixed(1) + '%</td></tr><tr><td>Econ. Dis.: </td><td>' + e.features[0].properties.EcopComp.toFixed(1) + '%</td></tr></p>')
     .addTo(map);
 });
 
@@ -296,7 +296,7 @@ map.on("mousemove", "EcopCompDiff", function(e) {
   map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
   map.getCanvas().style.cursor = 'pointer';
   popup.setLngLat(e.lngLat)
-    .setHTML('<strong>Completion Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Econ. Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr></p>')
+    .setHTML('<strong>Completion Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpComp.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApComp.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispComp.toFixed(1) + '%</td></tr><tr><td>Econ. Dis.: </td><td>' + e.features[0].properties.EcopComp.toFixed(1) + '%</td></tr></p>')
     .addTo(map);
 });
 

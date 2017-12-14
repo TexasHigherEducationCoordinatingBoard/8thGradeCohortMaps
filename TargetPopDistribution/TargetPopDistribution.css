@@ -66,17 +66,20 @@ td {
     line-height: 18px;
     height: 205px;
     margin-bottom: 35px;
-    width: 100px;
+    width: 90px;
     display: none;
   }
 
+  .legend div {
+      margin-left: 5px;
+  }
   .legend div span {
     display: inline-block;
     border-radius: 50%;
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     margin-right: 5px;
-    background-color: #D49A66;
+
   }
   
 #features {
