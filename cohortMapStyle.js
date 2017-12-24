@@ -35,7 +35,7 @@ const cohortStyle={
     }
   },
   "sprite": "https://openmaptiles.github.io/positron-gl-style/sprite",
-  "glyphs": "https://free.tilehosting.com/fonts/{fontstack}/{range}.pbf?key={key}",
+  "glyphs": "https://free.tilehosting.com/fonts/{fontstack}/{range}.pbf?key=RiS4gsgZPZqeeMlIyxFo",
   "layers": [
     {
       "id": "bg",
