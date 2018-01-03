@@ -115,7 +115,7 @@ const cohortStyle={
       "paint": {
         "line-color": "rgba(175, 171, 171, 1)",
         "line-width": 2.2,
-        "line-opacity": 1
+        "line-opacity": 0.05
       }
     },
     {
@@ -138,7 +138,7 @@ const cohortStyle={
       "paint": {
         "line-color": "rgba(255, 255, 255, 1)",
         "line-width": 2,
-        "line-opacity": 1
+        "line-opacity": 0.1
       }
     },
     {
@@ -166,7 +166,7 @@ const cohortStyle={
       "paint": {
         "line-color": "rgba(255, 255, 255, 1)",
         "line-width": 1.8,
-        "line-opacity": 1
+        "line-opacity": 0.1
       }
     },
     {
@@ -199,7 +199,7 @@ const cohortStyle={
       "paint": {
         "line-color": "rgba(255, 255, 255, 1)",
         "line-width": 1.4,
-        "line-opacity": 1
+        "line-opacity": 0.3
       }
     },
     {
@@ -298,7 +298,7 @@ const cohortStyle={
         "text-size": 10,
         "text-transform": "none",
         "text-font": [
-          "Open Sans Regular",
+          "Open Sans Bold",
           "Arial Unicode MS Regular"
         ],
         "text-padding": 2,
@@ -307,7 +307,7 @@ const cohortStyle={
       "paint": {
         "text-halo-color": "rgba(255, 255, 255, 1)",
         "text-color": "rgba(0,0,0, 1)",
-        "text-halo-width": .5,
+        "text-halo-width": 0.2,
         "text-opacity": 1
       }
     },
@@ -336,7 +336,7 @@ const cohortStyle={
         "text-size": 12,
         "text-transform": "none",
         "text-font": [
-          "Open Sans Regular",
+          "Open Sans Bold",
           "Arial Unicode MS Regular"
         ],
         "text-padding": 2,
@@ -345,7 +345,7 @@ const cohortStyle={
       "paint": {
         "text-halo-color": "rgba(255, 255, 255, 1)",
         "text-color": "rgba(0,0,0, 1)",
-        "text-halo-width": .5,
+        "text-halo-width": 0.2,
         "text-opacity": 1
       }
     },
@@ -374,7 +374,7 @@ const cohortStyle={
         "text-size": 12,
         "text-transform": "none",
         "text-font": [
-          "Open Sans Regular",
+          "Open Sans Bold",
           "Arial Unicode MS Regular"
         ],
         "text-padding": 2,
@@ -384,7 +384,7 @@ const cohortStyle={
       "paint": {
         "text-halo-color": "rgba(255, 255, 255, 1)",
         "text-color": "rgba(0,0,0, 1)",
-        "text-halo-width": 0.5,
+        "text-halo-width": 0.2,
         "text-opacity": 1
       }
     },
@@ -418,7 +418,7 @@ const cohortStyle={
         "text-size": 13,
         "text-transform": "none",
         "text-font": [
-          "Open Sans Regular",
+          "Open Sans Bold",
           "Arial Unicode MS Regular"
         ],
         "text-padding": 2,
@@ -427,7 +427,7 @@ const cohortStyle={
       "paint": {
         "text-halo-color": "rgba(255, 255, 255, 1)",
         "text-color": "rgba((0,0,0, 1)",
-        "text-halo-width": 0.5,
+        "text-halo-width": 0.2,
         "text-opacity": 1
       }
     },
