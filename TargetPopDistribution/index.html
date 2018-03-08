@@ -9,44 +9,48 @@
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.1/mapbox-gl.css' rel='stylesheet' />
   <link href='TargetPopDistribution.css' rel='stylesheet' />
   <style>
-   
+
   </style>
   <script type="text/javascript" src="../cohortMapStyle.js"></script>
- 
+
 </head>
 
 <body>
-    <nav id="menu"></nav>
-    
+  <nav id="menu"></nav>
+
   <div id="map"></div>
 
   <div class='map-overlay legend'>
     <h4>Percentage of Cohort</h4>
-    <div><span style='background-color: #4d004b'></span>96%</div>    
-      <div><span style='background-color: #810f7c'></span>84%</div>
-      <div><span style='background-color: #88419d'></span>72%</div>
-      <div><span style='background-color: #8c6bb1'></span>60%</div>
-      <div><span style='background-color: #8c96c6'></span>48%</div>
-      <div><span style='background-color: #9ebcda'></span>36%</div>
-      <div><span style='background-color: #bfd3e6'></span>24%</div>
-      <div><span style='background-color: #e0ecf4'></span>12%</div>
-      <div><span style='background-color: #f7fcfd'></span>0%</div>
+    <div><span style='background-color: #4d004b'></span>96%</div>
+    <div><span style='background-color: #810f7c'></span>84%</div>
+    <div><span style='background-color: #88419d'></span>72%</div>
+    <div><span style='background-color: #8c6bb1'></span>60%</div>
+    <div><span style='background-color: #8c96c6'></span>48%</div>
+    <div><span style='background-color: #9ebcda'></span>36%</div>
+    <div><span style='background-color: #bfd3e6'></span>24%</div>
+    <div><span style='background-color: #e0ecf4'></span>12%</div>
+    <div><span style='background-color: #f7fcfd'></span>0%</div>
   </div>
-  
-  <div class='map-overlay' id='features'><div id='pd'><h2>Target Populations by Region</h2>
-    <p class='fp'>Hover over a region!</p></div></div>
- 
 
-     <script type="text/javascript" src="TargetPopDistribution.js"></script>
-    
-    <script>
+  <div class='map-overlay' id='features'>
+    <div id='pd'>
+      <h2>Target Populations by Region</h2>
+      <p class='fp'>Hover over a region!</p>
+    </div>
+  </div>
+
+
+  <script type="text/javascript" src="TargetPopDistribution.js"></script>
+
+  <script>
     mapboxgl.accessToken = 'pk.eyJ1Ijoiam9obmRpbm5pbmciLCJhIjoiY2oxazR5NjNvMDFveDJ5b2FzbWZwbjFpbiJ9.bixlFwP8Kf43qHa7Z6XK8g';
     var map = new mapboxgl.Map({
       container: 'map',
       style: cohortStyle,
-      center: [-99, 32], //offset to make room for info window
-      zoom: 4.5,
-      maxZoom: 15,
+      center: [-101.8, 31.9], //offset to make room for info window
+      zoom: 5,
+      maxZoom: 7,
       minZoom: 3,
       maxBounds: [[-140, 15], [-60, 45]]
     });
@@ -54,40 +58,39 @@
     map.on('load', function () {
       map.addSource('Cohort', {
         'type': 'vector',
-        'url': 'mapbox://johndinning.cvggpjmd'
+        'url': 'mapbox://johndinning.9koks5ed'
       });
-      map.addControl(new mapboxgl.NavigationControl({position:'top-right' }));
+      map.addControl(new mapboxgl.NavigationControl({ position: 'top-right' }));
       // Disable map rotation using right click + drag
       map.dragRotate.disable();
       // Disable map rotation using touch rotation gesture
       map.touchZoomRotate.disableRotation();
       map.getCanvas().style.cursor = 'default'; //keep pointer
-      // map.fitBounds(bbox, linear=true); //fit Texas at any zoom and ease to
       map.scrollZoom.disable(); //no mousewheel zoom
       addLayerNav(map);
-           map.addLayer({
+      map.addLayer({
         'id': 'AACohoFill',
         'type': 'fill',
         'source': 'Cohort',
-        'source-layer': 'Cohort2006TEARegionPolys',
+        'source-layer': 'CohortTEARegionPolys',
         "layout": {
           'visibility': 'visible'
         },
         'paint': {
           'fill-color': {
-            property: 'AApCoho', 
+            property: 'AApCoho',
             type: 'exponential',
             stops: [
-            [0, '#f7fcfd'],
-            [12, '#e0ecf4'],
-            [24, '#bfd3e6'],
-            [36, '#9ebcda'],
-            [48, '#8c96c6'],
-            [60, '#8c6bb1'],
-            [72, '#88419d'],
-            [84, '#810f7c'],
-            [96, '#4d004b']
-          ]
+              [0, '#f7fcfd'],
+              [12, '#e0ecf4'],
+              [24, '#bfd3e6'],
+              [36, '#9ebcda'],
+              [48, '#8c96c6'],
+              [60, '#8c6bb1'],
+              [72, '#88419d'],
+              [84, '#810f7c'],
+              [96, '#4d004b']
+            ]
           },
         }
       }, 'motorway-casing-Major'
@@ -97,7 +100,8 @@
         "id": "AApCohoNum",
         "type": "symbol",
         "source": "Cohort",
-        "source-layer": "Cohort2006TEARegionPoints",
+        "source-layer": "CohortTEARegionPoints",
+        "maxzoom": 6.4,
         "layout": {
           'visibility': 'visible',
           "text-field": "{AApCoho_}%",
@@ -113,24 +117,24 @@
         'id': 'HisCohoFill',
         'type': 'fill',
         'source': 'Cohort',
-        'source-layer': 'Cohort2006TEARegionPolys',
+        'source-layer': 'CohortTEARegionPolys',
         "layout": {
           'visibility': 'none'
         },
         'paint': {
           'fill-color': {
-            property: 'HispCoho', 
+            property: 'HispCoho',
             type: 'exponential',
             stops: [
-            [0, '#f7fcfd'],
-            [12, '#e0ecf4'],
-            [24, '#bfd3e6'],
-            [36, '#9ebcda'],
-            [48, '#8c96c6'],
-            [60, '#8c6bb1'],
-            [72, '#88419d'],
-            [84, '#810f7c'],
-            [96, '#4d004b']
+              [0, '#f7fcfd'],
+              [12, '#e0ecf4'],
+              [24, '#bfd3e6'],
+              [36, '#9ebcda'],
+              [48, '#8c96c6'],
+              [60, '#8c6bb1'],
+              [72, '#88419d'],
+              [84, '#810f7c'],
+              [96, '#4d004b']
             ],
           },
         }
@@ -140,7 +144,8 @@
         "id": "HispCohoNum",
         "type": "symbol",
         "source": "Cohort",
-        "source-layer": "Cohort2006TEARegionPoints",
+        "source-layer": "CohortTEARegionPoints",
+        "maxzoom": 6.4,
         "layout": {
           'visibility': 'none',
           "text-field": "{HispCoho_}%",
@@ -156,24 +161,24 @@
         'id': 'EcoCohoFill',
         'type': 'fill',
         'source': 'Cohort',
-        'source-layer': 'Cohort2006TEARegionPolys',
+        'source-layer': 'CohortTEARegionPolys',
         "layout": {
           'visibility': 'none'
         },
         'paint': {
           'fill-color': {
-            property: 'EcopCoho', 
+            property: 'EcopCoho',
             type: 'exponential',
             stops: [
-            [0, '#f7fcfd'],
-            [12, '#e0ecf4'],
-            [24, '#bfd3e6'],
-            [36, '#9ebcda'],
-            [48, '#8c96c6'],
-            [60, '#8c6bb1'],
-            [72, '#88419d'],
-            [84, '#810f7c'],
-            [96, '#4d004b']
+              [0, '#f7fcfd'],
+              [12, '#e0ecf4'],
+              [24, '#bfd3e6'],
+              [36, '#9ebcda'],
+              [48, '#8c96c6'],
+              [60, '#8c6bb1'],
+              [72, '#88419d'],
+              [84, '#810f7c'],
+              [96, '#4d004b']
             ],
           },
         }
@@ -183,7 +188,8 @@
         "id": "EcopCohoNum",
         "type": "symbol",
         "source": "Cohort",
-        "source-layer": "Cohort2006TEARegionPoints",
+        "source-layer": "CohortTEARegionPoints",
+        "maxzoom": 6.4,
         "layout": {
           'visibility': 'none',
           "text-field": "{EcopCoho_}%",
@@ -200,95 +206,103 @@
         "id": "RegionLines",
         "type": "line",
         "source": "Cohort",
-        "source-layer": "Cohort2006TEARegionPolys",
-        "layout": {'visibility': 'visible'},
+        "source-layer": "CohortTEARegionPolys",
+        "layout": { 'visibility': 'visible' },
         paint: {
           "line-color": "#808080",
           "line-width": 1,
           "line-opacity": 0.3
-          }
-      }); 
-      map.addSource("highlight", {
-        'type': 'vector',
-        'url': 'mapbox://johndinning.cvggpjmd'
+        }
       });
-    map.addLayer({
-      "id": "highlight-hover",
-        "type": "fill",
-        "source": "highlight",
-        'source-layer': 'Cohort2006TEARegionPolys',
+       map.addLayer({
+        "id": "TexasOutline",
+        "type": "line",
+        "source": "Cohort",
+        'source-layer': 'TexasOutline',
         "paint": {
-            "fill-color": "#99ff99",
-            "fill-opacity": .8
-    },
-        "filter": ['==',"TEAReg", ""]
-    }, 'motorway-casing-Major');
+          "line-color": "rgba(0,0,0, 1)",
+          "line-width": 2,
+          "line-opacity": 0.7
+        }
+      }, 'motorway-casing-Major');
+      map.addLayer({
+        "id": "highlight-hover",
+        "type": "fill",
+        "source": "Cohort",
+        'source-layer': 'CohortTEARegionPolys',
+        "paint": {
+          "fill-color": "#99ff99",
+          "fill-opacity": .8
+        },
+        "filter": ['==', "TEAReg", ""]
+      }, 'motorway-casing-Major');
+      map.fitBounds(bbox, linear = true); //fit Texas at any zoom and ease to
+    });
 
-  });
+    // For the Info Window
+    map.on('mousemove', function (e) {
+      var region = map.queryRenderedFeatures(
+        e.point, {
+          layers: ['HisCohoFill', 'AACohoFill', 'EcoCohoFill']
+        }
+      );
 
-// For the Info Window
-map.on('mousemove', function(e) {
-    var region = map.queryRenderedFeatures(
-      e.point, {
-      layers: ['HisCohoFill', 'AACohoFill', 'EcoCohoFill']
-    }
-  );
+      if (region.length > 0) {
+        document.getElementById('pd').innerHTML = '<h3>' + region[0].properties.RegName + " Region</h3><p>(percentage of total cohort)</p><table><tr><td>African Americans: </td><td>" + region[0].properties.AApCoho.toFixed(1) + '%</td></tr><tr><td>Hispanics: </td><td>' + region[0].properties.HispCoho.toFixed(1) + '%</td></tr><tr><td>Economic Disadvantage: </td><td>' + region[0].properties.EcopCoho.toFixed(1) + '%</td></tr></p>';
+      } else {
+        document.getElementById('pd').innerHTML = '<h2>Target Populations by Region</h2><p style="font-size: 0.85em; margin: 10px;">Hover over a region!</p>';
+      }
+    });
 
-    if (region.length > 0) {
-      document.getElementById('pd').innerHTML = '<h3>' + region[0].properties.RegName + " Region</h3><p>(percentage of total cohort)</p><table><tr><td>African Americans: </td><td>" + region[0].properties.AApCoho.toFixed(1) + '%</td></tr><tr><td>Hispanics: </td><td>' + region[0].properties.HispCoho.toFixed(1) + '%</td></tr><tr><td>Economic Disadvantage: </td><td>' + region[0].properties.EcopCoho.toFixed(1) + '%</td></tr></p>';
-    } else {
-      document.getElementById('pd').innerHTML = '<h2>Target Populations by Region</h2><p style="font-size: 0.85em; margin: 10px;">Hover over a region!</p>';
-    }
-  });
-
-  var popup = new mapboxgl.Popup({
-        closeButton: false,
-        closeOnClick: false
+    var popup = new mapboxgl.Popup({
+      closeButton: false,
+      closeOnClick: false
     });
 
 
-  map.on("mousemove", "AACohoFill", function(e) {
-    map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
-    map.getCanvas().style.cursor = 'pointer';
-    popup.setLngLat(e.lngLat)
-        .setHTML( "There were " + e.features[0].properties.AACoho.toLocaleString() + " African Americans in a cohort of " + e.features[0].properties.TotCoho.toLocaleString() + ". Of those, " + e.features[0].properties.AAnEnr.toLocaleString() + " went to college in Texas and " + e.features[0].properties.AAnComp.toLocaleString() + " finished within 6 years.")
+    map.on("mousemove", "AACohoFill", function (e) {
+      map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
+      map.getCanvas().style.cursor = 'pointer';
+      popup.setLngLat(e.lngLat)
+        .setHTML("There were " + e.features[0].properties.AACoho.toLocaleString() + " African Americans in a cohort of " + e.features[0].properties.TotCoho.toLocaleString() + ". Of those, " + e.features[0].properties.AAnEnr.toLocaleString() + " went to college in Texas and " + e.features[0].properties.AAnComp.toLocaleString() + " finished within 6 years.")
         .addTo(map);
-  });
+    });
 
-  map.on("mouseleave", "AACohoFill", function(e) {
-    map.setFilter("highlight-hover", ["==", "TEAReg",""]);
-    map.getCanvas().style.cursor = '';
-    popup.remove();
-  });
+    map.on("mouseleave", "AACohoFill", function (e) {
+      map.setFilter("highlight-hover", ["==", "TEAReg", ""]);
+      map.getCanvas().style.cursor = '';
+      popup.remove();
+    });
 
-  map.on("mousemove", "HisCohoFill", function(e) {
-    map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
-    map.getCanvas().style.cursor = 'pointer';
-    popup.setLngLat(e.lngLat)
-        .setHTML( "There were " + e.features[0].properties.HisCoho.toLocaleString() + " Hispanics in a cohort of " + e.features[0].properties.TotCoho.toLocaleString() + ". Of those, " + e.features[0].properties.HisnEnr.toLocaleString() + " went to college in Texas and " + e.features[0].properties.HisnComp.toLocaleString() + " finished within 6 years.")
+    map.on("mousemove", "HisCohoFill", function (e) {
+      map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
+      map.getCanvas().style.cursor = 'pointer';
+      popup.setLngLat(e.lngLat)
+        .setHTML("There were " + e.features[0].properties.HisCoho.toLocaleString() + " Hispanics in a cohort of " + e.features[0].properties.TotCoho.toLocaleString() + ". Of those, " + e.features[0].properties.HisnEnr.toLocaleString() + " went to college in Texas and " + e.features[0].properties.HisnComp.toLocaleString() + " finished within 6 years.")
         .addTo(map);
-  });
+    });
 
-  map.on("mouseleave", "HisCohoFill", function(e) {
-    map.setFilter("highlight-hover", ["==", "TEAReg",""]);
-    map.getCanvas().style.cursor = '';
-    popup.remove();
-  });
+    map.on("mouseleave", "HisCohoFill", function (e) {
+      map.setFilter("highlight-hover", ["==", "TEAReg", ""]);
+      map.getCanvas().style.cursor = '';
+      popup.remove();
+    });
 
-  map.on("mousemove", "EcoCohoFill", function(e) {
-    map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
-    map.getCanvas().style.cursor = 'pointer';
-    popup.setLngLat(e.lngLat)
-        .setHTML( "There were " + e.features[0].properties.EcoCoho.toLocaleString() + " Economically Disadvantaged students in a cohort of " + e.features[0].properties.TotCoho.toLocaleString() + ". Of those, " + e.features[0].properties.EconEnr.toLocaleString() + " went to college in Texas and " + e.features[0].properties.EconComp.toLocaleString() + " finished within 6 years.")
+    map.on("mousemove", "EcoCohoFill", function (e) {
+      map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
+      map.getCanvas().style.cursor = 'pointer';
+      popup.setLngLat(e.lngLat)
+        .setHTML("There were " + e.features[0].properties.EcoCoho.toLocaleString() + " Economically Disadvantaged students in a cohort of " + e.features[0].properties.TotCoho.toLocaleString() + ". Of those, " + e.features[0].properties.EconEnr.toLocaleString() + " went to college in Texas and " + e.features[0].properties.EconComp.toLocaleString() + " finished within 6 years.")
         .addTo(map);
-  });
+    });
 
-  map.on("mouseleave", "EcoCohoFill", function(e) {
-    map.setFilter("highlight-hover", ["==", "TEAReg",""]);
-    map.getCanvas().style.cursor = '';
-    popup.remove();
-  });
+    map.on("mouseleave", "EcoCohoFill", function (e) {
+      map.setFilter("highlight-hover", ["==", "TEAReg", ""]);
+      map.getCanvas().style.cursor = '';
+      popup.remove();
+    });
 
-</script>
+  </script>
 </body>
+
 </html>

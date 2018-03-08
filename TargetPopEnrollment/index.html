@@ -9,7 +9,7 @@
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css' rel='stylesheet' />
   <link href='style.css' rel='stylesheet' />
   <style>
-   
+
   </style>
   <script type="text/javascript" src="../cohortMapStyle.js"></script>
   <script type="text/javascript" src="Enrollment.js"></script>
@@ -27,7 +27,7 @@
       style: cohortStyle,
       center: [-99.19, 31.30],
       zoom: 5,
-      maxZoom: 15,
+      maxZoom: 7,
       minZoom: 3,
       maxBounds: [[-140, 15], [-60, 45]]
     });
@@ -35,21 +35,21 @@
     map.on('load', function () {
       map.addSource('Cohort', {
         'type': 'vector',
-        'url': 'mapbox://johndinning.cvggpjmd'
+        'url': 'mapbox://johndinning.9koks5ed'
       });
-      map.addControl(new mapboxgl.NavigationControl({position:'top-right' }));
+      map.addControl(new mapboxgl.NavigationControl({ position: 'top-right' }));
       // Disable map rotation using right click + drag
       map.dragRotate.disable();
       // Disable map rotation using touch rotation gesture
       map.touchZoomRotate.disableRotation();
       addLayerNav(map); // The funtions defined in the separate js doc
       map.scrollZoom.disable();
-      map.fitBounds(bbox, linear=true); //fit Texas at any zoom and ease to
+      map.fitBounds(bbox, linear = true); //fit Texas at any zoom and ease to
       map.addLayer({
         'id': 'AApEnrollDiff',
         'type': 'fill',
         'source': 'Cohort',
-        'source-layer': 'Cohort2006TEARegionPolys',
+        'source-layer': 'CohortTEARegionPolys',
         "layout": {
           'visibility': 'visible'
         },
@@ -58,13 +58,13 @@
             property: 'AAEnrpDi', //Perc Point difference in enrollment
             type: 'exponential',
             stops: [
-            [-16, '#d73027'],
-            [-12, '#f46d43'],
-            [-8, '#fdae61'],
-            [-4, '#fee08b'],
-            [0, '#ffffbf'],
-            [4, '#d9ef8b']
-          ],
+              [-16, '#d73027'],
+              [-12, '#f46d43'],
+              [-8, '#fdae61'],
+              [-4, '#fee08b'],
+              [0, '#ffffbf'],
+              [4, '#d9ef8b']
+            ],
           },
         }
       }, 'motorway-casing-Major'
@@ -73,7 +73,8 @@
         "id": "AApEnrollDiffText",
         "type": "symbol",
         "source": "Cohort",
-        "source-layer": "Cohort2006TEARegionPoints",
+        "source-layer": "CohortTEARegionPoints",
+        "maxzoom": 6.4,
         "layout": {
           'visibility': 'visible',
           "text-field": "{AAEnrpD_}" + " pp",
@@ -90,7 +91,7 @@
         'id': 'HisppEnrollDiff',
         'type': 'fill',
         'source': 'Cohort',
-        'source-layer': 'Cohort2006TEARegionPolys',
+        'source-layer': 'CohortTEARegionPolys',
         "layout": {
           'visibility': 'none'
         },
@@ -98,13 +99,13 @@
           'fill-color': {
             property: 'HisEnrpDi', //Perc Point difference in enrollment                    type: 'exponential',
             stops: [
-            [-16, '#d73027'],
-            [-12, '#f46d43'],
-            [-8, '#fdae61'],
-            [-4, '#fee08b'],
-            [0, '#ffffbf'],
-            [4, '#d9ef8b']
-          ],
+              [-16, '#d73027'],
+              [-12, '#f46d43'],
+              [-8, '#fdae61'],
+              [-4, '#fee08b'],
+              [0, '#ffffbf'],
+              [4, '#d9ef8b']
+            ],
           },
         }
       }, 'motorway-casing-Major'
@@ -113,7 +114,8 @@
         "id": "HisppEnrollDiffText",
         "type": "symbol",
         "source": "Cohort",
-        "source-layer": "Cohort2006TEARegionPoints",
+        "maxzoom": 6.4,
+        "source-layer": "CohortTEARegionPoints",
         "layout": {
           'visibility': 'none',
           "text-field": "{HisEnrpD_}" + " pp",
@@ -129,7 +131,7 @@
         'id': 'AAmpEnrollDiff',
         'type': 'fill',
         'source': 'Cohort',
-        'source-layer': 'Cohort2006TEARegionPolys',
+        'source-layer': 'CohortTEARegionPolys',
         "layout": {
           'visibility': 'none'
         },
@@ -138,13 +140,13 @@
             property: 'AAmEnrpDi', //Perc Point difference in enrollment
             type: 'exponential',
             stops: [
-            [-16, '#d73027'],
-            [-12, '#f46d43'],
-            [-8, '#fdae61'],
-            [-4, '#fee08b'],
-            [0, '#ffffbf'],
-            [4, '#d9ef8b']
-          ],
+              [-16, '#d73027'],
+              [-12, '#f46d43'],
+              [-8, '#fdae61'],
+              [-4, '#fee08b'],
+              [0, '#ffffbf'],
+              [4, '#d9ef8b']
+            ],
           },
         }
       }, 'motorway-casing-Major'
@@ -153,7 +155,8 @@
         "id": "AAmpEnrollDiffText",
         "type": "symbol",
         "source": "Cohort",
-        "source-layer": "Cohort2006TEARegionPoints",
+        "source-layer": "CohortTEARegionPoints",
+        "maxzoom": 6.4,
         "layout": {
           'visibility': 'none',
           "text-field": "{AAmEnrpD_}" + " pp",
@@ -169,7 +172,7 @@
         'id': 'EcopEnrollDiff',
         'type': 'fill',
         'source': 'Cohort',
-        'source-layer': 'Cohort2006TEARegionPolys',
+        'source-layer': 'CohortTEARegionPolys',
         "layout": {
           'visibility': 'none'
         },
@@ -178,13 +181,13 @@
             property: 'EcoEnrpDi', //Perc Point difference in enrollment
             type: 'exponential',
             stops: [
-            [-16, '#d73027'],
-            [-12, '#f46d43'],
-            [-8, '#fdae61'],
-            [-4, '#fee08b'],
-            [0, '#ffffbf'],
-            [4, '#d9ef8b']
-          ],
+              [-16, '#d73027'],
+              [-12, '#f46d43'],
+              [-8, '#fdae61'],
+              [-4, '#fee08b'],
+              [0, '#ffffbf'],
+              [4, '#d9ef8b']
+            ],
           },
         }
       }, 'motorway-casing-Major'
@@ -193,7 +196,8 @@
         "id": "EcopEnrollDiffText",
         "type": "symbol",
         "source": "Cohort",
-        "source-layer": "Cohort2006TEARegionPoints",
+        "source-layer": "CohortTEARegionPoints",
+        "maxzoom": 6.4,
         "layout": {
           'visibility': 'none',
           "text-field": "{EcoEnrpD_}" + " pp",
@@ -209,111 +213,121 @@
         "id": "RegionLines",
         "type": "line",
         "source": "Cohort",
-        "source-layer": "Cohort2006TEARegionPolys",
-        "layout": {'visibility': 'visible'},
+        "source-layer": "CohortTEARegionPolys",
+        "layout": { 'visibility': 'visible' },
         paint: {
           "line-color": "#808080",
           "line-width": 1,
           "line-opacity": 0.3
-          }
-      }); 
-      map.addSource("highlight", {
-        'type': 'vector',
-        'url': 'mapbox://johndinning.cvggpjmd'
+        }
       });
-    map.addLayer({
-      "id": "highlight-hover",
-        "type": "fill",
-        "source": "highlight",
-        'source-layer': 'Cohort2006TEARegionPolys',
+       map.addLayer({
+        "id": "TexasOutline",
+        "type": "line",
+        "source": "Cohort",
+        'source-layer': 'TexasOutline',
         "paint": {
-            "fill-color": "#99ff99",
-            "fill-opacity": .8
-    },
-        "filter": ['==',"TEAReg", ""]
-    }, 'motorway-casing-Major');
-
+          "line-color": "rgba(0,0,0, 1)",
+          "line-width": 2,
+          "line-opacity": 0.7
+        }
+      }, 'motorway-casing-Major');
+      map.addLayer({
+        "id": "highlight-hover",
+        "type": "fill",
+        "source": "Cohort",
+        'source-layer': 'CohortTEARegionPolys',
+        "paint": {
+          "fill-color": "#99ff99",
+          "fill-opacity": .8
+        },
+        "filter": ['==', "TEAReg", ""]
+      }, 'motorway-casing-Major');
+      map.fitBounds(bbox, linear = true); //fit Texas at any zoom and ease to
     });
 
-// </script>
+//
+  </script>
 
   <div class='legend2'>
     <!-- see https://www.mapbox.com/mapbox-gl-js/example/updating-choropleth/ -->
-   <div class="legend2-title">Percentage Point (pp) Difference from Overall Cohort</div>
-     <div class="legend2keycontainer">
-        <div class="legend2key"><span style='background-color: #d9ef8b'></span>+4</div>
-        <div class="legend2key"><span style='background-color: #ffffbf'></span>0</div>
-        <div class="legend2key"><span style='background-color: #fee08b'></span>-4</div>
-        <div class="legend2key"><span style='background-color: #fdae61'></span>-8</div>
-        <div class="legend2key"><span style='background-color: #f46d43'></span>-12</div>
-        <div class="legend2key"><span style='background-color: #d73027'></span>-16</div>
-     </div>
+    <div class="legend2-title">Percentage Point (pp) Difference from Overall Cohort</div>
+    <div class="legend2keycontainer">
+      <div class="legend2key"><span style='background-color: #d9ef8b'></span>+4</div>
+      <div class="legend2key"><span style='background-color: #ffffbf'></span>0</div>
+      <div class="legend2key"><span style='background-color: #fee08b'></span>-4</div>
+      <div class="legend2key"><span style='background-color: #fdae61'></span>-8</div>
+      <div class="legend2key"><span style='background-color: #f46d43'></span>-12</div>
+      <div class="legend2key"><span style='background-color: #d73027'></span>-16</div>
+    </div>
   </div>
 
 
   <script>
-var popup = new mapboxgl.Popup({
-  closeButton: false,
-  closeOnClick: false
-});
+    var popup = new mapboxgl.Popup({
+      closeButton: false,
+      closeOnClick: false
+    });
 
 
-map.on("mousemove", "AApEnrollDiff", function(e) {
-  map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
-  map.getCanvas().style.cursor = 'pointer';
-  popup.setLngLat(e.lngLat)
-      .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr></p>')
-      .addTo(map);
-});
+    map.on("mousemove", "AApEnrollDiff", function (e) {
+      map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
+      map.getCanvas().style.cursor = 'pointer';
+      popup.setLngLat(e.lngLat)
+        .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr></p>')
+        .addTo(map);
+    });
 
-map.on("mouseleave", "AApEnrollDiff", function(e) {
-  map.setFilter("highlight-hover", ["==", "TEAReg",""]);
-  map.getCanvas().style.cursor = '';
-  popup.remove();
-});
+    map.on("mouseleave", "AApEnrollDiff", function (e) {
+      map.setFilter("highlight-hover", ["==", "TEAReg", ""]);
+      map.getCanvas().style.cursor = '';
+      popup.remove();
+    });
 
-map.on("mousemove", "AAmpEnrollDiff", function(e) {
-  map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
-  map.getCanvas().style.cursor = 'pointer';
-  popup.setLngLat(e.lngLat)
-      .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr></p>')
-      .addTo(map);
-});
+    map.on("mousemove", "AAmpEnrollDiff", function (e) {
+      map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
+      map.getCanvas().style.cursor = 'pointer';
+      popup.setLngLat(e.lngLat)
+        .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr></p>')
+        .addTo(map);
+    });
 
-map.on("mouseleave", "AAmpEnrollDiff", function(e) {
-  map.setFilter("highlight-hover", ["==", "TEAReg",""]);
-  map.getCanvas().style.cursor = '';
-  popup.remove();
-});
+    map.on("mouseleave", "AAmpEnrollDiff", function (e) {
+      map.setFilter("highlight-hover", ["==", "TEAReg", ""]);
+      map.getCanvas().style.cursor = '';
+      popup.remove();
+    });
 
-map.on("mousemove", "HisppEnrollDiff", function(e) {
-  map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
-  map.getCanvas().style.cursor = 'pointer';
-  popup.setLngLat(e.lngLat)
-    .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr></p>')
-    .addTo(map);
-});
+    map.on("mousemove", "HisppEnrollDiff", function (e) {
+      map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
+      map.getCanvas().style.cursor = 'pointer';
+      popup.setLngLat(e.lngLat)
+        .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr></p>')
+        .addTo(map);
+    });
 
-map.on("mouseleave", "HisppEnrollDiff", function(e) {
-  map.setFilter("highlight-hover", ["==", "TEAReg",""]);
-  map.getCanvas().style.cursor = '';
-  popup.remove();
-});
+    map.on("mouseleave", "HisppEnrollDiff", function (e) {
+      map.setFilter("highlight-hover", ["==", "TEAReg", ""]);
+      map.getCanvas().style.cursor = '';
+      popup.remove();
+    });
 
-map.on("mousemove", "EcopEnrollDiff", function(e) {
-  map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
-  map.getCanvas().style.cursor = 'pointer';
-  popup.setLngLat(e.lngLat)
-    .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr></p>')
-    .addTo(map);
-});
+    map.on("mousemove", "EcopEnrollDiff", function (e) {
+      map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
+      map.getCanvas().style.cursor = 'pointer';
+      popup.setLngLat(e.lngLat)
+        .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr></p>')
+        .addTo(map);
+    });
 
-map.on("mouseleave", "EcopEnrollDiff", function(e) {
-  map.setFilter("highlight-hover", ["==", "TEAReg",""]);
-  map.getCanvas().style.cursor = '';
-  popup.remove();
-});
-</script>
+    map.on("mouseleave", "EcopEnrollDiff", function (e) {
+      map.setFilter("highlight-hover", ["==", "TEAReg", ""]);
+      map.getCanvas().style.cursor = '';
+      popup.remove();
+    });
+
+  </script>
 
 </body>
+
 </html>

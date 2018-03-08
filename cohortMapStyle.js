@@ -34,7 +34,7 @@ const cohortStyle={
       "url": "https://free.tilehosting.com/data/v3.json?key=RiS4gsgZPZqeeMlIyxFo"
     }
   },
-  "sprite": "https://openmaptiles.github.io/positron-gl-style/sprite",
+  // "sprite": "https://openmaptiles.github.io/positron-gl-style/sprite",
   "glyphs": "https://free.tilehosting.com/fonts/{fontstack}/{range}.pbf?key=RiS4gsgZPZqeeMlIyxFo",
   "layers": [
     {
@@ -214,37 +214,6 @@ const cohortStyle={
       }
     },
     {
-      "id": "boundary",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "boundary",
-      "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "maritime",
-          0
-        ],
-        [
-          "in",
-          "admin_level",
-          2,
-          4
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-dasharray": [
-          2,
-          0.5
-        ],
-        "line-color": "rgba(58, 57, 57, 1)"
-      }
-    },
-    {
       "id": "state",
       "type": "symbol",
       "source": "openmaptiles",
@@ -354,7 +323,7 @@ const cohortStyle={
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "place",
-      "minzoom": 7,
+      "minzoom": 6.5,
       "maxzoom": 24,
       "filter": [
         "all",
@@ -393,7 +362,7 @@ const cohortStyle={
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "place",
-      "minzoom": 7,
+      "minzoom": 6.5,
       "maxzoom": 24,
       "filter": [
         "all",
@@ -436,7 +405,7 @@ const cohortStyle={
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "place",
-      "minzoom": 6,
+      "minzoom": 6.5,
       "maxzoom": 24,
       "filter": [
         "all",
@@ -487,7 +456,7 @@ const cohortStyle={
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "place",
-      "minzoom": 5,
+      "minzoom": 6.5,
       "maxzoom": 24,
       "filter": [
         "all",

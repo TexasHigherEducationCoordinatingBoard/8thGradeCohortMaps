@@ -3,7 +3,7 @@ bbox=[[-107.02, 25.62], [-93.38, 36.72]];
 const toggleableLayers = [
     { ids: ['AApCompDiff', 'AApCompDiffText'], name: ['African American'] },
     { ids: ['HisppCompDiff', 'HisppCompDiffText'], name: ['Hispanic'] },
-    { ids: ['AAmpCompDiff', 'AAmpCompDiffText'], name: ['African American Males'] },
+    // { ids: ['AAmpCompDiff', 'AAmpCompDiffText'], name: ['African American Males'] },
     { ids: ['EcopCompDiff', 'EcopCompDiffText'], name: ['Economically Disadvantaged'] },
 ];
 

@@ -45,7 +45,7 @@
       style: cohortStyle,
       center: [-101.8, 31.9], //offset to make room for info window
       zoom: 5,
-      maxZoom: 15,
+      maxZoom: 7,
       minZoom: 3,
       maxBounds: [[-140, 15], [-60, 45]]
     });
@@ -53,7 +53,7 @@
     map.on('load', function () {
       map.addSource('Cohort', {
         'type': 'vector',
-        'url': 'mapbox://johndinning.cvggpjmd'
+        'url': 'mapbox://johndinning.9koks5ed'
       });
       map.addControl(new mapboxgl.NavigationControl({position:'top-right' }));
       // Disable map rotation using right click + drag
@@ -62,13 +62,12 @@
       map.touchZoomRotate.disableRotation();
       map.getCanvas().style.cursor = 'default'; //keep pointer
       map.scrollZoom.disable(); //no mousewheel zoom
-      map.fitBounds(bbox, linear=true); //fit Texas at any zoom and ease to
       addLayerNav(map);
       map.addLayer({
         'id': 'TotpComp',
         'type': 'fill',
         'source': 'Cohort',
-        'source-layer': 'Cohort2006TEARegionPolys',
+        'source-layer': 'CohortTEARegionPolys',
         "layout": {
           'visibility': 'none'
         },
@@ -90,7 +89,8 @@
         "id": "TotpCompText",
         "type": "symbol",
         "source": "Cohort",
-        "source-layer": "Cohort2006TEARegionPoints",
+        "source-layer": "CohortTEARegionPoints",
+        "maxzoom": 6.4,
         "layout": {
           'visibility': 'none',
           "text-field": "{TotpComp_}" + "%",
@@ -107,7 +107,7 @@
         'id': 'TotpEnroll',
         'type': 'fill',
         'source': 'Cohort',
-        'source-layer': 'Cohort2006TEARegionPolys',
+        'source-layer': 'CohortTEARegionPolys',
         "layout": {
           'visibility': 'visible'
         },
@@ -129,7 +129,8 @@
         "id": "TotpEnrollText",
         "type": "symbol",
         "source": "Cohort",
-        "source-layer": "Cohort2006TEARegionPoints",
+        "source-layer": "CohortTEARegionPoints",
+        "maxzoom": 6.4,
         "layout": {
           'visibility': 'visible',
           "text-field": "{TotpEnr_}" + "%",
@@ -145,7 +146,7 @@
         "id": "RegionLines",
         "type": "line",
         "source": "Cohort",
-        "source-layer": "Cohort2006TEARegionPolys",
+        "source-layer": "CohortTEARegionPolys",
         "layout": {'visibility': 'visible'},
         paint: {
           "line-color": "#808080",
@@ -153,21 +154,29 @@
           "line-opacity": 0.6
           }
         }, 'motorway-casing-Major'); 
-      map.addSource("highlight", {
-        'type': 'vector',
-        'url': 'mapbox://johndinning.cvggpjmd'
-      });
+      map.addLayer({
+        "id": "TexasOutline",
+        "type": "line",
+        "source": "Cohort",
+        'source-layer': 'TexasOutline',
+        "paint": {
+          "line-color": "rgba(0,0,0, 1)",
+          "line-width": 2,
+          "line-opacity": 0.7
+        }
+      }, 'motorway-casing-Major');
     map.addLayer({
       "id": "highlight-hover",
         "type": "fill",
-        "source": "highlight",
-        'source-layer': 'Cohort2006TEARegionPolys',
+        "source": "Cohort",
+        'source-layer': 'CohortTEARegionPolys',
         "paint": {
             "fill-color": "#692a85",
             "fill-opacity": 1
     },
         "filter": ['==',"TEAReg", ""]
       }, 'motorway-casing-Major');
+    map.fitBounds(bbox, linear=true); //fit Texas at any zoom and ease to
   });
 
 // For the Info Window
