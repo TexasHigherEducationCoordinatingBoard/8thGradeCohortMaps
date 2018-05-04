@@ -10,14 +10,14 @@ college degree or certificate is a key contributor to this goal.
 
 ### Target Populations
 The Strategic Plan identifies target populations that have had historically lower rates of college success. These 
-groups include African American, Economically Disadvantaged, and Hispanic students. The 8th Grade Cohort maps show
-the distribution of these groups throughout the state and permit a visual comparison of their share of Texas students.
+groups include African American, Economically Disadvantaged, Hispanic, and Male students. The 8th Grade Cohort maps show
+the distribution of these groups throughout the state as well as their enrollment and completion rates in higher education.
 
 ### Analysis
-The data is pulled from 8th Grade cohort excel workbooks which are published online using python. It's processed using
-pandas and merged to the Texas Education Agency service center region polygons using ArcGIS Pro python tools. The 
+The data comes from [8th Grade Cohort Longitudinal Study](http://www.txhighereddata.org/index.cfm?objectId=F2CBE4A0-C90B-11E5-8D610050560100A9) excel workbooks. 
+The data is processed using free, open source python libraries and merged to the Texas Education Agency service center region polygons using proprietary ArcGIS Pro python tools. The 
 same results could also be accomplished without ArcGIS Pro by using the open source GDAL library. The complete code 
-for processing and preparing the data can be found in [this Jupyter Notebook]().
+for processing and preparing the data can be found in [this Jupyter Notebook](https://github.com/johndinning/8thGradeCohortMaps/blob/master/8thGradeCohort2007DataPrep.ipynb).
 
 The maps were created and rendered in the browser using the Mapbox GL javascript library. For questions about this project,
 please contact:
