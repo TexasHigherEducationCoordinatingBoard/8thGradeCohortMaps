@@ -14,7 +14,7 @@ groups include African American, Economically Disadvantaged, Hispanic, and Male 
 the distribution of these groups throughout the state as well as their enrollment and completion rates in higher education.
 
 ### Analysis
-The data comes from [8th Grade Cohort Longitudinal Study](http://www.txhighereddata.org/index.cfm?objectId=F2CBE4A0-C90B-11E5-8D610050560100A9) excel workbooks. 
+The data comes from 8th Grade Cohort Longitudinal Study excel workbooks. 
 The data is processed using free, open source python libraries and merged to the Texas Education Agency service center region polygons using proprietary ArcGIS Pro python tools. The 
 same results could also be accomplished without ArcGIS Pro by using the open source GDAL library. The complete code 
 for processing and preparing the data can be found in [this Jupyter Notebook](https://github.com/johndinning/8thGradeCohortMaps/blob/master/8thGradeCohort2007DataPrep.ipynb).
@@ -22,9 +22,5 @@ for processing and preparing the data can be found in [this Jupyter Notebook](ht
 The maps were created and rendered in the browser using the Mapbox GL javascript library. For questions about this project,
 please contact:
 
-John Dinning,
-Program Director in the division of Strategic Planning and Funding
-Texas Higher Education Coordinating Board
-john.dinning@thecb.state.tx.us
-(512) 427-6137
+  John Dinning, Program Director in the division of Strategic Planning and Funding at the Texas Higher Education Coordinating Board. john.dinning@thecb.state.tx.us
 
