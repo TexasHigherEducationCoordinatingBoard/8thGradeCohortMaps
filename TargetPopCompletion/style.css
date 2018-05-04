@@ -1,0 +1,115 @@
+body {
+  margin: 0;
+  padding-left: 4%;
+  padding-right: 4%;  
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 92%;
+}
+
+.mapboxgl-ctrl-compass {
+  display: none !important;
+  }
+
+  h4 {
+    margin: 5px;
+}
+
+  #menu {
+  background: #fff;
+  position: absolute;
+  z-index: 1;
+  margin-left: 4%;
+  top: 0;
+  left: 0;
+  border-radius: 3px;
+  width: 90px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  font-family: 'Open Sans', sans-serif;
+}
+
+#menu a {
+  font-size: 11px;
+  color: #404040;
+  display: block;
+  margin: 0;
+  padding: 5px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+#menu a:last-child {
+  border: none;
+}
+
+#menu a:hover {
+  background-color: #f8f8f8;
+  color: #404040;
+}
+
+#menu a.active {
+  background-color: #3887be;
+  color: #ffffff;
+}
+
+#menu a.active:hover {
+  background: #3074a4;
+}
+
+.mapboxgl-popup {
+  max-width: 160px;
+  z-index: 1;
+} 
+/**
+* Set rules for how the map overlays
+* (info box and legend) will be displayed
+* on the page. */
+.map-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  background: rgba(255, 255, 255, 0.8);
+  margin-right: 20px;
+  font-family: Arial, sans-serif;
+  overflow: auto;
+  border-radius: 3px;
+}
+
+.legend {
+  padding: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  line-height: 18px;
+  height: 150px;
+  margin-bottom: 35px;
+  width: 92px;
+  display: none;
+}
+
+.legend div {
+    margin-left: 5px;
+}
+.legend div span {
+  display: inline-block;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+
+}
+
+@media only screen and (min-width: 768px) {
+.map-overlay {left: 11%}
+#map {top: 0; width:80%}
+body {padding-left: 10%; padding-right: 10%;}
+#menu {margin-left: 10%; left: 10px; width: 120px;}
+#menu a {font-size: 13px;  padding: 10px;}
+}
+
+@media only screen and (min-width: 1224px) {
+  .legend {display: block;}
+}   
