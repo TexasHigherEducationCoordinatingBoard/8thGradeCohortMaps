@@ -31,11 +31,11 @@ const cohortStyle={
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "https://free.tilehosting.com/data/v3.json?key=RiS4gsgZPZqeeMlIyxFo"
+      "url": "https://free.tilehosting.com/data/v3.json?key=m4iogsjd45603la7ogxn"
     }
   },
   // "sprite": "https://openmaptiles.github.io/positron-gl-style/sprite",
-  "glyphs": "https://free.tilehosting.com/fonts/{fontstack}/{range}.pbf?key=RiS4gsgZPZqeeMlIyxFo",
+  "glyphs": "https://free.tilehosting.com/fonts/{fontstack}/{range}.pbf?key=m4iogsjd45603la7ogxn",
   "layers": [
     {
       "id": "bg",

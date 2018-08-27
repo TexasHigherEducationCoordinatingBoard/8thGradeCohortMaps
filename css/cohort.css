@@ -46,3 +46,8 @@ h5 {
 .section {width: 70%}
 h4, h5 {width:60%}
 }
+
+.endnote{
+font-size: 0.8rem;
+line-height: 1.2;
+}
