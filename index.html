@@ -21,15 +21,17 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
     crossorigin="anonymous">
   <link href='css/cohort.css' rel='stylesheet' />
-
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104524078-2"></script>
   <script>
-// Add a google analytics script here
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-104524078-2');
   </script>
 </head>
 
 <body>
-
-
   <article role="main">
     <section class="container-fluid titlesection">
       <h1>Insights from the Eighth-Grade Cohort Longitudinal Study</h1>
@@ -41,12 +43,10 @@
       <p>Just over one in five eighth graders from Texas public schools go on to graduate with a degree or certificate from a Texas institution of higher education. This is according to an annual study from the Texas Higher Education Coordinating Board. The maps below present regional results from the latest analysis which tracked eighth graders from the 2006-07 school year through higher education for 11 years. The
         <a href="http://www.txhighereddata.org/index.cfm?objectId=F2CBE4A0-C90B-11E5-8D610050560100A9" target="_blank" rel="noopener noreferrer">full analysis</a>, including the methodology, is available on the
         <a href="http://www.txhighereddata.org/" target="_blank" rel="noopener noreferrer">Texas Higher Education Data</a> website.</p>
-
       <p>Higher education enrollment and completion rates for the eighth-grade cohort vary across regions in Texas. For example,
         in the El Paso region, 58% of students went on to enroll in higher education compared to only 48% in neighboring
         Midland. However, when looking at the rates at which students completed their studies and earned a higher education
         degree or certificate, the two regions were only three percentage points apart.</p>
-
       <h4>Higher Education Enrollment and Completion Rates for Each Region</h4>
     </section>
     <div class="mapsection">
@@ -62,7 +62,6 @@
     </div>
 
     <section class="container-fluid section">
-      
       <p>The state’s strategic plan, <a style="font-style:italic" href="http://www.60x30tx.com/" target="_blank" rel="noopener noreferrer">60x30TX</a>, includes an annual completion goal of 550,000 certificates or degrees in 2030. The plan also identifies target populations: African American, Hispanic, economically disadvantaged, and male students. These groups enroll in college and complete a higher education credential at lower rates than the overall population. The following map shows completion rates among the target populations.</p>
       <h4>Completion Rates for Target Populations</h4>
     </section>
@@ -80,8 +79,7 @@
 
     <section class="container-fluid section">
       <p>The 20 regions on the map correspond to the Education Service Center (ESC) regions defined by the Texas Education Agency. The regions vary greatly in population density and in the racial and ethnic makeup of the eighth-grade cohort.</p>
-        
-        <p>The following map presents information about the total student population and the percentage of African American, Hispanic, and economically disadvantaged students in each region. Hovering over a region reveals additional information including the number of students in the original cohort from each target group.</p>
+      <p>The following map presents information about the total student population and the percentage of African American, Hispanic, and economically disadvantaged students in each region. Hovering over a region reveals additional information including the number of students in the original cohort from each target group.</p>
     </section>
     <h4>Distribution of Target Populations Across the State</h4>
     <div class="mapsection">
@@ -97,7 +95,6 @@
     </div>
 
     <section class="container-fluid section">
-
       <p>The following two maps highlight the difference in enrollment and completion rates between target groups and the eighth-grade cohort overall. The percentage point (pp) difference provides a sense of how each target group lags, equals, or in some cases, surpasses the overall rates of enrollment or completion. For example, in the Austin region, about 53 percent of the eighth-graders went on to enroll in higher education, but among African Americans, the rate was about 52 percent, resulting in a difference in enrollment rates of -1 pp. Compare this to the -10 pp difference in completion rates for African Americans in the Austin region, where only 13 percent graduated, compared to 23 percent for the region’s eighth-graders overall.</p>
     </section>
     <h4>Percentage Point (pp) Difference in Enrollment Rates</h4>
@@ -135,13 +132,11 @@
       <p class="endnote">For more information about the Eighth-Grade Cohort Longitudinal Study, contact John Dinning in Strategic
         Planning and Funding at the Texas Higher Education Coordinating Board (john.dinning@thecb.state.tx.us).
       <br>
-        <a href="https://github.com/TexasHigherEducationCoordinatingBoard/8thGradeCohortMaps/blob/master/8thGradeCohort2007DataPrep.ipynb"
+        <a href="Jupyter_html/8thGradeCohort2007DataPrep.html"
           target="_blank" rel="noopener noreferrer">Annotated python code</a> is posted on the
         <a href="https://github.com/TexasHigherEducationCoordinatingBoard" target="_blank" rel="noopener noreferrer">THECB GitHub site</a> for those interested in creating their own maps using data from the Eighth-Grade Cohort Longitudinal Study.
       </p>
-
     </section>
 </body>
 </article>
-
 </html>
