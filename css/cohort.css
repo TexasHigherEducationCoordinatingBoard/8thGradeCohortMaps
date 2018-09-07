@@ -3,6 +3,10 @@ body{
   min-height: 75rem;
   }
 
+  a {
+    color: #0072ed;
+}
+
 .section {
   width: 90%; margin: auto
 }
