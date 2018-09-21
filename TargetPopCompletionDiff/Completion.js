@@ -186,6 +186,51 @@ map.on('load', function () {
     }
   }
   );
+
+
+
+  map.addLayer({
+    'id': 'MalepCompDiff',
+    'type': 'fill',
+    'source': 'Cohort',
+    'source-layer': 'CohortTEARegionPolys',
+    "layout": {
+      'visibility': 'none'
+    },
+    'paint': {
+      'fill-color': {
+        property: 'MaleCpDi',
+        stops: [
+          [-16, '#d73027'],
+          [-12, '#f46d43'],
+          [-8, '#fdae61'],
+          [-4, '#fee08b'],
+          [0, '#ffffbf'],
+          [4, '#d9ef8b']
+        ],
+      },
+    }
+  }, 'motorway-casing-Major'
+  );
+  map.addLayer({
+    "id": "MalepCompDiffText",
+    "type": "symbol",
+    "source": "Cohort",
+    "source-layer": "CohortTEARegionPoints",
+    "maxzoom": 6.4,
+    "layout": {
+      'visibility': 'none',
+      "text-field": "{MaleCpD_}" + " pp",
+      "text-font": [
+        "DIN Offc Pro Medium",
+        "Arial Unicode MS Bold"
+      ],
+      "text-size": 12
+    }
+  }
+  );
+
+
   map.addLayer({
     "id": "RegionLines",
     "type": "line",
@@ -230,8 +275,8 @@ map.on('load', function () {
 const toggleableLayers = [
     { ids: ['AApCompDiff', 'AApCompDiffText'], name: ['African American'] },
     { ids: ['HisppCompDiff', 'HisppCompDiffText'], name: ['Hispanic'] },
-    // { ids: ['AAmpCompDiff', 'AAmpCompDiffText'], name: ['African American Males'] },
     { ids: ['EcopCompDiff', 'EcopCompDiffText'], name: ['Economically Disadvantaged'] },
+    { ids: ['MalepCompDiff', 'MalepCompDiffText'], name: ['Males'] }
 ];
 
 function hideAllLayers() {
@@ -281,7 +326,7 @@ var popup = new mapboxgl.Popup({
     map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
     map.getCanvas().style.cursor = 'pointer';
     popup.setLngLat(e.lngLat)
-      .setHTML('<strong>Completion Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpComp.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApComp.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispComp.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopComp.toFixed(1) + '%</td></tr></p>')
+      .setHTML('<strong>Completion Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpComp.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApComp.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispComp.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopComp.toFixed(1) + '%</td></tr><tr><td>Males: </td><td>' + e.features[0].properties.TotmpComp.toFixed(1) + '%</td></tr></p>')
       .addTo(map);
   });
 
@@ -295,7 +340,7 @@ var popup = new mapboxgl.Popup({
     map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
     map.getCanvas().style.cursor = 'pointer';
     popup.setLngLat(e.lngLat)
-      .setHTML('<strong>Completion Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpComp.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApComp.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispComp.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopComp.toFixed(1) + '%</td></tr></p>')
+      .setHTML('<strong>Completion Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpComp.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApComp.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispComp.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopComp.toFixed(1) + '%</td></tr><tr><td>Males: </td><td>' + e.features[0].properties.TotmpComp.toFixed(1) + '%</td></tr></p>')
       .addTo(map);
   });
 
@@ -309,7 +354,7 @@ var popup = new mapboxgl.Popup({
     map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
     map.getCanvas().style.cursor = 'pointer';
     popup.setLngLat(e.lngLat)
-      .setHTML('<strong>Completion Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpComp.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApComp.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispComp.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopComp.toFixed(1) + '%</td></tr></p>')
+      .setHTML('<strong>Completion Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpComp.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApComp.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispComp.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopComp.toFixed(1) + '%</td></tr><tr><td>Males: </td><td>' + e.features[0].properties.TotmpComp.toFixed(1) + '%</td></tr></p>')
       .addTo(map);
   });
 
@@ -323,7 +368,7 @@ var popup = new mapboxgl.Popup({
     map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
     map.getCanvas().style.cursor = 'pointer';
     popup.setLngLat(e.lngLat)
-      .setHTML('<strong>Completion Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpComp.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApComp.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispComp.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopComp.toFixed(1) + '%</td></tr></p>')
+      .setHTML('<strong>Completion Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpComp.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApComp.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispComp.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopComp.toFixed(1) + '%</td></tr><tr><td>Males: </td><td>' + e.features[0].properties.TotmpComp.toFixed(1) + '%</td></tr></p>')
       .addTo(map);
   });
 

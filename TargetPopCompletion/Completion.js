@@ -55,7 +55,7 @@ map.on('load', function () {
     "maxzoom": 6.4,
     "layout": {
       'visibility': 'visible',
-      "text-field": "{AApComp}%",
+      "text-field": "{AApComp_}%",
       "text-font": [
         "DIN Offc Pro Medium",
         "Arial Unicode MS Bold"
@@ -94,7 +94,7 @@ map.on('load', function () {
     "maxzoom": 6.4,
     "layout": {
       'visibility': 'none',
-      "text-field": "{EcopComp}%",
+      "text-field": "{EcopComp_}%",
       "text-font": [
         "DIN Offc Pro Medium",
         "Arial Unicode MS Bold"
@@ -133,7 +133,7 @@ map.on('load', function () {
     "maxzoom": 6.4,
     "layout": {
       'visibility': 'none',
-      "text-field": "{HispComp}%",
+      "text-field": "{HispComp_}%",
       "text-font": [
         "DIN Offc Pro Medium",
         "Arial Unicode MS Bold"
@@ -172,7 +172,7 @@ map.on('load', function () {
     "maxzoom": 6.4,
     "layout": {
       'visibility': 'none',
-      "text-field": "{TotmpComp}%",
+      "text-field": "{TotmpComp_}%",
       "text-font": [
         "DIN Offc Pro Medium",
         "Arial Unicode MS Bold"

@@ -189,6 +189,51 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoiam9obmRpbm5pbmciLCJhIjoiY2oxazR5NjNvMDFveDJ5b
         }
       }
       );
+
+
+      map.addLayer({
+        'id': 'MalepEnrollDiff',
+        'type': 'fill',
+        'source': 'Cohort',
+        'source-layer': 'CohortTEARegionPolys',
+        "layout": {
+          'visibility': 'none'
+        },
+        'paint': {
+          'fill-color': {
+            property: 'MaleEnrpDi', //Perc Point difference in enrollment
+            type: 'exponential',
+            stops: [
+              [-16, '#d73027'],
+              [-12, '#f46d43'],
+              [-8, '#fdae61'],
+              [-4, '#fee08b'],
+              [0, '#ffffbf'],
+              [4, '#d9ef8b']
+            ],
+          },
+        }
+      }, 'motorway-casing-Major'
+      );
+      map.addLayer({
+        "id": "MalepEnrollDiffText",
+        "type": "symbol",
+        "source": "Cohort",
+        "source-layer": "CohortTEARegionPoints",
+        "maxzoom": 6.4,
+        "layout": {
+          'visibility': 'none',
+          "text-field": "{MaleEnrpD_}" + " pp",
+          "text-font": [
+            "DIN Offc Pro Medium",
+            "Arial Unicode MS Bold"
+          ],
+          "text-size": 12
+        }
+      }
+      );
+
+
       map.addLayer({
         "id": "RegionLines",
         "type": "line",
@@ -233,8 +278,8 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoiam9obmRpbm5pbmciLCJhIjoiY2oxazR5NjNvMDFveDJ5b
 const toggleableLayers = [
     { ids: ['AApEnrollDiff', 'AApEnrollDiffText'], name: ['African American'] },
     { ids: ['HisppEnrollDiff', 'HisppEnrollDiffText'], name: ['Hispanic'] },
-    // { ids: ['AAmpEnrollDiff', 'AAmpEnrollDiffText'], name: ['African American Males'] },
     { ids: ['EcopEnrollDiff', 'EcopEnrollDiffText'], name: ['Economically Disadvantaged'] },    
+    { ids: ['MalepEnrollDiff', 'MalepEnrollDiffText'], name: ['Males'] }
 ];
 
 function hideAllLayers() {
@@ -284,7 +329,7 @@ var popup = new mapboxgl.Popup({
     map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
     map.getCanvas().style.cursor = 'pointer';
     popup.setLngLat(e.lngLat)
-      .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr></p>')
+      .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr><tr><td>Males: </td><td>' + e.features[0].properties.TotmpEnr.toFixed(1) + '%</td></tr></p>')
       .addTo(map);
   });
 
@@ -294,15 +339,15 @@ var popup = new mapboxgl.Popup({
     popup.remove();
   });
 
-  map.on("mousemove", "AAmpEnrollDiff", function (e) {
+  map.on("mousemove", "MalepEnrollDiff", function (e) {
     map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
     map.getCanvas().style.cursor = 'pointer';
     popup.setLngLat(e.lngLat)
-      .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr></p>')
+      .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr><tr><td>Males: </td><td>' + e.features[0].properties.TotmpEnr.toFixed(1) + '%</td></tr></p>')
       .addTo(map);
   });
 
-  map.on("mouseleave", "AAmpEnrollDiff", function (e) {
+  map.on("mouseleave", "MalepEnrollDiff", function (e) {
     map.setFilter("highlight-hover", ["==", "TEAReg", ""]);
     map.getCanvas().style.cursor = '';
     popup.remove();
@@ -312,7 +357,7 @@ var popup = new mapboxgl.Popup({
     map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
     map.getCanvas().style.cursor = 'pointer';
     popup.setLngLat(e.lngLat)
-      .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr></p>')
+      .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr><tr><td>Males: </td><td>' + e.features[0].properties.TotmpEnr.toFixed(1) + '%</td></tr></p>')
       .addTo(map);
   });
 
@@ -326,7 +371,7 @@ var popup = new mapboxgl.Popup({
     map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
     map.getCanvas().style.cursor = 'pointer';
     popup.setLngLat(e.lngLat)
-      .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr></p>')
+      .setHTML('<strong>Enrollment Rates for the </strong><strong style="font-style: italic;">' + e.features[0].properties.RegName + ' Region</strong><table><tr style="font-weight: bold;"><td>Overall Cohort: </td><td>' + e.features[0].properties.TotpEnr.toFixed(1) + '%</td></tr><tr><td>African American: </td><td>' + e.features[0].properties.AApEnr.toFixed(1) + '%</td></tr><tr><td>Hispanic: </td><td>' + e.features[0].properties.HispEnr.toFixed(1) + '%</td></tr><tr><td>Economic Dis.: </td><td>' + e.features[0].properties.EcopEnr.toFixed(1) + '%</td></tr><tr><td>Males: </td><td>' + e.features[0].properties.TotmpEnr.toFixed(1) + '%</td></tr></p>')
       .addTo(map);
   });
 
