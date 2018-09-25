@@ -205,9 +205,9 @@ map.on('mousemove', function(e) {
     });
 
     if ((region.length > 0) && (document.getElementById("menu").firstChild.className=='active')) {
-      document.getElementById('pd').innerHTML = '<p><em>There were ' + region[0].properties.TotCoho.toLocaleString() + ' eighth-graders in the <strong>' + region[0].properties.RegName + ' Region</strong> in the 2006-07 school year. By the spring of 2016, <strong>' + region[0].properties.TotpEnr_ + ' percent had enrolled in a Texas college or university.</strong></em></p>';
+      document.getElementById('pd').innerHTML = '<p><em>There were ' + region[0].properties.TotCoho.toLocaleString() + ' eighth-graders in the <strong>' + region[0].properties.RegName + ' Region</strong> in the 2006-07 school year. By the spring of 2016, <strong>' + region[0].properties.TotpEnr + ' percent had enrolled in a Texas college or university.</strong></em></p>';
     } else if ((region.length > 0) && (document.getElementById("menu").lastChild.className=='active')) {
-      document.getElementById('pd').innerHTML = '<p><em>There were ' + region[0].properties.TotCoho.toLocaleString() + ' eighth-graders in the <strong>' + region[0].properties.RegName + ' Region</strong> in the 2006-07 school year. By the spring of 2016, <strong>' + region[0].properties.TotpComp_ + ' percent had completed a higher ed degree or certificate in a Texas.</strong></em></p>';
+      document.getElementById('pd').innerHTML = '<p><em>There were ' + region[0].properties.TotCoho.toLocaleString() + ' eighth-graders in the <strong>' + region[0].properties.RegName + ' Region</strong> in the 2006-07 school year. By the spring of 2016, <strong>' + region[0].properties.TotpComp + ' percent had completed a higher ed degree or certificate in a Texas.</strong></em></p>';
     } else {
       document.getElementById('pd').innerHTML = '<h2>Eighth Grade Cohort</h2><p>Hover over a region!</p>';
     }

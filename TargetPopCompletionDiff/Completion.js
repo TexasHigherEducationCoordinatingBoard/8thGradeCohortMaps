@@ -336,7 +336,7 @@ var popup = new mapboxgl.Popup({
     popup.remove();
   });
 
-  map.on("mousemove", "AAmpCompDiff", function (e) {
+  map.on("mousemove", "MalepCompDiff", function (e) {
     map.setFilter("highlight-hover", ["==", "TEAReg", e.features[0].properties["TEAReg"]]);
     map.getCanvas().style.cursor = 'pointer';
     popup.setLngLat(e.lngLat)
@@ -344,7 +344,7 @@ var popup = new mapboxgl.Popup({
       .addTo(map);
   });
 
-  map.on("mouseleave", "AAmpCompDiff", function (e) {
+  map.on("mouseleave", "MalepCompDiff", function (e) {
     map.setFilter("highlight-hover", ["==", "TEAReg", ""]);
     map.getCanvas().style.cursor = '';
     popup.remove();
