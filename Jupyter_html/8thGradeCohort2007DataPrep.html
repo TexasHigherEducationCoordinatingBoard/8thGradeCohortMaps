@@ -11775,8 +11775,9 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="This-program-prepares-the-selected-data-from-2007-8th-Grade-Cohort-Longitudinal-Study-for-mapping">This program prepares the selected data from 2007 8th Grade Cohort Longitudinal Study for mapping<a class="anchor-link" href="#This-program-prepares-the-selected-data-from-2007-8th-Grade-Cohort-Longitudinal-Study-for-mapping">&#182;</a></h1><h3 id="Begin-by-downloading-the-Cohort-Workbook-from-the-THECB-website.">Begin by downloading the Cohort Workbook from <a href="http://www.txhighereddata.org/index.cfm?objectId=F2CBE4A0-C90B-11E5-8D610050560100A9">the THECB website</a>.<a class="anchor-link" href="#Begin-by-downloading-the-Cohort-Workbook-from-the-THECB-website.">&#182;</a></h3><p>The selected data focuses on target populations from the Texas Higher Education Strategic Plan. The target populations examined here are African American students, particularly African american male students, and Hispanic students.</p>
-<h3 id="Target-populations-are-examined-by-TEA-Region-which-is-how-the-data-is-presented-by-the-THECB-cohort-workbook">Target populations are examined by TEA Region which is how the data is presented by the THECB cohort workbook<a class="anchor-link" href="#Target-populations-are-examined-by-TEA-Region-which-is-how-the-data-is-presented-by-the-THECB-cohort-workbook">&#182;</a></h3>
+<h1 id="This-program-prepares-the-selected-data-from-the-8th-Grade-Cohort-Longitudinal-Study-for-mapping">This program prepares the selected data from the 8th Grade Cohort Longitudinal Study for mapping<a class="anchor-link" href="#This-program-prepares-the-selected-data-from-the-8th-Grade-Cohort-Longitudinal-Study-for-mapping">&#182;</a></h1><p>The 8th grade Cohort Longitudinal Study is a data product of the Texas Higher Education Coordinating Board.</p>
+<h3 id="Begin-by-downloading-the-2007-Cohort-Workbook-from-the-THECB-website.">Begin by downloading the 2007 Cohort Workbook from <a href="http://www.txhighereddata.org/index.cfm?objectId=F2CBE4A0-C90B-11E5-8D610050560100A9">the THECB website</a>.<a class="anchor-link" href="#Begin-by-downloading-the-2007-Cohort-Workbook-from-the-THECB-website.">&#182;</a></h3><p>The selected data focus on enrollment and completion rates in higher education. In addittion to examining the overall cohort, the data also describe the target populations - African American, and Hispanic, economically disadvantaged, and male students -  from the Texas Higher Education Strategic Plan. The target populations examined here are .</p>
+<h3 id="Statistics-are-presented-for-each-of-the-20-regions-defined-by-the-Texas-Education-Agency.-These-are-also-know-as-the-Education-Service-Center-(ERC)-Regions.">Statistics are presented for each of the 20 regions defined by the Texas Education Agency. These are also know as the Education Service Center (ERC) Regions.<a class="anchor-link" href="#Statistics-are-presented-for-each-of-the-20-regions-defined-by-the-Texas-Education-Agency.-These-are-also-know-as-the-Education-Service-Center-(ERC)-Regions.">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -11805,18 +11806,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Start-by-downloading-the-2007-cohort-workbook-from-the-THECB-website">Start by downloading the 2007 cohort workbook from the THECB website<a class="anchor-link" href="#Start-by-downloading-the-2007-cohort-workbook-from-the-THECB-website">&#182;</a></h3><p>The cohort workbooks are available at: <a href="http://www.txhighereddata.org/index.cfm?objectId=F2CBE4A0-C90B-11E5-8D610050560100A9">http://www.txhighereddata.org/index.cfm?objectId=F2CBE4A0-C90B-11E5-8D610050560100A9</a></p>
+<h3 id="Start-by-downloading-the-2007-8th-grade-cohort-workbook-from-the-THECB-website">Start by downloading the 2007 8th grade cohort workbook from the THECB website<a class="anchor-link" href="#Start-by-downloading-the-2007-8th-grade-cohort-workbook-from-the-THECB-website">&#182;</a></h3><p>The cohort workbooks are available at: <a href="http://www.txhighereddata.org/index.cfm?objectId=F2CBE4A0-C90B-11E5-8D610050560100A9">http://www.txhighereddata.org/index.cfm?objectId=F2CBE4A0-C90B-11E5-8D610050560100A9</a></p>
 <p>Save the workbook in 'Data\8th Grade FY2007 Cohort Workbook.xlsx'</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="First-get-the-Gender-by-Ethnicity-Data">First get the Gender by Ethnicity Data<a class="anchor-link" href="#First-get-the-Gender-by-Ethnicity-Data">&#182;</a></h3><p>This next part gets us:</p>
-<p>African American males (a 60x30 target population) by TEA region.</p>
 
 </div>
 </div>
@@ -11826,7 +11817,49 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Data\8th Grade FY2007 Cohort Workbook.xlsx&#39;</span><span class="p">,</span> <span class="n">sheetname</span><span class="o">=</span><span class="s1">&#39;TEA by Gender by Ethnicity&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#We&#39;ll also make a file geodatabase in the new folder</span>
+<span class="n">arcpy</span><span class="o">.</span><span class="n">CreateFileGDB_management</span><span class="p">(</span><span class="s2">&quot;Data&quot;</span><span class="p">,</span><span class="s2">&quot;Cohort.gdb&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[2]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;Result &#39;Data\\Cohort.gdb&#39;&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Now-we'll-extract-data-from-the-workbook-starting-with-the-Gender-by-Ethnicity-Data.">Now we'll extract data from the workbook starting with the Gender by Ethnicity Data.<a class="anchor-link" href="#Now-we'll-extract-data-from-the-workbook-starting-with-the-Gender-by-Ethnicity-Data.">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Data\8th Grade FY2007 Cohort Workbook.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;TEA by Gender by Ethnicity&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 
 <span class="c1">#Keep the columns I need</span>
 <span class="n">xl2</span><span class="o">=</span><span class="n">xl</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">]]</span>
@@ -11835,15 +11868,15 @@ div#notebook {
 <span class="n">GenEth</span><span class="o">=</span><span class="n">xl2</span><span class="p">[:</span><span class="mi">160</span><span class="p">]</span>
 <span class="n">GenEth</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEAReg&#39;</span><span class="p">,</span><span class="s1">&#39;RegName&#39;</span><span class="p">,</span><span class="s1">&#39;Gender&#39;</span><span class="p">,</span><span class="s1">&#39;Eth&#39;</span><span class="p">,</span> <span class="s1">&#39;CohoN&#39;</span><span class="p">,</span> <span class="s1">&#39;nEnr&#39;</span><span class="p">,</span> <span class="s1">&#39;pEnr&#39;</span><span class="p">,</span> <span class="s1">&#39;nComp&#39;</span><span class="p">,</span> <span class="s1">&#39;pComp&#39;</span><span class="p">]</span>
 
-<span class="c1">#Make Dataset just of African American Males (60x30TX target popultation)</span>
+<span class="c1">#Make Dataset just of African American Males (60x30TX target popultation - this wasn&#39;t used for the maps)</span>
 <span class="n">AAmales</span><span class="o">=</span><span class="n">GenEth</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">GenEth</span><span class="p">[</span><span class="s1">&#39;Eth&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;African American&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">GenEth</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Male&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1">#copy to avoid chained indexing</span>
-<span class="n">AAmales</span><span class="o">=</span><span class="n">AAmales</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Gender&#39;</span><span class="p">,</span><span class="s1">&#39;Eth&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#Keep the columns I need</span>
+<span class="n">AAmales</span><span class="o">=</span><span class="n">AAmales</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Gender&#39;</span><span class="p">,</span><span class="s1">&#39;Eth&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">AAmales</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEAReg&#39;</span><span class="p">,</span><span class="s1">&#39;RegName&#39;</span><span class="p">,</span><span class="s1">&#39;AAmCoho&#39;</span><span class="p">,</span> <span class="s1">&#39;AAmnEnr&#39;</span><span class="p">,</span> <span class="s1">&#39;AAmpEnr&#39;</span><span class="p">,</span> <span class="s1">&#39;AAmnComp&#39;</span><span class="p">,</span> <span class="s1">&#39;AAmpComp&#39;</span><span class="p">]</span>
 <span class="n">AAmales</span><span class="p">[</span><span class="s1">&#39;AAmpEnr&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">AAmales</span><span class="p">[</span><span class="s1">&#39;AAmpEnr&#39;</span><span class="p">]</span>
 <span class="n">AAmales</span><span class="p">[</span><span class="s1">&#39;AAmpComp&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">AAmales</span><span class="p">[</span><span class="s1">&#39;AAmpComp&#39;</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">AAmales</span><span class="p">)</span>
 <span class="c1">#AAmales.to_csv(&#39;AAmales.csv&#39;, index=False)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">GenEth</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11860,20 +11893,33 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>    TEAReg         RegName  AAmCoho  AAmnEnr    AAmpEnr  AAmnComp   AAmpComp
-4        1        Edinburg     27.0     16.0  59.259259       4.0  14.814815
-12       2  Corpus Christi    160.0     70.0  43.750000      16.0  10.000000
-20       3        Victoria    237.0     98.0  41.350211      31.0  13.080169
-28       4         Houston   8646.0   4358.0  50.404811     922.0  10.663891
-36       5        Beaumont    949.0    429.0  45.205479      73.0   7.692308
-..     ...             ...      ...      ...        ...       ...        ...
-124     16        Amarillo    178.0     80.0  44.943820      14.0   7.865169
-132     17         Lubbock    252.0     95.0  37.698413      16.0   6.349206
-140     18         Midland    171.0     58.0  33.918129      14.0   8.187135
-148     19         El Paso    204.0     93.0  45.588235      21.0  10.294118
-156     20     San Antonio   1070.0    513.0  47.943925     118.0  11.028037
+<pre>    TEAReg      RegName  Gender               Eth    CohoN    nEnr      pEnr  \
+0        1     Edinburg  Female  African American     33.0    19.0  0.575758   
+1        1     Edinburg  Female          Hispanic  12607.0  7559.0  0.599588   
+2        1     Edinburg  Female             White    383.0   285.0  0.744125   
+3        1     Edinburg  Female            Others     70.0    44.0  0.628571   
+4        1     Edinburg    Male  African American     27.0    16.0  0.592593   
+..     ...          ...     ...               ...      ...     ...       ...   
+155     20  San Antonio  Female            Others    220.0   160.0  0.727273   
+156     20  San Antonio    Male  African American   1070.0   513.0  0.479439   
+157     20  San Antonio    Male          Hispanic   9266.0  4004.0  0.432117   
+158     20  San Antonio    Male             White   3583.0  2014.0  0.562099   
+159     20  San Antonio    Male            Others    269.0   180.0  0.669145   
 
-[20 rows x 7 columns]
+      nComp     pComp  
+0       8.0  0.242424  
+1    3143.0  0.249306  
+2     157.0  0.409922  
+3      35.0  0.500000  
+4       4.0  0.148148  
+..      ...       ...  
+155    99.0  0.450000  
+156   118.0  0.110280  
+157  1214.0  0.131017  
+158   984.0  0.274630  
+159    91.0  0.338290  
+
+[160 rows x 9 columns]
 </pre>
 </div>
 </div>
@@ -11886,22 +11932,18 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This next part gets us:</p>
-<p>African American and Hispanic totals by region. For this, we'll collapse on ethicity to remove gender.</p>
+<h3 id="Now-get-African-American-and-Hispanic-totals-by-region.">Now get African American and Hispanic totals by region.<a class="anchor-link" href="#Now-get-African-American-and-Hispanic-totals-by-region.">&#182;</a></h3><p>We'll collapse on ethicity to remove gender.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Keep Hispanic and African American counts, collapse to remove gender, and then recalculate percents </span>
 <span class="n">EthCounts</span><span class="o">=</span><span class="n">GenEth</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">GenEth</span><span class="o">.</span><span class="n">columns</span><span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#axis=0 for rows, axis=1 for columns</span>
-<span class="c1">#AA_Hisp=EthCounts.loc[EthCounts[&#39;Eth&#39;].isin([&#39;African American&#39;, &#39;Hispanic&#39;])]</span>
-<span class="c1">#AA_Hisp_collapsed=AA_Hisp.groupby([&quot;TEAReg&quot;, &quot;RegName&quot;,&quot;Eth&quot;]).sum()</span>
-
 
 <span class="c1">#Make African American Group</span>
 <span class="n">AAtemp</span><span class="o">=</span><span class="n">EthCounts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">EthCounts</span><span class="p">[</span><span class="s1">&#39;Eth&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;African American&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1">#copy to avoid chained indexing</span>
@@ -11919,12 +11961,8 @@ div#notebook {
 <span class="n">Hisp</span><span class="o">=</span><span class="n">Hisp</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Eth&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#Keep the columns I need</span>
 <span class="n">Hisp</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEAReg&#39;</span><span class="p">,</span><span class="s1">&#39;RegName&#39;</span><span class="p">,</span><span class="s1">&#39;HisCoho&#39;</span><span class="p">,</span> <span class="s1">&#39;HisnEnr&#39;</span><span class="p">,</span><span class="s1">&#39;HisnComp&#39;</span><span class="p">,</span><span class="s1">&#39;HispEnr&#39;</span><span class="p">,</span><span class="s1">&#39;HispComp&#39;</span><span class="p">]</span>
 
-
-<span class="c1">#print(AA_Hisp_collapsed)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">AA</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Hisp</span><span class="p">)</span>
-<span class="c1">#AA.to_csv(&#39;AA.csv&#39;)</span>
-<span class="c1">#Hisp.to_csv(&#39;Hisp.csv&#39;)</span>
 </pre></div>
 
 </div>
@@ -11981,15 +12019,14 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This next part gets us:</p>
-<p>All Males by TEA Region for comparison</p>
+<h3 id="Male-enrollment-and-completion-by-region.">Male enrollment and completion by region.<a class="anchor-link" href="#Male-enrollment-and-completion-by-region.">&#182;</a></h3><p>For this, we'll collapse on gender and remove ethnicity.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Get total male counts by region, collape on gender, counts only.</span>
@@ -11997,12 +12034,10 @@ div#notebook {
 <span class="n">Allmalestemp</span><span class="o">=</span><span class="n">GenCounts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">GenCounts</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Male&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1">#copy to avoid chained indexing</span>
 <span class="n">Allmales</span><span class="o">=</span><span class="n">Allmalestemp</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;TEAReg&quot;</span><span class="p">,</span> <span class="s2">&quot;RegName&quot;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">Allmales</span><span class="p">[</span><span class="s1">&#39;AllmpEnr&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">Allmales</span><span class="p">[</span><span class="s1">&#39;nEnr&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">Allmales</span><span class="p">[</span><span class="s1">&#39;CohoN&#39;</span><span class="p">]</span>
-<span class="n">Allmales</span><span class="p">[</span><span class="s1">&#39;AApComp&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">Allmales</span><span class="p">[</span><span class="s1">&#39;nComp&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">Allmales</span><span class="p">[</span><span class="s1">&#39;CohoN&#39;</span><span class="p">]</span>
+<span class="n">Allmales</span><span class="p">[</span><span class="s1">&#39;AllmpComp&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">Allmales</span><span class="p">[</span><span class="s1">&#39;nComp&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">Allmales</span><span class="p">[</span><span class="s1">&#39;CohoN&#39;</span><span class="p">]</span>
 <span class="n">Allmales</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEAReg&#39;</span><span class="p">,</span> <span class="s1">&#39;RegName&#39;</span><span class="p">,</span><span class="s1">&#39;TotmCoho&#39;</span><span class="p">,</span> <span class="s1">&#39;TotmnEnr&#39;</span><span class="p">,</span><span class="s1">&#39;TotmnComp&#39;</span><span class="p">,</span><span class="s1">&#39;TotmpEnr&#39;</span><span class="p">,</span><span class="s1">&#39;TotmpComp&#39;</span><span class="p">]</span>
 
-
 <span class="nb">print</span><span class="p">(</span><span class="n">Allmales</span><span class="p">)</span>
-<span class="c1">#Allmales.to_csv(&#39;Allmales.csv&#39;)</span>
 </pre></div>
 
 </div>
@@ -12054,12 +12089,20 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Get-Economic-Disadvantaged-student-data-by-region.">Get Economic Disadvantaged student data by region.<a class="anchor-link" href="#Get-Economic-Disadvantaged-student-data-by-region.">&#182;</a></h3>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xlEcon</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Data\8th Grade FY2007 Cohort Workbook.xlsx&#39;</span><span class="p">,</span> <span class="n">sheetname</span><span class="o">=</span><span class="s1">&#39;TEA Region by Eco&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xlEcon</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Data\8th Grade FY2007 Cohort Workbook.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;TEA Region by Eco&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 
 <span class="c1">#Keep the columns I need</span>
 <span class="n">xlEcon2</span><span class="o">=</span><span class="n">xlEcon</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">]]</span>
@@ -12116,19 +12159,16 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Here-we-get-overall-totals-by-region-for-comparison">Here we get overall totals by region for comparison<a class="anchor-link" href="#Here-we-get-overall-totals-by-region-for-comparison">&#182;</a></h1><ol>
-<li>All students for comparison to Ethnicity breakouts</li>
-</ol>
-
+<h3 id="Here-we-get-overall-totals-by-region-for-comparison">Here we get overall totals by region for comparison<a class="anchor-link" href="#Here-we-get-overall-totals-by-region-for-comparison">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Data\8th Grade FY2007 Cohort Workbook.xlsx&#39;</span><span class="p">,</span> <span class="n">sheetname</span><span class="o">=</span><span class="s1">&#39;Summary&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Data\8th Grade FY2007 Cohort Workbook.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;Summary&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 
 <span class="c1">#Keep the columns I need</span>
 <span class="n">xl2</span><span class="o">=</span><span class="n">xl</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">]]</span>
@@ -12141,7 +12181,6 @@ div#notebook {
 <span class="n">RegTotals</span><span class="p">[</span><span class="s1">&#39;TotpComp&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">RegTotals</span><span class="p">[</span><span class="s1">&#39;TotpComp&#39;</span><span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">RegTotals</span><span class="p">)</span>
-<span class="c1">#RegTotals.to_csv(&#39;RegTotals.csv&#39;, index=False)</span>
 </pre></div>
 
 </div>
@@ -12184,64 +12223,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Now-get-statewide-Cohort-totals-for-Hispanics-and-African-Americans">Now get statewide Cohort totals for Hispanics and African Americans<a class="anchor-link" href="#Now-get-statewide-Cohort-totals-for-Hispanics-and-African-Americans">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Data\8th Grade FY2007 Cohort Workbook.xlsx&#39;</span><span class="p">,</span> <span class="n">sheetname</span><span class="o">=</span><span class="s1">&#39;Summary&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">38</span><span class="p">)</span>
-
-<span class="c1">#Keep the columns I need</span>
-<span class="n">xl2</span><span class="o">=</span><span class="n">xl</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
-
-<span class="c1">#Get Region Totals and drop the rows I don&#39;t need</span>
-<span class="n">StatewideCohortTotals</span><span class="o">=</span><span class="n">xl2</span><span class="p">[:</span><span class="mi">8</span><span class="p">]</span>
-<span class="n">StatewideCohortTotals</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">,</span><span class="s1">&#39;Eth&#39;</span><span class="p">,</span><span class="s1">&#39;Cohort&#39;</span><span class="p">]</span>
-
-<span class="c1">#Get African American and Hispanic Statewide Cohort Totals</span>
-<span class="n">StatewideCohortTotals</span><span class="o">=</span><span class="n">StatewideCohortTotals</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;Eth&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">StatewideCohortTotals</span><span class="p">)</span>
-<span class="c1">#StatewideCohortTotals.to_csv(&#39;StatewideCohortTotals.csv&#39;, index=False)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>                    Cohort
-Eth                       
-African American   50684.0
-Hispanic          149548.0
-Others             11896.0
-White             126214.0
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Now-get-statewide-Cohort-totals-for-Econ-Disadvantage">Now get statewide Cohort totals for Econ Disadvantage<a class="anchor-link" href="#Now-get-statewide-Cohort-totals-for-Econ-Disadvantage">&#182;</a></h3>
+<h3 id="And-now-merge-the-tables">And now merge the tables<a class="anchor-link" href="#And-now-merge-the-tables">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -12250,126 +12232,69 @@ White             126214.0
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Data\8th Grade FY2007 Cohort Workbook.xlsx&#39;</span><span class="p">,</span> <span class="n">sheetname</span><span class="o">=</span><span class="s1">&#39;Summary&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">52</span><span class="p">)</span>
-
-<span class="c1">#Keep the columns I need</span>
-<span class="n">xl2</span><span class="o">=</span><span class="n">xl</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
-
-<span class="c1">#Get Region Totals and drop the rows I don&#39;t need</span>
-<span class="n">StatewideCohortEcon</span><span class="o">=</span><span class="n">xl2</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">StatewideCohortEcon</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Eco&#39;</span><span class="p">,</span><span class="s1">&#39;Eth&#39;</span><span class="p">,</span><span class="s1">&#39;Cohort&#39;</span><span class="p">]</span>
-
-<span class="c1">#Get African American and Hispanic Statewide Cohort Totals</span>
-<span class="n">StatewideCohortEcon</span><span class="o">=</span><span class="n">StatewideCohortEcon</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;Eco&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">StatewideCohortEcon</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>                            Cohort
-Eco                               
-Economically Disadvantaged  179535
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="And-now-merge-the-tables">And now merge the tables<a class="anchor-link" href="#And-now-merge-the-tables">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#set percentages to have just one decimal place</span>
-<span class="n">All</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">AA</span><span class="p">,</span> <span class="n">AAmales</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEAReg&#39;</span><span class="p">,</span> <span class="s1">&#39;RegName&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">All</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">All</span><span class="p">,</span> <span class="n">Hisp</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEAReg&#39;</span><span class="p">,</span> <span class="s1">&#39;RegName&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Combine into one table</span>
+<span class="n">All</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">AA</span><span class="p">,</span> <span class="n">Hisp</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEAReg&#39;</span><span class="p">,</span> <span class="s1">&#39;RegName&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">All</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">All</span><span class="p">,</span> <span class="n">Allmales</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEAReg&#39;</span><span class="p">,</span> <span class="s1">&#39;RegName&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">All</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">All</span><span class="p">,</span> <span class="n">RegTotals</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEAReg&#39;</span><span class="p">,</span> <span class="s1">&#39;RegName&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">All</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">All</span><span class="p">,</span> <span class="n">Econ</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEAReg&#39;</span><span class="p">,</span> <span class="s1">&#39;RegName&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-
-<span class="c1">#Calculate Hisp, AA, and Econ % of statewide cohort for each TEA Region</span>
-<span class="n">All</span><span class="p">[</span><span class="s1">&#39;AATXCoho&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">StatewideCohortTotals</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;African American&#39;</span><span class="p">,</span><span class="s1">&#39;Cohort&#39;</span><span class="p">]</span>
-<span class="n">All</span><span class="p">[</span><span class="s1">&#39;HisTXCoho&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">StatewideCohortTotals</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Hispanic&#39;</span><span class="p">,</span><span class="s1">&#39;Cohort&#39;</span><span class="p">]</span>
-<span class="n">All</span><span class="p">[</span><span class="s1">&#39;EcoTXCoho&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">StatewideCohortEcon</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Economically Disadvantaged&#39;</span><span class="p">,</span><span class="s1">&#39;Cohort&#39;</span><span class="p">]</span>
-<span class="n">All</span><span class="p">[</span><span class="s1">&#39;AApTXCoho&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;AACoho&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;AATXCoho&#39;</span><span class="p">]</span>
-<span class="n">All</span><span class="p">[</span><span class="s1">&#39;HispTXCoho&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;HisCoho&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;HisTXCoho&#39;</span><span class="p">]</span>
-<span class="n">All</span><span class="p">[</span><span class="s1">&#39;EcopTXCoho&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;EcoCoho&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;EcoTXCoho&#39;</span><span class="p">]</span>
-
-
-<span class="c1">#Calculate % point differences for AA/Hisp/AAmales/Eco enrollmnet and completion rates from total</span>
+<span class="c1">#Calculate % point differences for AA/Hisp/Males/Eco enrollmnet and completion rates from total cohort by region</span>
 <span class="n">All</span><span class="p">[</span><span class="s1">&#39;AAEnrpDi&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;AApEnr&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;TotpEnr&#39;</span><span class="p">]</span>
 <span class="n">All</span><span class="p">[</span><span class="s1">&#39;HisEnrpDi&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;HispEnr&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;TotpEnr&#39;</span><span class="p">]</span>
-<span class="n">All</span><span class="p">[</span><span class="s1">&#39;AAmEnrpDi&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;AAmpEnr&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;TotmpEnr&#39;</span><span class="p">]</span>
+<span class="n">All</span><span class="p">[</span><span class="s1">&#39;MaleEnrpDi&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;TotmpEnr&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;TotpEnr&#39;</span><span class="p">]</span> <span class="c1">#all males</span>
 <span class="n">All</span><span class="p">[</span><span class="s1">&#39;EcoEnrpDi&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;EcopEnr&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;TotpEnr&#39;</span><span class="p">]</span>
 <span class="n">All</span><span class="p">[</span><span class="s1">&#39;AAComppDi&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;AApComp&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;TotpComp&#39;</span><span class="p">]</span>
 <span class="n">All</span><span class="p">[</span><span class="s1">&#39;HisComppDi&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;HispComp&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;TotpComp&#39;</span><span class="p">]</span>
-<span class="n">All</span><span class="p">[</span><span class="s1">&#39;AAmComppDi&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;AAmpComp&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;TotmpComp&#39;</span><span class="p">]</span>
+<span class="n">All</span><span class="p">[</span><span class="s1">&#39;MaleCpDi&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;TotmpComp&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;TotpComp&#39;</span><span class="p">]</span> <span class="c1">#all males</span>
 <span class="n">All</span><span class="p">[</span><span class="s1">&#39;EcoComppDi&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;EcopComp&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;TotpComp&#39;</span><span class="p">]</span>
 
-<span class="c1">#Drop unneeded variables</span>
-<span class="n">Final</span><span class="o">=</span><span class="n">All</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;HisTXCoho&#39;</span><span class="p">,</span><span class="s1">&#39;AATXCoho&#39;</span><span class="p">,</span> <span class="s1">&#39;EcoTXCoho&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1">#Keep the columns I need</span>
+<span class="n">Final</span><span class="o">=</span><span class="n">All</span>
 
-
-<span class="c1">#Make perc of total for AA, Hisp, Eco, and AA_males</span>
+<span class="c1">#Make perc of total for AA, Hisp, and Eco</span>
 <span class="n">Final</span><span class="p">[</span><span class="s1">&#39;AApCoho&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;AACoho&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;TotCoho&#39;</span><span class="p">]</span>
 <span class="n">Final</span><span class="p">[</span><span class="s1">&#39;HispCoho&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;HisCoho&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;TotCoho&#39;</span><span class="p">]</span>
-<span class="n">Final</span><span class="p">[</span><span class="s1">&#39;AAmpCoho&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;AAmCoho&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;TotmCoho&#39;</span><span class="p">]</span>
 <span class="n">Final</span><span class="p">[</span><span class="s1">&#39;EcopCoho&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;EcoCoho&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">All</span><span class="p">[</span><span class="s1">&#39;TotCoho&#39;</span><span class="p">]</span>
 
-<span class="c1">#Make variables to have zero decmals to use as symbol layers</span>
+<span class="c1">#Make variables with &quot;_&quot; suffix. They will have zero decmals and be used as symbol layers</span>
 <span class="n">Final</span><span class="p">[</span><span class="s1">&#39;TotpEnr_&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Final</span><span class="p">[</span><span class="s1">&#39;TotpEnr&#39;</span><span class="p">]</span>
 <span class="n">Final</span><span class="p">[</span><span class="s1">&#39;TotpComp_&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Final</span><span class="p">[</span><span class="s1">&#39;TotpComp&#39;</span><span class="p">]</span> 
+<span class="n">Final</span><span class="p">[</span><span class="s1">&#39;TotmpComp_&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Final</span><span class="p">[</span><span class="s1">&#39;TotmpComp&#39;</span><span class="p">]</span>
+<span class="n">Final</span><span class="p">[</span><span class="s1">&#39;AApComp_&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Final</span><span class="p">[</span><span class="s1">&#39;AApComp&#39;</span><span class="p">]</span>
+<span class="n">Final</span><span class="p">[</span><span class="s1">&#39;HispComp_&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Final</span><span class="p">[</span><span class="s1">&#39;HispComp&#39;</span><span class="p">]</span>
+<span class="n">Final</span><span class="p">[</span><span class="s1">&#39;EcopComp_&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Final</span><span class="p">[</span><span class="s1">&#39;EcopComp&#39;</span><span class="p">]</span>
+
+
 <span class="n">Final</span><span class="p">[</span><span class="s1">&#39;AApCoho_&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Final</span><span class="p">[</span><span class="s1">&#39;AApCoho&#39;</span><span class="p">]</span>
-<span class="n">Final</span><span class="p">[</span><span class="s1">&#39;AAmpCoho_&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Final</span><span class="p">[</span><span class="s1">&#39;AAmpCoho&#39;</span><span class="p">]</span>
 <span class="n">Final</span><span class="p">[</span><span class="s1">&#39;HispCoho_&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Final</span><span class="p">[</span><span class="s1">&#39;HispCoho&#39;</span><span class="p">]</span>
 <span class="n">Final</span><span class="p">[</span><span class="s1">&#39;EcopCoho_&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Final</span><span class="p">[</span><span class="s1">&#39;EcopCoho&#39;</span><span class="p">]</span>
 <span class="n">Final</span><span class="p">[</span><span class="s1">&#39;AAComppD_&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Final</span><span class="p">[</span><span class="s1">&#39;AAComppDi&#39;</span><span class="p">]</span>
-<span class="n">Final</span><span class="p">[</span><span class="s1">&#39;AAmComppD_&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Final</span><span class="p">[</span><span class="s1">&#39;AAmComppDi&#39;</span><span class="p">]</span>
 <span class="n">Final</span><span class="p">[</span><span class="s1">&#39;HisComppD_&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Final</span><span class="p">[</span><span class="s1">&#39;HisComppDi&#39;</span><span class="p">]</span>
 <span class="n">Final</span><span class="p">[</span><span class="s1">&#39;EcoComppD_&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Final</span><span class="p">[</span><span class="s1">&#39;EcoComppDi&#39;</span><span class="p">]</span>
 <span class="n">Final</span><span class="p">[</span><span class="s1">&#39;AAEnrpD_&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Final</span><span class="p">[</span><span class="s1">&#39;AAEnrpDi&#39;</span><span class="p">]</span>
-<span class="n">Final</span><span class="p">[</span><span class="s1">&#39;AAmEnrpD_&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Final</span><span class="p">[</span><span class="s1">&#39;AAmEnrpDi&#39;</span><span class="p">]</span>
 <span class="n">Final</span><span class="p">[</span><span class="s1">&#39;HisEnrpD_&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Final</span><span class="p">[</span><span class="s1">&#39;HisEnrpDi&#39;</span><span class="p">]</span>
 <span class="n">Final</span><span class="p">[</span><span class="s1">&#39;EcoEnrpD_&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Final</span><span class="p">[</span><span class="s1">&#39;EcoEnrpDi&#39;</span><span class="p">]</span>
+<span class="n">Final</span><span class="p">[</span><span class="s1">&#39;MaleEnrpD_&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Final</span><span class="p">[</span><span class="s1">&#39;MaleEnrpDi&#39;</span><span class="p">]</span>
+<span class="n">Final</span><span class="p">[</span><span class="s1">&#39;MaleCpD_&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Final</span><span class="p">[</span><span class="s1">&#39;MaleCpDi&#39;</span><span class="p">]</span>
 
 
 <span class="c1">#set percentages to have just one decimal place</span>
-<span class="n">Processed</span> <span class="o">=</span> <span class="n">Final</span><span class="o">.</span><span class="n">round</span><span class="p">({</span><span class="s1">&#39;AApEnr&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;AApComp&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;AAmpEnr&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;AAmpComp&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
-             <span class="s1">&#39;HispEnr&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;HispComp&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;TotmpEnr&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;TotmpComp&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
-             <span class="s1">&#39;TotpEnr&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;TotpComp&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;AApTXCoho&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;AAEnrpDi&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
-             <span class="s1">&#39;HisEnrpDi&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;AAmEnrpDi&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;AAComppDi&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;HisComppDi&#39;</span><span class="p">:</span> 
-             <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;AAmComppDi&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;AApCoho&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;HispCoho&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;AAmpCoho&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-             <span class="s1">&#39;EcopEnr&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;EcopComp&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;EcoEnrpDi&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;EcoComppDi&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
-            <span class="s1">&#39;EcopTXCoho&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="s1">&#39;HispTXCoho&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;EcopCoho&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;TotpEnr_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> 
-            <span class="s1">&#39;TotpComp_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;AApCoho_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;AAmpCoho_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;HispCoho_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;EcopCoho_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> 
-            <span class="s1">&#39;AAComppD_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;AAmComppD_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;HisComppD_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;EcoComppD_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-            <span class="s1">&#39;AAEnrpD_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;AAmEnrpD_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;HisEnrpD_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;EcoEnrpD_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">})</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">Processed</span> <span class="o">=</span> <span class="n">Final</span><span class="o">.</span><span class="n">round</span><span class="p">({</span><span class="s1">&#39;AApEnr&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;AApComp&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+             <span class="s1">&#39;HispEnr&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;HispComp&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+             <span class="s1">&#39;TotmpEnr&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;TotmpComp&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+             <span class="s1">&#39;TotpEnr&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;TotpComp&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+            <span class="s1">&#39;AAEnrpDi&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="s1">&#39;AAComppDi&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s1">&#39;HisEnrpDi&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;HisComppDi&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+             <span class="s1">&#39;AApCoho&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;HispCoho&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;EcopCoho&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>  
+             <span class="s1">&#39;EcopEnr&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;EcopComp&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+            <span class="s1">&#39;EcoEnrpDi&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;EcoComppDi&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+            <span class="s1">&#39;MaleEnrpDi&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;MaleCpDi&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+            <span class="s1">&#39;TotpEnr_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;TotpComp_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;TotmpComp_&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s1">&#39;AApComp_&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;HispComp_&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;EcopComp_&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+            <span class="s1">&#39;AApCoho_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;HispCoho_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;EcopCoho_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> 
+            <span class="s1">&#39;AAComppD_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;HisComppD_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;EcoComppD_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;MaleCpD_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+            <span class="s1">&#39;AAEnrpD_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;HisEnrpD_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;EcoEnrpD_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;MaleEnrpD_&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">})</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-<span class="n">Processed</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;ProcessedData.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">Processed</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;Data/ProcessedData.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Processed</span><span class="p">)</span>
 </pre></div>
 
@@ -12387,46 +12312,173 @@ Economically Disadvantaged  179535
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>   TEAReg         RegName   AACoho  AAnEnr  AAnComp  AApEnr  AApComp  AAmCoho  \
-0       1        Edinburg     60.0    35.0     12.0    58.3     20.0     27.0   
-1       2  Corpus Christi    306.0   151.0     40.0    49.3     13.1    160.0   
-2       3        Victoria    447.0   222.0     71.0    49.7     15.9    237.0   
-3       4         Houston  17218.0  9734.0   2546.0    56.5     14.8   8646.0   
-4       5        Beaumont   1813.0   957.0    204.0    52.8     11.3    949.0   
+<pre>   TEAReg         RegName   AACoho  AAnEnr  AAnComp  AApEnr  AApComp  HisCoho  \
+0       1        Edinburg     60.0    35.0     12.0    58.3     20.0  25584.0   
+1       2  Corpus Christi    306.0   151.0     40.0    49.3     13.1   5423.0   
+2       3        Victoria    447.0   222.0     71.0    49.7     15.9   1821.0   
+3       4         Houston  17218.0  9734.0   2546.0    56.5     14.8  30026.0   
+4       5        Beaumont   1813.0   957.0    204.0    52.8     11.3    652.0   
 ..    ...             ...      ...     ...      ...     ...      ...      ...   
-15     16        Amarillo    364.0   184.0     38.0    50.5     10.4    178.0   
-16     17         Lubbock    480.0   202.0     31.0    42.1      6.5    252.0   
-17     18         Midland    343.0   143.0     39.0    41.7     11.4    171.0   
-18     19         El Paso    380.0   170.0     42.0    44.7     11.1    204.0   
-19     20     San Antonio   2074.0  1095.0    342.0    52.8     16.5   1070.0   
+15     16        Amarillo    364.0   184.0     38.0    50.5     10.4   2213.0   
+16     17         Lubbock    480.0   202.0     31.0    42.1      6.5   2819.0   
+17     18         Midland    343.0   143.0     39.0    41.7     11.4   3393.0   
+18     19         El Paso    380.0   170.0     42.0    44.7     11.1  11690.0   
+19     20     San Antonio   2074.0  1095.0    342.0    52.8     16.5  18037.0   
 
-    AAmnEnr  AAmpEnr    ...      HispCoho_  EcopCoho_  AAComppD_  AAmComppD_  \
-0      16.0     59.3    ...           96.0       86.0       -2.0        -3.0   
-1      70.0     43.8    ...           69.0       59.0       -5.0        -5.0   
-2      98.0     41.4    ...           44.0       52.0       -8.0        -7.0   
-3    4358.0     50.4    ...           40.0       51.0       -7.0        -7.0   
-4     429.0     45.2    ...           11.0       50.0       -9.0        -9.0   
-..      ...      ...    ...            ...        ...        ...         ...   
-15     80.0     44.9    ...           38.0       52.0      -11.0        -9.0   
-16     95.0     37.7    ...           50.0       57.0      -14.0       -11.0   
-17     58.0     33.9    ...           58.0       52.0       -6.0        -6.0   
-18     93.0     45.6    ...           88.0       75.0       -9.0        -5.0   
-19    513.0     47.9    ...           66.0       60.0       -4.0        -6.0   
+    HisnEnr  HisnComp    ...     HispCoho_  EcopCoho_  AAComppD_  HisComppD_  \
+0   14376.0    5405.0    ...          96.0       86.0       -2.0        -1.0   
+1    2557.0     792.0    ...          69.0       59.0       -5.0        -3.0   
+2     736.0     229.0    ...          44.0       52.0       -8.0       -12.0   
+3   13183.0    4378.0    ...          40.0       51.0       -7.0        -8.0   
+4     270.0     105.0    ...          11.0       50.0       -9.0        -4.0   
+..      ...       ...    ...           ...        ...        ...         ...   
+15    987.0     350.0    ...          38.0       52.0      -11.0        -6.0   
+16   1145.0     351.0    ...          50.0       57.0      -14.0        -8.0   
+17   1429.0     424.0    ...          58.0       52.0       -6.0        -5.0   
+18   6927.0    2290.0    ...          88.0       75.0       -9.0        -0.0   
+19   8618.0    2896.0    ...          66.0       60.0       -4.0        -5.0   
 
-    HisComppD_  EcoComppD_  AAEnrpD_  AAmEnrpD_  HisEnrpD_  EcoEnrpD_  
-0         -1.0        -2.0       2.0        6.0       -0.0       -3.0  
-1         -3.0        -8.0      -1.0       -1.0       -3.0      -11.0  
-2        -12.0       -13.0      -4.0       -6.0      -13.0      -15.0  
-3         -8.0       -10.0       2.0       -1.0      -11.0      -11.0  
-4         -4.0       -10.0      -0.0       -2.0      -11.0      -12.0  
-..         ...         ...       ...        ...        ...        ...  
-15        -6.0        -9.0      -4.0       -3.0      -10.0      -12.0  
-16        -8.0       -10.0      -9.0       -9.0      -10.0      -13.0  
-17        -5.0        -8.0      -7.0      -10.0       -6.0      -12.0  
-18        -0.0        -3.0     -14.0       -9.0        1.0       -3.0  
-19        -5.0        -8.0       1.0        1.0       -4.0       -9.0  
+    EcoComppD_  AAEnrpD_  HisEnrpD_  EcoEnrpD_  MaleEnrpD_  MaleCpD_  
+0         -2.0       2.0       -0.0       -3.0        -4.0      -4.0  
+1         -8.0      -1.0       -3.0      -11.0        -5.0      -3.0  
+2        -13.0      -4.0      -13.0      -15.0        -6.0      -4.0  
+3        -10.0       2.0      -11.0      -11.0        -4.0      -4.0  
+4        -10.0      -0.0      -11.0      -12.0        -6.0      -4.0  
+..         ...       ...        ...        ...         ...       ...  
+15        -9.0      -4.0      -10.0      -12.0        -6.0      -5.0  
+16       -10.0      -9.0      -10.0      -13.0        -4.0      -3.0  
+17        -8.0      -7.0       -6.0      -12.0        -5.0      -3.0  
+18        -3.0     -14.0        1.0       -3.0        -4.0      -4.0  
+19        -8.0       1.0       -4.0       -9.0        -4.0      -4.0  
 
-[20 rows x 61 columns]
+[20 rows x 55 columns]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Now-split-our-prepared-data-into-two-datasets.-One-for-points-and-one-for-polygons">Now split our prepared data into two datasets. One for points and one for polygons<a class="anchor-link" href="#Now-split-our-prepared-data-into-two-datasets.-One-for-points-and-one-for-polygons">&#182;</a></h3><p>The Polygon data will have all the variables except for the percentages rounded to zero decimals. The Point data will just have the rounded off percentages.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Polygon data</span>
+<span class="n">ProcessedPolys</span><span class="o">=</span><span class="n">Processed</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">38</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">ProcessedPolys</span><span class="p">)</span>
+<span class="n">ProcessedPolys</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;Data/ProcessedPolys.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1">#Point Data</span>
+<span class="n">ProcessedPoints</span><span class="o">=</span><span class="n">Processed</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="n">numpy</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="mi">38</span><span class="p">:</span><span class="mi">55</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ProcessedPoints</span><span class="p">)</span>
+<span class="n">ProcessedPoints</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;Data/ProcessedPoints.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>   TEAReg         RegName   AACoho  AAnEnr  AAnComp  AApEnr  AApComp  HisCoho  \
+0       1        Edinburg     60.0    35.0     12.0    58.3     20.0  25584.0   
+1       2  Corpus Christi    306.0   151.0     40.0    49.3     13.1   5423.0   
+2       3        Victoria    447.0   222.0     71.0    49.7     15.9   1821.0   
+3       4         Houston  17218.0  9734.0   2546.0    56.5     14.8  30026.0   
+4       5        Beaumont   1813.0   957.0    204.0    52.8     11.3    652.0   
+..    ...             ...      ...     ...      ...     ...      ...      ...   
+15     16        Amarillo    364.0   184.0     38.0    50.5     10.4   2213.0   
+16     17         Lubbock    480.0   202.0     31.0    42.1      6.5   2819.0   
+17     18         Midland    343.0   143.0     39.0    41.7     11.4   3393.0   
+18     19         El Paso    380.0   170.0     42.0    44.7     11.1  11690.0   
+19     20     San Antonio   2074.0  1095.0    342.0    52.8     16.5  18037.0   
+
+    HisnEnr  HisnComp    ...     HisEnrpDi  MaleEnrpDi  EcoEnrpDi  AAComppDi  \
+0   14376.0    5405.0    ...          -0.4        -3.7       -2.9       -1.6   
+1    2557.0     792.0    ...          -3.4        -5.4      -11.3       -5.0   
+2     736.0     229.0    ...         -13.1        -6.5      -14.8       -8.3   
+3   13183.0    4378.0    ...         -11.0        -3.9      -11.2       -7.4   
+4     270.0     105.0    ...         -11.5        -5.9      -11.7       -9.0   
+..      ...       ...    ...           ...         ...        ...        ...   
+15    987.0     350.0    ...          -9.6        -5.8      -11.6      -11.5   
+16   1145.0     351.0    ...         -10.0        -3.7      -12.8      -13.9   
+17   1429.0     424.0    ...          -6.1        -4.6      -11.8       -6.0   
+18   6927.0    2290.0    ...           0.9        -4.2       -3.1       -8.7   
+19   8618.0    2896.0    ...          -4.0        -4.5       -8.5       -4.1   
+
+    HisComppDi  MaleCpDi  EcoComppDi  AApCoho  HispCoho  EcopCoho  
+0         -0.5      -3.8        -2.4      0.2      96.2      85.6  
+1         -3.5      -3.4        -8.1      3.9      68.5      58.6  
+2        -11.6      -3.9       -12.6     10.9      44.3      52.4  
+3         -7.6      -4.1        -9.8     23.1      40.4      51.1  
+4         -4.2      -3.9       -10.3     29.8      10.7      50.1  
+..         ...       ...         ...      ...       ...       ...  
+15        -6.1      -4.7        -8.8      6.2      38.0      51.5  
+16        -7.9      -3.2       -10.1      8.5      50.0      56.7  
+17        -4.9      -3.0        -7.6      5.8      57.7      51.7  
+18        -0.1      -4.3        -2.8      2.9      88.5      75.3  
+19        -4.5      -3.6        -8.0      7.6      65.8      60.1  
+
+[20 rows x 38 columns]
+   TEAReg  TotpEnr_  TotpComp_  TotmpComp_  AApComp_  HispComp_  EcopComp_  \
+0       1      57.0       22.0        18.0      20.0       21.0       19.0   
+1       2      51.0       18.0        15.0      13.0       15.0       10.0   
+2       3      53.0       24.0        20.0      16.0       13.0       12.0   
+3       4      55.0       22.0        18.0      15.0       15.0       12.0   
+4       5      53.0       20.0        16.0      11.0       16.0       10.0   
+..    ...       ...        ...         ...       ...        ...        ...   
+15     16      54.0       22.0        17.0      10.0       16.0       13.0   
+16     17      51.0       20.0        17.0       6.0       12.0       10.0   
+17     18      48.0       17.0        14.0      11.0       12.0       10.0   
+18     19      58.0       20.0        15.0      11.0       20.0       17.0   
+19     20      52.0       21.0        17.0      16.0       16.0       13.0   
+
+    AApCoho_  HispCoho_  EcopCoho_  AAComppD_  HisComppD_  EcoComppD_  \
+0        0.0       96.0       86.0       -2.0        -1.0        -2.0   
+1        4.0       69.0       59.0       -5.0        -3.0        -8.0   
+2       11.0       44.0       52.0       -8.0       -12.0       -13.0   
+3       23.0       40.0       51.0       -7.0        -8.0       -10.0   
+4       30.0       11.0       50.0       -9.0        -4.0       -10.0   
+..       ...        ...        ...        ...         ...         ...   
+15       6.0       38.0       52.0      -11.0        -6.0        -9.0   
+16       9.0       50.0       57.0      -14.0        -8.0       -10.0   
+17       6.0       58.0       52.0       -6.0        -5.0        -8.0   
+18       3.0       88.0       75.0       -9.0        -0.0        -3.0   
+19       8.0       66.0       60.0       -4.0        -5.0        -8.0   
+
+    AAEnrpD_  HisEnrpD_  EcoEnrpD_  MaleEnrpD_  MaleCpD_  
+0        2.0       -0.0       -3.0        -4.0      -4.0  
+1       -1.0       -3.0      -11.0        -5.0      -3.0  
+2       -4.0      -13.0      -15.0        -6.0      -4.0  
+3        2.0      -11.0      -11.0        -4.0      -4.0  
+4       -0.0      -11.0      -12.0        -6.0      -4.0  
+..       ...        ...        ...         ...       ...  
+15      -4.0      -10.0      -12.0        -6.0      -5.0  
+16      -9.0      -10.0      -13.0        -4.0      -3.0  
+17      -7.0       -6.0      -12.0        -5.0      -3.0  
+18     -14.0        1.0       -3.0        -4.0      -4.0  
+19       1.0       -4.0       -9.0        -4.0      -4.0  
+
+[20 rows x 18 columns]
 </pre>
 </div>
 </div>
@@ -12454,36 +12506,12 @@ Economically Disadvantaged  179535
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#get TEARegion file and unzip</span>
-<span class="n">URL</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://opendata.arcgis.com/datasets/12142ff8beec4a1797334c9c41ba7b18_0.zip&#39;</span><span class="p">)</span>
+<span class="n">URL</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://opendata.arcgis.com/datasets/12142ff8beec4a1797334c9c41ba7b18_0.zip&#39;</span><span class="p">)</span>
 <span class="n">zippedRegions</span><span class="o">=</span><span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">URL</span><span class="o">.</span><span class="n">content</span><span class="p">))</span>
 <span class="n">zippedRegions</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="s1">&#39;Data/rawESC_Regions&#39;</span><span class="p">)</span>
-
-<span class="c1">#Delete unnecessary fields</span>
-<span class="n">arcpy</span><span class="o">.</span><span class="n">DeleteField_management</span><span class="p">(</span><span class="s2">&quot;Data/rawESC_Regions/ESC_Regions.shp&quot;</span><span class="p">,</span> 
-                             <span class="p">[</span><span class="s2">&quot;FID_1&quot;</span><span class="p">,</span> <span class="s2">&quot;OBJECTID&quot;</span><span class="p">,</span> <span class="s2">&quot;CITY&quot;</span><span class="p">,</span> <span class="s1">&#39;REGION&#39;</span><span class="p">,</span> <span class="s1">&#39;ORG_E_ID&#39;</span><span class="p">,</span> <span class="s1">&#39;WEBSITE&#39;</span><span class="p">,</span> <span class="s1">&#39;SHAPE_Leng&#39;</span><span class="p">])</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[10]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;Result &#39;Data/rawESC_Regions/ESC_Regions.shp&#39;&gt;</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -12501,7 +12529,6 @@ Economically Disadvantaged  179535
 <span class="c1">#Delete unnecessary fields</span>
 <span class="n">arcpy</span><span class="o">.</span><span class="n">DeleteField_management</span><span class="p">(</span><span class="s2">&quot;Data/TexasOutline/cb_2016_us_state_5m.shp&quot;</span><span class="p">,</span> 
                              <span class="p">[</span><span class="s2">&quot;sTATENS&quot;</span><span class="p">,</span> <span class="s2">&quot;AFFGEOID&quot;</span><span class="p">,</span> <span class="s2">&quot;STUSPS&quot;</span><span class="p">,</span> <span class="s1">&#39;NAME&#39;</span><span class="p">,</span> <span class="s1">&#39;LSAD&#39;</span><span class="p">,</span> <span class="s1">&#39;ALAND&#39;</span><span class="p">,</span> <span class="s1">&#39;AWATER&#39;</span><span class="p">])</span>
-
 
 <span class="n">arcpy</span><span class="o">.</span><span class="n">MakeFeatureLayer_management</span> <span class="p">(</span><span class="s2">&quot;Data/TexasOutline/cb_2016_us_state_5m.shp&quot;</span><span class="p">,</span> <span class="s2">&quot;TexasOutline&quot;</span><span class="p">,</span> <span class="s2">&quot;STATEFP=&#39;48&#39;&quot;</span><span class="p">)</span>
 </pre></div>
@@ -12536,11 +12563,9 @@ Economically Disadvantaged  179535
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a File Geodatabase and copy shapefile data</span>
-<span class="c1"># uncomment the following line the first time code is run</span>
-<span class="n">arcpy</span><span class="o">.</span><span class="n">CreateFileGDB_management</span><span class="p">(</span><span class="s1">&#39;Data&#39;</span><span class="p">,</span><span class="s2">&quot;Cohort.gdb&quot;</span><span class="p">)</span>
-
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#copy shapefiles to geodatabase</span>
 <span class="n">arcpy</span><span class="o">.</span><span class="n">FeatureClassToGeodatabase_conversion</span><span class="p">(</span><span class="s1">&#39;Data/rawESC_Regions/ESC_Regions.shp&#39;</span><span class="p">,</span> <span class="s1">&#39;Data/Cohort.gdb&#39;</span><span class="p">)</span>
+
 
 <span class="c1">#List fields in dataset</span>
 <span class="n">fields</span> <span class="o">=</span> <span class="n">arcpy</span><span class="o">.</span><span class="n">ListFields</span><span class="p">(</span><span class="s1">&#39;Data/Cohort.gdb/ESC_Regions&#39;</span><span class="p">)</span>
@@ -12564,8 +12589,15 @@ Economically Disadvantaged  179535
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>OBJECTID is a type of OID with a length of 4
+<pre>OBJECTID_1 is a type of OID with a length of 4
 Shape is a type of Geometry with a length of 0
+FID_1 is a type of Integer with a length of 4
+OBJECTID is a type of Integer with a length of 4
+CITY is a type of String with a length of 80
+REGION is a type of String with a length of 80
+ORG_E_ID is a type of Integer with a length of 4
+WEBSITE is a type of String with a length of 80
+SHAPE_Leng is a type of Double with a length of 8
 Shape_Length is a type of Double with a length of 8
 Shape_Area is a type of Double with a length of 8
 </pre>
@@ -12581,11 +12613,15 @@ Shape_Area is a type of Double with a length of 8
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Add Cohort data to GeoDataBase</span>
-<span class="n">arcpy</span><span class="o">.</span><span class="n">TableToTable_conversion</span><span class="p">(</span><span class="s1">&#39;ProcessedData.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;Data/Cohort.gdb&#39;</span><span class="p">,</span> <span class="s1">&#39;CohortData&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Delete unnecessary fields</span>
+<span class="n">arcpy</span><span class="o">.</span><span class="n">DeleteField_management</span><span class="p">(</span><span class="s2">&quot;Data/Cohort.gdb/ESC_Regions&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;FID_1&quot;</span><span class="p">,</span> <span class="s2">&quot;OBJECTID&quot;</span><span class="p">,</span> <span class="s2">&quot;CITY&quot;</span><span class="p">,</span> <span class="s1">&#39;REGION&#39;</span><span class="p">,</span> <span class="s1">&#39;ORG_E_ID&#39;</span><span class="p">,</span> <span class="s1">&#39;WEBSITE&#39;</span><span class="p">,</span> <span class="s1">&#39;SHAPE_Leng&#39;</span><span class="p">])</span>                            
+
+<span class="c1">#Add datasets to GeoDataBase</span>
+<span class="n">arcpy</span><span class="o">.</span><span class="n">TableToTable_conversion</span><span class="p">(</span><span class="s1">&#39;Data/ProcessedPolys.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;Data/Cohort.gdb&#39;</span><span class="p">,</span> <span class="s1">&#39;PolygonData&#39;</span><span class="p">)</span>
+<span class="n">arcpy</span><span class="o">.</span><span class="n">TableToTable_conversion</span><span class="p">(</span><span class="s1">&#39;Data/ProcessedPoints.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;Data/Cohort.gdb&#39;</span><span class="p">,</span> <span class="s1">&#39;PointData&#39;</span><span class="p">)</span>
 
 <span class="c1">#Merge Cohort Data to TEA Region Polygons</span>
-<span class="n">arcpy</span><span class="o">.</span><span class="n">JoinField_management</span><span class="p">(</span><span class="s1">&#39;Data/Cohort.gdb/ESC_Regions&#39;</span><span class="p">,</span> <span class="s1">&#39;OBJECTID&#39;</span><span class="p">,</span><span class="s1">&#39;Data/Cohort.gdb/CohortData&#39;</span><span class="p">,</span> <span class="s1">&#39;TEAReg&#39;</span><span class="p">)</span>
+<span class="n">arcpy</span><span class="o">.</span><span class="n">JoinField_management</span><span class="p">(</span><span class="s1">&#39;Data/Cohort.gdb/ESC_Regions&#39;</span><span class="p">,</span> <span class="s1">&#39;OBJECTID_1&#39;</span><span class="p">,</span><span class="s1">&#39;Data/Cohort.gdb/PolygonData&#39;</span><span class="p">,</span> <span class="s1">&#39;TEAReg&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12669,11 +12705,15 @@ Shape_Area is a type of Double with a length of 8
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#  Set local variables</span>
-<span class="n">inFeatures</span> <span class="o">=</span> <span class="s2">&quot;Data/Cohort.gdb/ESC_Regions&quot;</span>
+<span class="n">inFeatures</span> <span class="o">=</span> <span class="s1">&#39;Data/rawESC_Regions/ESC_Regions.shp&#39;</span>
 <span class="n">outFeatureClass</span> <span class="o">=</span> <span class="s2">&quot;Data/Cohort.gdb/ESC_Points&quot;</span>
 
 <span class="c1"># Use FeatureToPoint function to find a point inside each park</span>
 <span class="n">arcpy</span><span class="o">.</span><span class="n">FeatureToPoint_management</span><span class="p">(</span><span class="n">inFeatures</span><span class="p">,</span> <span class="n">outFeatureClass</span><span class="p">)</span>
+
+
+<span class="c1">#Merge Cohort Data to TEA Region Polygons</span>
+<span class="n">arcpy</span><span class="o">.</span><span class="n">JoinField_management</span><span class="p">(</span><span class="s1">&#39;Data/Cohort.gdb/ESC_Points&#39;</span><span class="p">,</span> <span class="s1">&#39;OBJECTID_1&#39;</span><span class="p">,</span><span class="s1">&#39;Data/Cohort.gdb/PointData&#39;</span><span class="p">,</span> <span class="s1">&#39;TEAReg&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12692,7 +12732,7 @@ Shape_Area is a type of Double with a length of 8
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;Result &#39;Data\\Cohort.gdb\\ESC_Points&#39;&gt;</pre>
+<pre>&lt;Result &#39;Data/Cohort.gdb/ESC_Points&#39;&gt;</pre>
 </div>
 
 </div>
@@ -12739,13 +12779,14 @@ Shape_Area is a type of Double with a length of 8
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Now,-go-to-linux-and-use-the-GDAL-to-convert-shapefiles-to-geojson.-Then-use-the-Tippecanoe-tool-to-make-.MBtiles">Now, go to linux and use the GDAL to convert shapefiles to geojson. Then use the Tippecanoe tool to make .MBtiles<a class="anchor-link" href="#Now,-go-to-linux-and-use-the-GDAL-to-convert-shapefiles-to-geojson.-Then-use-the-Tippecanoe-tool-to-make-.MBtiles">&#182;</a></h3><p>I used the following commands:</p>
+<h3 id="Now,-go-to-linux-and-use-the-GDAL-ogr2ogr-tool-to-convert-shapefiles-to-geojson.-Then-use-the-Tippecanoe-tool-to-make-.MBtiles">Now, go to linux and use the <a href="https://www.gdal.org/">GDAL</a> ogr2ogr tool to convert shapefiles to geojson. Then use the <a href="https://github.com/mapbox/tippecanoe">Tippecanoe</a> tool to make .MBtiles<a class="anchor-link" href="#Now,-go-to-linux-and-use-the-GDAL-ogr2ogr-tool-to-convert-shapefiles-to-geojson.-Then-use-the-Tippecanoe-tool-to-make-.MBtiles">&#182;</a></h3><p>I used the following commands:</p>
 <ul>
-<li>ogr2ogr -f GeoJSON CohortTEARegionPolys.json Data/FinalShapefiles/ESC_Regions.shp -progress</li>
-<li>ogr2ogr -f GeoJSON TexasOutline.json Data/FinalShapefiles/TexasOutline.shp -progress</li>
-<li>ogr2ogr -f GeoJSON CohortTEARegionPoints.json Data/FinalShapefiles/ESC_Points.shp -progress</li>
-<li>tippecanoe --output=8thGradeCohort2007TEARegionData.mbtiles CohortTEARegionPoints.json CohortTEARegionPolys.json TexasOutline.json -r1 --drop-fraction-as-needed  --simplification=9 --maximum-zoom=15 --minimum-zoom=3 --exclude=OBJECTID_1 --detect-shared-borders</li>
+<li>ogr2ogr -f GeoJSON Data/CohortTEARegionPolys.json Data/FinalShapefiles/ESC_Regions.shp -progress</li>
+<li>ogr2ogr -f GeoJSON Data/TexasOutline.json Data/FinalShapefiles/TexasOutline.shp -progress</li>
+<li>ogr2ogr -f GeoJSON Data/CohortTEARegionPoints.json Data/FinalShapefiles/ESC_Points.shp -progress</li>
+<li>tippecanoe --output=8thGradeCohort2007TEARegionData.mbtiles Data/CohortTEARegionPoints.json Data/CohortTEARegionPolys.json Data/TexasOutline.json -r1 --drop-fraction-as-needed  --simplification=9 --maximum-zoom=15 --minimum-zoom=3 --exclude=OBJECTID_1 --detect-shared-borders</li>
 </ul>
+<p>Finally, we uploaded the custom .MBtiles to mapbox studio and served them from there. You could also set up your own vector tile server using TileServer-GL</p>
 
 </div>
 </div>
