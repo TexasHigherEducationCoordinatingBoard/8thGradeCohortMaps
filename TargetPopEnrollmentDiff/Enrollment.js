@@ -22,9 +22,22 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoiam9obmRpbm5pbmciLCJhIjoiY2oxazR5NjNvMDFveDJ5b
       map.dragRotate.disable();
       // Disable map rotation using touch rotation gesture
       map.touchZoomRotate.disableRotation();
+      map.dragPan.disable();
+      map.scrollZoom.disable();
       addLayerNav(map); // The funtions defined in the separate js doc
       map.scrollZoom.disable();
       map.fitBounds(bbox, linear = true); //fit Texas at any zoom and ease to
+      map.addLayer({
+        'id': 'MaskLayer',
+        'type': 'fill',
+        'source': 'Cohort',
+        'source-layer': 'TexasMask',
+        'layout': {},
+        'paint': {
+            'fill-color': '#a9c2c9',
+            'fill-opacity': 0.8
+        }
+    }, "state");
       map.addLayer({
         'id': 'AApEnrollDiff',
         'type': 'fill',

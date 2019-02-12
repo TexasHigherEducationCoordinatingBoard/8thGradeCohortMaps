@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>8thGradeCohort2007DataPrep</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>8thGradeCohort2008DataPrep</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11775,9 +11775,11 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="This-program-prepares-the-selected-data-from-the-8th-Grade-Cohort-Longitudinal-Study-for-mapping">This program prepares the selected data from the 8th Grade Cohort Longitudinal Study for mapping<a class="anchor-link" href="#This-program-prepares-the-selected-data-from-the-8th-Grade-Cohort-Longitudinal-Study-for-mapping">&#182;</a></h1><p>The 8th grade Cohort Longitudinal Study is a data product of the Texas Higher Education Coordinating Board.</p>
-<h3 id="Begin-by-downloading-the-2007-Cohort-Workbook-from-the-THECB-website.">Begin by downloading the 2007 Cohort Workbook from <a href="http://www.txhighereddata.org/index.cfm?objectId=F2CBE4A0-C90B-11E5-8D610050560100A9">the THECB website</a>.<a class="anchor-link" href="#Begin-by-downloading-the-2007-Cohort-Workbook-from-the-THECB-website.">&#182;</a></h3><p>The selected data focus on enrollment and completion rates in higher education. In addittion to examining the overall cohort, the data also describe the target populations - African American, and Hispanic, economically disadvantaged, and male students -  from the Texas Higher Education Strategic Plan. The target populations examined here are .</p>
-<h3 id="Statistics-are-presented-for-each-of-the-20-regions-defined-by-the-Texas-Education-Agency.-These-are-also-know-as-the-Education-Service-Center-(ERC)-Regions.">Statistics are presented for each of the 20 regions defined by the Texas Education Agency. These are also know as the Education Service Center (ERC) Regions.<a class="anchor-link" href="#Statistics-are-presented-for-each-of-the-20-regions-defined-by-the-Texas-Education-Agency.-These-are-also-know-as-the-Education-Service-Center-(ERC)-Regions.">&#182;</a></h3>
+<h1 id="This-program-prepares-the-selected-data-from-2008,-8th-Grade-Cohort-Longitudinal-Study-for-mapping">This program prepares the selected data from 2008, 8th Grade Cohort Longitudinal Study for mapping<a class="anchor-link" href="#This-program-prepares-the-selected-data-from-2008,-8th-Grade-Cohort-Longitudinal-Study-for-mapping">&#182;</a></h1><h3 id="Begin-by-downloading-the-Cohort-Workbook-from-the-THECB-website.">Begin by downloading the Cohort Workbook from <a href="http://www.txhighereddata.org/index.cfm?objectId=F2CBE4A0-C90B-11E5-8D610050560100A9">the THECB website</a>.<a class="anchor-link" href="#Begin-by-downloading-the-Cohort-Workbook-from-the-THECB-website.">&#182;</a></h3><p>The selected data focus on enrollment and completion rates in higher education. In addittion to examining the overall cohort, the data also describe the target populations from the Texas Higher Education Strategic Plan - African American, Hispanic, economically disadvantaged, and male students. These are groups that have had historically lower rates of participation and success in higher education.</p>
+<p>Data is reported by TEA Region as reported by the THECB in the 8th Grade Cohort Longitudinal Study workbook</p>
+<h3 id="Start-by-downloading-the-2008-cohort-workbook-from-the-THECB-website">Start by downloading the 2008 cohort workbook from the THECB website<a class="anchor-link" href="#Start-by-downloading-the-2008-cohort-workbook-from-the-THECB-website">&#182;</a></h3><p>The cohort workbooks are available at: <a href="http://www.txhighereddata.org/index.cfm?objectId=F2CBE4A0-C90B-11E5-8D610050560100A9">http://www.txhighereddata.org/index.cfm?objectId=F2CBE4A0-C90B-11E5-8D610050560100A9</a></p>
+<p>Save the workbook in 'Data\8th Grade FY2008 Cohort Workbook.xlsx'</p>
+
 </div>
 </div>
 </div>
@@ -11795,6 +11797,10 @@ div#notebook {
 
 <span class="n">arcpy</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">overwriteOutput</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1">#Make Geodatabase if it doesn&#39;t exist</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;Data/Cohort.gbd&quot;</span><span class="p">):</span>
+    <span class="n">arcpy</span><span class="o">.</span><span class="n">CreateFileGDB_management</span><span class="p">(</span><span class="s2">&quot;Data&quot;</span><span class="p">,</span><span class="s2">&quot;Cohort.gdb&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11806,9 +11812,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Start-by-downloading-the-2007-8th-grade-cohort-workbook-from-the-THECB-website">Start by downloading the 2007 8th grade cohort workbook from the THECB website<a class="anchor-link" href="#Start-by-downloading-the-2007-8th-grade-cohort-workbook-from-the-THECB-website">&#182;</a></h3><p>The cohort workbooks are available at: <a href="http://www.txhighereddata.org/index.cfm?objectId=F2CBE4A0-C90B-11E5-8D610050560100A9">http://www.txhighereddata.org/index.cfm?objectId=F2CBE4A0-C90B-11E5-8D610050560100A9</a></p>
-<p>Save the workbook in 'Data\8th Grade FY2007 Cohort Workbook.xlsx'</p>
-
+<h3 id="Extract-the-gender-by-ethnicity-data">Extract the gender by ethnicity data<a class="anchor-link" href="#Extract-the-gender-by-ethnicity-data">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -11817,66 +11821,16 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#We&#39;ll also make a file geodatabase in the new folder</span>
-<span class="n">arcpy</span><span class="o">.</span><span class="n">CreateFileGDB_management</span><span class="p">(</span><span class="s2">&quot;Data&quot;</span><span class="p">,</span><span class="s2">&quot;Cohort.gdb&quot;</span><span class="p">)</span>
-</pre></div>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Data\8th Grade FY2008 Cohort Workbook.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;TEA by Gender by Ethnicity&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[2]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;Result &#39;Data\\Cohort.gdb&#39;&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Now-we'll-extract-data-from-the-workbook-starting-with-the-Gender-by-Ethnicity-Data.">Now we'll extract data from the workbook starting with the Gender by Ethnicity Data.<a class="anchor-link" href="#Now-we'll-extract-data-from-the-workbook-starting-with-the-Gender-by-Ethnicity-Data.">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Data\8th Grade FY2007 Cohort Workbook.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;TEA by Gender by Ethnicity&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
-
-<span class="c1">#Keep the columns I need</span>
+<span class="c1">#Keep the columns you need</span>
 <span class="n">xl2</span><span class="o">=</span><span class="n">xl</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">]]</span>
 
-<span class="c1">#Drop the rows I don&#39;t need</span>
+<span class="c1">#Drop the rows you don&#39;t need and then name the columns</span>
 <span class="n">GenEth</span><span class="o">=</span><span class="n">xl2</span><span class="p">[:</span><span class="mi">160</span><span class="p">]</span>
 <span class="n">GenEth</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEAReg&#39;</span><span class="p">,</span><span class="s1">&#39;RegName&#39;</span><span class="p">,</span><span class="s1">&#39;Gender&#39;</span><span class="p">,</span><span class="s1">&#39;Eth&#39;</span><span class="p">,</span> <span class="s1">&#39;CohoN&#39;</span><span class="p">,</span> <span class="s1">&#39;nEnr&#39;</span><span class="p">,</span> <span class="s1">&#39;pEnr&#39;</span><span class="p">,</span> <span class="s1">&#39;nComp&#39;</span><span class="p">,</span> <span class="s1">&#39;pComp&#39;</span><span class="p">]</span>
 
-<span class="c1">#Make Dataset just of African American Males (60x30TX target popultation - this wasn&#39;t used for the maps)</span>
-<span class="n">AAmales</span><span class="o">=</span><span class="n">GenEth</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">GenEth</span><span class="p">[</span><span class="s1">&#39;Eth&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;African American&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">GenEth</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Male&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1">#copy to avoid chained indexing</span>
-<span class="n">AAmales</span><span class="o">=</span><span class="n">AAmales</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Gender&#39;</span><span class="p">,</span><span class="s1">&#39;Eth&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">AAmales</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEAReg&#39;</span><span class="p">,</span><span class="s1">&#39;RegName&#39;</span><span class="p">,</span><span class="s1">&#39;AAmCoho&#39;</span><span class="p">,</span> <span class="s1">&#39;AAmnEnr&#39;</span><span class="p">,</span> <span class="s1">&#39;AAmpEnr&#39;</span><span class="p">,</span> <span class="s1">&#39;AAmnComp&#39;</span><span class="p">,</span> <span class="s1">&#39;AAmpComp&#39;</span><span class="p">]</span>
-<span class="n">AAmales</span><span class="p">[</span><span class="s1">&#39;AAmpEnr&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">AAmales</span><span class="p">[</span><span class="s1">&#39;AAmpEnr&#39;</span><span class="p">]</span>
-<span class="n">AAmales</span><span class="p">[</span><span class="s1">&#39;AAmpComp&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">AAmales</span><span class="p">[</span><span class="s1">&#39;AAmpComp&#39;</span><span class="p">]</span>
-<span class="c1">#AAmales.to_csv(&#39;AAmales.csv&#39;, index=False)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">GenEth</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">GenEth</span><span class="p">)</span>  <span class="c1">#Check results to be sure you grabbed all the data</span>
 </pre></div>
 
 </div>
@@ -11893,31 +11847,31 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>    TEAReg      RegName  Gender               Eth    CohoN    nEnr      pEnr  \
-0        1     Edinburg  Female  African American     33.0    19.0  0.575758   
-1        1     Edinburg  Female          Hispanic  12607.0  7559.0  0.599588   
-2        1     Edinburg  Female             White    383.0   285.0  0.744125   
-3        1     Edinburg  Female            Others     70.0    44.0  0.628571   
-4        1     Edinburg    Male  African American     27.0    16.0  0.592593   
-..     ...          ...     ...               ...      ...     ...       ...   
-155     20  San Antonio  Female            Others    220.0   160.0  0.727273   
-156     20  San Antonio    Male  African American   1070.0   513.0  0.479439   
-157     20  San Antonio    Male          Hispanic   9266.0  4004.0  0.432117   
-158     20  San Antonio    Male             White   3583.0  2014.0  0.562099   
-159     20  San Antonio    Male            Others    269.0   180.0  0.669145   
+<pre>    TEAReg      RegName  Gender               Eth    CohoN    nEnr    pEnr  \
+0        1     Edinburg  Female  African American     29.0    19.0  0.6552   
+1        1     Edinburg  Female          Hispanic  12703.0  7537.0  0.5933   
+2        1     Edinburg  Female             White    319.0   213.0  0.6677   
+3        1     Edinburg  Female            Others     69.0    37.0  0.5362   
+4        1     Edinburg    Male  African American     36.0    23.0  0.6389   
+..     ...          ...     ...               ...      ...     ...     ...   
+155     20  San Antonio  Female            Others    280.0   188.0  0.6714   
+156     20  San Antonio    Male  African American   1102.0   528.0  0.4791   
+157     20  San Antonio    Male          Hispanic   9226.0  3979.0  0.4313   
+158     20  San Antonio    Male             White   3538.0  1994.0  0.5636   
+159     20  San Antonio    Male            Others    264.0   172.0  0.6515   
 
-      nComp     pComp  
-0       8.0  0.242424  
-1    3143.0  0.249306  
-2     157.0  0.409922  
-3      35.0  0.500000  
-4       4.0  0.148148  
-..      ...       ...  
-155    99.0  0.450000  
-156   118.0  0.110280  
-157  1214.0  0.131017  
-158   984.0  0.274630  
-159    91.0  0.338290  
+      nComp   pComp  
+0      11.0  0.3793  
+1    3341.0  0.2630  
+2     121.0  0.3793  
+3      25.0  0.3623  
+4       9.0  0.2500  
+..      ...     ...  
+155   123.0  0.4393  
+156   130.0  0.1180  
+157  1301.0  0.1410  
+158  1055.0  0.2982  
+159    93.0  0.3523  
 
 [160 rows x 9 columns]
 </pre>
@@ -11932,17 +11886,16 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Now-get-African-American-and-Hispanic-totals-by-region.">Now get African American and Hispanic totals by region.<a class="anchor-link" href="#Now-get-African-American-and-Hispanic-totals-by-region.">&#182;</a></h3><p>We'll collapse on ethicity to remove gender.</p>
-
+<h3 id="Collapse-on-ethicity-to-remove-gender-to-get-African-American-and-Hispanic-totals-by-region.">Collapse on ethicity to remove gender to get African American and Hispanic totals by region.<a class="anchor-link" href="#Collapse-on-ethicity-to-remove-gender-to-get-African-American-and-Hispanic-totals-by-region.">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Keep Hispanic and African American counts, collapse to remove gender, and then recalculate percents </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Keep Hispanic and African American counts, collapse to remove gender, and then calculate percents </span>
 <span class="n">EthCounts</span><span class="o">=</span><span class="n">GenEth</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">GenEth</span><span class="o">.</span><span class="n">columns</span><span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#axis=0 for rows, axis=1 for columns</span>
 
 <span class="c1">#Make African American Group</span>
@@ -11950,7 +11903,7 @@ div#notebook {
 <span class="n">AA</span><span class="o">=</span><span class="n">AAtemp</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;TEAReg&quot;</span><span class="p">,</span> <span class="s2">&quot;RegName&quot;</span><span class="p">,</span><span class="s2">&quot;Eth&quot;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="n">AA</span><span class="p">[</span><span class="s1">&#39;AApEnr&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">AA</span><span class="p">[</span><span class="s1">&#39;nEnr&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">AA</span><span class="p">[</span><span class="s1">&#39;CohoN&#39;</span><span class="p">]</span>
 <span class="n">AA</span><span class="p">[</span><span class="s1">&#39;AApComp&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">AA</span><span class="p">[</span><span class="s1">&#39;nComp&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">AA</span><span class="p">[</span><span class="s1">&#39;CohoN&#39;</span><span class="p">]</span>
-<span class="n">AA</span><span class="o">=</span><span class="n">AA</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Eth&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#Keep the columns I need</span>
+<span class="n">AA</span><span class="o">=</span><span class="n">AA</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Eth&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
 <span class="n">AA</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEAReg&#39;</span><span class="p">,</span><span class="s1">&#39;RegName&#39;</span><span class="p">,</span><span class="s1">&#39;AACoho&#39;</span><span class="p">,</span> <span class="s1">&#39;AAnEnr&#39;</span><span class="p">,</span><span class="s1">&#39;AAnComp&#39;</span><span class="p">,</span><span class="s1">&#39;AApEnr&#39;</span><span class="p">,</span><span class="s1">&#39;AApComp&#39;</span><span class="p">]</span>
 
 <span class="c1">#Make Hispanic Group</span>
@@ -11958,10 +11911,10 @@ div#notebook {
 <span class="n">Hisp</span><span class="o">=</span><span class="n">Hisptemp</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;TEAReg&quot;</span><span class="p">,</span> <span class="s2">&quot;RegName&quot;</span><span class="p">,</span><span class="s2">&quot;Eth&quot;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="n">Hisp</span><span class="p">[</span><span class="s1">&#39;HispEnr&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">Hisp</span><span class="p">[</span><span class="s1">&#39;nEnr&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">Hisp</span><span class="p">[</span><span class="s1">&#39;CohoN&#39;</span><span class="p">]</span>
 <span class="n">Hisp</span><span class="p">[</span><span class="s1">&#39;HispComp&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">Hisp</span><span class="p">[</span><span class="s1">&#39;nComp&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">Hisp</span><span class="p">[</span><span class="s1">&#39;CohoN&#39;</span><span class="p">]</span>
-<span class="n">Hisp</span><span class="o">=</span><span class="n">Hisp</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Eth&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#Keep the columns I need</span>
+<span class="n">Hisp</span><span class="o">=</span><span class="n">Hisp</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Eth&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">Hisp</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEAReg&#39;</span><span class="p">,</span><span class="s1">&#39;RegName&#39;</span><span class="p">,</span><span class="s1">&#39;HisCoho&#39;</span><span class="p">,</span> <span class="s1">&#39;HisnEnr&#39;</span><span class="p">,</span><span class="s1">&#39;HisnComp&#39;</span><span class="p">,</span><span class="s1">&#39;HispEnr&#39;</span><span class="p">,</span><span class="s1">&#39;HispComp&#39;</span><span class="p">]</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">AA</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">AA</span><span class="p">)</span> <span class="c1">#Check results</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Hisp</span><span class="p">)</span>
 </pre></div>
 
@@ -11980,31 +11933,31 @@ div#notebook {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>    TEAReg         RegName   AACoho  AAnEnr  AAnComp     AApEnr    AApComp
-0        1        Edinburg     60.0    35.0     12.0  58.333333  20.000000
-1        2  Corpus Christi    306.0   151.0     40.0  49.346405  13.071895
-2        3        Victoria    447.0   222.0     71.0  49.664430  15.883669
-3        4         Houston  17218.0  9734.0   2546.0  56.533860  14.786851
-4        5        Beaumont   1813.0   957.0    204.0  52.785438  11.252068
+0        1        Edinburg     65.0    42.0     20.0  64.615385  30.769231
+1        2  Corpus Christi    291.0   146.0     37.0  50.171821  12.714777
+2        3        Victoria    396.0   210.0     45.0  53.030303  11.363636
+3        4         Houston  16341.0  9148.0   2491.0  55.981886  15.243865
+4        5        Beaumont   1777.0   951.0    250.0  53.517164  14.068655
 ..     ...             ...      ...     ...      ...        ...        ...
-15      16        Amarillo    364.0   184.0     38.0  50.549451  10.439560
-16      17         Lubbock    480.0   202.0     31.0  42.083333   6.458333
-17      18         Midland    343.0   143.0     39.0  41.690962  11.370262
-18      19         El Paso    380.0   170.0     42.0  44.736842  11.052632
-19      20     San Antonio   2074.0  1095.0    342.0  52.796528  16.489875
+15      16        Amarillo    323.0   173.0     35.0  53.560372  10.835913
+16      17         Lubbock    433.0   201.0     47.0  46.420323  10.854503
+17      18         Midland    244.0   108.0     35.0  44.262295  14.344262
+18      19         El Paso    384.0   166.0     48.0  43.229167  12.500000
+19      20     San Antonio   2110.0  1089.0    371.0  51.611374  17.582938
 
 [20 rows x 7 columns]
     TEAReg         RegName  HisCoho  HisnEnr  HisnComp    HispEnr   HispComp
-0        1        Edinburg  25584.0  14376.0    5405.0  56.191370  21.126485
-1        2  Corpus Christi   5423.0   2557.0     792.0  47.151023  14.604462
-2        3        Victoria   1821.0    736.0     229.0  40.417353  12.575508
-3        4         Houston  30026.0  13183.0    4378.0  43.905282  14.580697
-4        5        Beaumont    652.0    270.0     105.0  41.411043  16.104294
+0        1        Edinburg  25765.0  14238.0    5617.0  55.261013  21.800893
+1        2  Corpus Christi   5124.0   2501.0     840.0  48.809524  16.393443
+2        3        Victoria   1810.0    748.0     240.0  41.325967  13.259669
+3        4         Houston  30602.0  13570.0    4935.0  44.343507  16.126397
+4        5        Beaumont    660.0    265.0     136.0  40.151515  20.606061
 ..     ...             ...      ...      ...       ...        ...        ...
-15      16        Amarillo   2213.0    987.0     350.0  44.600090  15.815635
-16      17         Lubbock   2819.0   1145.0     351.0  40.617240  12.451224
-17      18         Midland   3393.0   1429.0     424.0  42.116121  12.496316
-18      19         El Paso  11690.0   6927.0    2290.0  59.255774  19.589393
-19      20     San Antonio  18037.0   8618.0    2896.0  47.779564  16.055885
+15      16        Amarillo   2177.0    964.0     334.0  44.281121  15.342214
+16      17         Lubbock   2691.0   1132.0     355.0  42.066146  13.192122
+17      18         Midland   3142.0   1389.0     466.0  44.207511  14.831318
+18      19         El Paso  11246.0   6737.0    2193.0  59.905744  19.500267
+19      20     San Antonio  17903.0   8731.0    3266.0  48.768363  18.242753
 
 [20 rows x 7 columns]
 </pre>
@@ -12019,23 +11972,23 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Male-enrollment-and-completion-by-region.">Male enrollment and completion by region.<a class="anchor-link" href="#Male-enrollment-and-completion-by-region.">&#182;</a></h3><p>For this, we'll collapse on gender and remove ethnicity.</p>
-
+<h3 id="Get-data-on-male-students-by-TEA-region">Get data on male students by TEA region<a class="anchor-link" href="#Get-data-on-male-students-by-TEA-region">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Get total male counts by region, collape on gender, counts only.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Get counts of male students by region, collape on gender.</span>
 <span class="n">GenCounts</span><span class="o">=</span><span class="n">GenEth</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">GenEth</span><span class="o">.</span><span class="n">columns</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#axis=0 for rows, axis=1 for columns</span>
 <span class="n">Allmalestemp</span><span class="o">=</span><span class="n">GenCounts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">GenCounts</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Male&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1">#copy to avoid chained indexing</span>
 <span class="n">Allmales</span><span class="o">=</span><span class="n">Allmalestemp</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;TEAReg&quot;</span><span class="p">,</span> <span class="s2">&quot;RegName&quot;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">Allmales</span><span class="p">[</span><span class="s1">&#39;AllmpEnr&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">Allmales</span><span class="p">[</span><span class="s1">&#39;nEnr&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">Allmales</span><span class="p">[</span><span class="s1">&#39;CohoN&#39;</span><span class="p">]</span>
 <span class="n">Allmales</span><span class="p">[</span><span class="s1">&#39;AllmpComp&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">Allmales</span><span class="p">[</span><span class="s1">&#39;nComp&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">Allmales</span><span class="p">[</span><span class="s1">&#39;CohoN&#39;</span><span class="p">]</span>
 <span class="n">Allmales</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEAReg&#39;</span><span class="p">,</span> <span class="s1">&#39;RegName&#39;</span><span class="p">,</span><span class="s1">&#39;TotmCoho&#39;</span><span class="p">,</span> <span class="s1">&#39;TotmnEnr&#39;</span><span class="p">,</span><span class="s1">&#39;TotmnComp&#39;</span><span class="p">,</span><span class="s1">&#39;TotmpEnr&#39;</span><span class="p">,</span><span class="s1">&#39;TotmpComp&#39;</span><span class="p">]</span>
+
 
 <span class="nb">print</span><span class="p">(</span><span class="n">Allmales</span><span class="p">)</span>
 </pre></div>
@@ -12055,30 +12008,30 @@ div#notebook {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>    TEAReg         RegName  TotmCoho  TotmnEnr  TotmnComp   TotmpEnr  \
-0        1        Edinburg   13488.0    7135.0     2411.0  52.898873   
-1        2  Corpus Christi    4113.0    1857.0      601.0  45.149526   
-2        3        Victoria    2144.0    1008.0      435.0  47.014925   
-3        4         Houston   37900.0   19325.0     6852.0  50.989446   
-4        5        Beaumont    3199.0    1503.0      525.0  46.983432   
+0        1        Edinburg   13548.0    7016.0     2428.0  51.786242   
+1        2  Corpus Christi    3921.0    1842.0      648.0  46.977812   
+2        3        Victoria    2013.0     953.0      419.0  47.342275   
+3        4         Houston   37913.0   18928.0     7201.0  49.924828   
+4        5        Beaumont    3006.0    1411.0      539.0  46.939454   
 ..     ...             ...       ...       ...        ...        ...   
-15      16        Amarillo    2987.0    1443.0      515.0  48.309340   
-16      17         Lubbock    2899.0    1361.0      498.0  46.947223   
-17      18         Midland    3005.0    1311.0      433.0  43.627288   
-18      19         El Paso    6775.0    3673.0     1041.0  54.214022   
-19      20     San Antonio   14188.0    6711.0     2407.0  47.300536   
+15      16        Amarillo    2987.0    1459.0      561.0  48.844995   
+16      17         Lubbock    2771.0    1290.0      514.0  46.553591   
+17      18         Midland    2733.0    1125.0      385.0  41.163557   
+18      19         El Paso    6484.0    3574.0     1032.0  55.120296   
+19      20     San Antonio   14130.0    6673.0     2579.0  47.225761   
 
     TotmpComp  
-0   17.875148  
-1   14.612205  
-2   20.289179  
-3   18.079156  
-4   16.411379  
+0   17.921464  
+1   16.526396  
+2   20.814704  
+3   18.993485  
+4   17.930805  
 ..        ...  
-15  17.241379  
-16  17.178337  
-17  14.409318  
-18  15.365314  
-19  16.965041  
+15  18.781386  
+16  18.549260  
+17  14.087084  
+18  15.916101  
+19  18.251946  
 
 [20 rows x 7 columns]
 </pre>
@@ -12093,29 +12046,31 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Get-Economic-Disadvantaged-student-data-by-region.">Get Economic Disadvantaged student data by region.<a class="anchor-link" href="#Get-Economic-Disadvantaged-student-data-by-region.">&#182;</a></h3>
+<h3 id="Get-data-on-economically-disadvantaged-students-by-TEA-region">Get data on economically disadvantaged students by TEA region<a class="anchor-link" href="#Get-data-on-economically-disadvantaged-students-by-TEA-region">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xlEcon</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Data\8th Grade FY2007 Cohort Workbook.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;TEA Region by Eco&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xlEcon</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Data\8th Grade FY2008 Cohort Workbook.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;TEA Region by Eco&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 
-<span class="c1">#Keep the columns I need</span>
+<span class="c1">#Keep just the columns you need</span>
 <span class="n">xlEcon2</span><span class="o">=</span><span class="n">xlEcon</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">]]</span>
 <span class="n">EconTemp</span><span class="o">=</span><span class="n">xlEcon2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">xlEcon2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Economically Disadvantaged&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
 <span class="n">EconTemp2</span><span class="o">=</span><span class="n">EconTemp</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="mi">2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-<span class="c1">#Get Region Totals and drop the rows I don&#39;t need</span>
+<span class="c1">#Get Region Totals and drop the rows you don&#39;t need</span>
 <span class="n">Econ</span><span class="o">=</span><span class="n">EconTemp2</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">Econ</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEAReg&#39;</span><span class="p">,</span><span class="s1">&#39;RegName&#39;</span><span class="p">,</span><span class="s1">&#39;EcoCoho&#39;</span><span class="p">,</span> <span class="s1">&#39;EconEnr&#39;</span><span class="p">,</span> <span class="s1">&#39;EcopEnr&#39;</span><span class="p">,</span> <span class="s1">&#39;EconComp&#39;</span><span class="p">,</span> <span class="s1">&#39;EcopComp&#39;</span><span class="p">]</span>
 
 <span class="n">Econ</span><span class="p">[</span><span class="s1">&#39;EcopEnr&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">Econ</span><span class="p">[</span><span class="s1">&#39;EcopEnr&#39;</span><span class="p">]</span>
 <span class="n">Econ</span><span class="p">[</span><span class="s1">&#39;EcopComp&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">Econ</span><span class="p">[</span><span class="s1">&#39;EcopComp&#39;</span><span class="p">]</span>
+<span class="n">Econ</span><span class="p">[</span><span class="s1">&#39;TEAReg&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Econ</span><span class="p">[</span><span class="s1">&#39;TEAReg&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="c1">#Make sure region in an integer for merging later</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">Econ</span><span class="p">)</span>
 </pre></div>
 
@@ -12133,18 +12088,18 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>   TEAReg         RegName  EcoCoho  EconEnr    EcopEnr  EconComp   EcopComp
-1       1        Edinburg  22752.0  12222.0  53.718354    4377.0  19.237869
-3       2  Corpus Christi   4635.0   1816.0  39.180151     460.0   9.924488
-5       3        Victoria   2153.0    833.0  38.690200     250.0  11.611705
-7       4         Houston  37985.0  16583.0  43.656707    4718.0  12.420692
-9       5        Beaumont   3056.0   1260.0  41.230366     304.0   9.947644
-..    ...             ...      ...      ...        ...       ...        ...
-31     16        Amarillo   3005.0   1280.0  42.595674     393.0  13.078203
-33     17         Lubbock   3198.0   1211.0  37.867417     329.0  10.287680
-35     18         Midland   3039.0   1109.0  36.492267     296.0   9.740046
-37     19         El Paso   9956.0   5500.0  55.243070    1683.0  16.904379
-39     20     San Antonio  16482.0   7128.0  43.247179    2075.0  12.589492
+<pre>    TEAReg         RegName  EcoCoho  EconEnr  EcopEnr  EconComp  EcopComp
+1        1        Edinburg  22598.0  11792.0    52.18    4348.0     19.24
+3        2  Corpus Christi   4284.0   1769.0    41.29     472.0     11.02
+5        3        Victoria   1954.0    739.0    37.82     205.0     10.49
+7        4         Houston  37004.0  16213.0    43.81    4972.0     13.44
+9        5        Beaumont   2952.0   1213.0    41.09     341.0     11.55
+..     ...             ...      ...      ...      ...       ...       ...
+31      16        Amarillo   2928.0   1264.0    43.17     389.0     13.29
+33      17         Lubbock   2987.0   1163.0    38.94     322.0     10.78
+35      18         Midland   2481.0    918.0    37.00     266.0     10.72
+37      19         El Paso   9495.0   5299.0    55.81    1583.0     16.67
+39      20     San Antonio  15791.0   6759.0    42.80    2224.0     14.08
 
 [20 rows x 7 columns]
 </pre>
@@ -12159,26 +12114,27 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Here-we-get-overall-totals-by-region-for-comparison">Here we get overall totals by region for comparison<a class="anchor-link" href="#Here-we-get-overall-totals-by-region-for-comparison">&#182;</a></h3>
+<h3 id="Get-overall-totals-by-region">Get overall totals by region<a class="anchor-link" href="#Get-overall-totals-by-region">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Data\8th Grade FY2007 Cohort Workbook.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;Summary&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Data\8th Grade FY2008 Cohort Workbook.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;Summary&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 
-<span class="c1">#Keep the columns I need</span>
+<span class="c1">#Keep the columns you need</span>
 <span class="n">xl2</span><span class="o">=</span><span class="n">xl</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">]]</span>
 
-<span class="c1">#Get Region Totals and drop the rows I don&#39;t need</span>
+<span class="c1">#Get Region Totals and drop the rows you don&#39;t need</span>
 <span class="n">RegTotals</span><span class="o">=</span><span class="n">xl2</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">RegTotals</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEAReg&#39;</span><span class="p">,</span><span class="s1">&#39;RegName&#39;</span><span class="p">,</span><span class="s1">&#39;TotCoho&#39;</span><span class="p">,</span> <span class="s1">&#39;TotnEnr&#39;</span><span class="p">,</span> <span class="s1">&#39;TotpEnr&#39;</span><span class="p">,</span> <span class="s1">&#39;TotnComp&#39;</span><span class="p">,</span> <span class="s1">&#39;TotpComp&#39;</span><span class="p">]</span>
 
 <span class="n">RegTotals</span><span class="p">[</span><span class="s1">&#39;TotpEnr&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">RegTotals</span><span class="p">[</span><span class="s1">&#39;TotpEnr&#39;</span><span class="p">]</span>
 <span class="n">RegTotals</span><span class="p">[</span><span class="s1">&#39;TotpComp&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">RegTotals</span><span class="p">[</span><span class="s1">&#39;TotpComp&#39;</span><span class="p">]</span>
+<span class="n">RegTotals</span><span class="p">[</span><span class="s1">&#39;TEAReg&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">RegTotals</span><span class="p">[</span><span class="s1">&#39;TEAReg&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="c1">#Make sure region in an integer for merging later</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">RegTotals</span><span class="p">)</span>
 </pre></div>
@@ -12197,18 +12153,18 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>   TEAReg         RegName  TotCoho  TotnEnr    TotpEnr  TotnComp   TotpComp
-0       1        Edinburg  26581.0  15042.0  56.589293    5754.0  21.647041
-1       2  Corpus Christi   7912.0   3996.0  50.505561    1429.0  18.061173
-2       3        Victoria   4109.0   2197.0  53.467997     995.0  24.215138
-3       4         Houston  74398.0  40848.0  54.904702   16498.0  22.175327
-4       5        Beaumont   6094.0   3224.0  52.904496    1235.0  20.265835
-..    ...             ...      ...      ...        ...       ...        ...
-15     16        Amarillo   5830.0   3157.0  54.150943    1278.0  21.921098
-16     17         Lubbock   5639.0   2855.0  50.629544    1150.0  20.393687
-17     18         Midland   5880.0   2837.0  48.248299    1021.0  17.363946
-18     19         El Paso  13214.0   7716.0  58.392614    2605.0  19.713940
-19     20     San Antonio  27421.0  14194.0  51.763247    5645.0  20.586412
+<pre>    TEAReg         RegName  TotCoho  TotnEnr    TotpEnr  TotnComp   TotpComp
+0        1        Edinburg  26668.0  14822.0  55.579721    5926.0  22.221389
+1        2  Corpus Christi   7574.0   3919.0  51.742804    1484.0  19.593346
+2        3        Victoria   3850.0   2047.0  53.168831     910.0  23.636364
+3        4         Houston  73414.0  40109.0  54.633994   17037.0  23.206745
+4        5        Beaumont   5979.0   3117.0  52.132464    1277.0  21.358087
+..     ...             ...      ...      ...        ...       ...        ...
+15      16        Amarillo   5719.0   3112.0  54.415108    1324.0  23.150901
+16      17         Lubbock   5373.0   2773.0  51.609901    1199.0  22.315280
+17      18         Midland   5361.0   2618.0  48.834173    1040.0  19.399366
+18      19         El Paso  12771.0   7522.0  58.899068    2518.0  19.716545
+19      20     San Antonio  27342.0  14330.0  52.410211    6217.0  22.737912
 
 [20 rows x 7 columns]
 </pre>
@@ -12223,13 +12179,13 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="And-now-merge-the-tables">And now merge the tables<a class="anchor-link" href="#And-now-merge-the-tables">&#182;</a></h3>
+<h3 id="Merge-into-one-table,-create-additional-variables,-and-finalize-formatting.">Merge into one table, create additional variables, and finalize formatting.<a class="anchor-link" href="#Merge-into-one-table,-create-additional-variables,-and-finalize-formatting.">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Combine into one table</span>
@@ -12312,44 +12268,57 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>   TEAReg         RegName   AACoho  AAnEnr  AAnComp  AApEnr  AApComp  HisCoho  \
-0       1        Edinburg     60.0    35.0     12.0    58.3     20.0  25584.0   
-1       2  Corpus Christi    306.0   151.0     40.0    49.3     13.1   5423.0   
-2       3        Victoria    447.0   222.0     71.0    49.7     15.9   1821.0   
-3       4         Houston  17218.0  9734.0   2546.0    56.5     14.8  30026.0   
-4       5        Beaumont   1813.0   957.0    204.0    52.8     11.3    652.0   
-..    ...             ...      ...     ...      ...     ...      ...      ...   
-15     16        Amarillo    364.0   184.0     38.0    50.5     10.4   2213.0   
-16     17         Lubbock    480.0   202.0     31.0    42.1      6.5   2819.0   
-17     18         Midland    343.0   143.0     39.0    41.7     11.4   3393.0   
-18     19         El Paso    380.0   170.0     42.0    44.7     11.1  11690.0   
-19     20     San Antonio   2074.0  1095.0    342.0    52.8     16.5  18037.0   
+<pre>    TEAReg         RegName   AACoho  AAnEnr  AAnComp  AApEnr  AApComp  \
+0        1        Edinburg     65.0    42.0     20.0    64.6     30.8   
+1        2  Corpus Christi    291.0   146.0     37.0    50.2     12.7   
+2        3        Victoria    396.0   210.0     45.0    53.0     11.4   
+3        4         Houston  16341.0  9148.0   2491.0    56.0     15.2   
+4        5        Beaumont   1777.0   951.0    250.0    53.5     14.1   
+..     ...             ...      ...     ...      ...     ...      ...   
+15      16        Amarillo    323.0   173.0     35.0    53.6     10.8   
+16      17         Lubbock    433.0   201.0     47.0    46.4     10.9   
+17      18         Midland    244.0   108.0     35.0    44.3     14.3   
+18      19         El Paso    384.0   166.0     48.0    43.2     12.5   
+19      20     San Antonio   2110.0  1089.0    371.0    51.6     17.6   
 
-    HisnEnr  HisnComp    ...     HispCoho_  EcopCoho_  AAComppD_  HisComppD_  \
-0   14376.0    5405.0    ...          96.0       86.0       -2.0        -1.0   
-1    2557.0     792.0    ...          69.0       59.0       -5.0        -3.0   
-2     736.0     229.0    ...          44.0       52.0       -8.0       -12.0   
-3   13183.0    4378.0    ...          40.0       51.0       -7.0        -8.0   
-4     270.0     105.0    ...          11.0       50.0       -9.0        -4.0   
-..      ...       ...    ...           ...        ...        ...         ...   
-15    987.0     350.0    ...          38.0       52.0      -11.0        -6.0   
-16   1145.0     351.0    ...          50.0       57.0      -14.0        -8.0   
-17   1429.0     424.0    ...          58.0       52.0       -6.0        -5.0   
-18   6927.0    2290.0    ...          88.0       75.0       -9.0        -0.0   
-19   8618.0    2896.0    ...          66.0       60.0       -4.0        -5.0   
+    HisCoho  HisnEnr  HisnComp    ...     HispCoho_  EcopCoho_  AAComppD_  \
+0   25765.0  14238.0    5617.0    ...          97.0       85.0        9.0   
+1    5124.0   2501.0     840.0    ...          68.0       57.0       -7.0   
+2    1810.0    748.0     240.0    ...          47.0       51.0      -12.0   
+3   30602.0  13570.0    4935.0    ...          42.0       50.0       -8.0   
+4     660.0    265.0     136.0    ...          11.0       49.0       -7.0   
+..      ...      ...       ...    ...           ...        ...        ...   
+15   2177.0    964.0     334.0    ...          38.0       51.0      -12.0   
+16   2691.0   1132.0     355.0    ...          50.0       56.0      -11.0   
+17   3142.0   1389.0     466.0    ...          59.0       46.0       -5.0   
+18  11246.0   6737.0    2193.0    ...          88.0       74.0       -7.0   
+19  17903.0   8731.0    3266.0    ...          65.0       58.0       -5.0   
 
-    EcoComppD_  AAEnrpD_  HisEnrpD_  EcoEnrpD_  MaleEnrpD_  MaleCpD_  
-0         -2.0       2.0       -0.0       -3.0        -4.0      -4.0  
-1         -8.0      -1.0       -3.0      -11.0        -5.0      -3.0  
-2        -13.0      -4.0      -13.0      -15.0        -6.0      -4.0  
-3        -10.0       2.0      -11.0      -11.0        -4.0      -4.0  
-4        -10.0      -0.0      -11.0      -12.0        -6.0      -4.0  
-..         ...       ...        ...        ...         ...       ...  
-15        -9.0      -4.0      -10.0      -12.0        -6.0      -5.0  
-16       -10.0      -9.0      -10.0      -13.0        -4.0      -3.0  
-17        -8.0      -7.0       -6.0      -12.0        -5.0      -3.0  
-18        -3.0     -14.0        1.0       -3.0        -4.0      -4.0  
-19        -8.0       1.0       -4.0       -9.0        -4.0      -4.0  
+    HisComppD_  EcoComppD_  AAEnrpD_  HisEnrpD_  EcoEnrpD_  MaleEnrpD_  \
+0         -0.0        -3.0       9.0       -0.0       -3.0        -4.0   
+1         -3.0        -9.0      -2.0       -3.0      -10.0        -5.0   
+2        -10.0       -13.0      -0.0      -12.0      -15.0        -6.0   
+3         -7.0       -10.0       1.0      -10.0      -11.0        -5.0   
+4         -1.0       -10.0       1.0      -12.0      -11.0        -5.0   
+..         ...         ...       ...        ...        ...         ...   
+15        -8.0       -10.0      -1.0      -10.0      -11.0        -6.0   
+16        -9.0       -12.0      -5.0      -10.0      -13.0        -5.0   
+17        -5.0        -9.0      -5.0       -5.0      -12.0        -8.0   
+18        -0.0        -3.0     -16.0        1.0       -3.0        -4.0   
+19        -4.0        -9.0      -1.0       -4.0      -10.0        -5.0   
+
+    MaleCpD_  
+0       -4.0  
+1       -3.0  
+2       -3.0  
+3       -4.0  
+4       -3.0  
+..       ...  
+15      -4.0  
+16      -4.0  
+17      -5.0  
+18      -4.0  
+19      -4.0  
 
 [20 rows x 55 columns]
 </pre>
@@ -12371,118 +12340,19 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Polygon data</span>
 <span class="n">ProcessedPolys</span><span class="o">=</span><span class="n">Processed</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">38</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">ProcessedPolys</span><span class="p">)</span>
 <span class="n">ProcessedPolys</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;Data/ProcessedPolys.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1">#Point Data</span>
 <span class="n">ProcessedPoints</span><span class="o">=</span><span class="n">Processed</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="n">numpy</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="mi">38</span><span class="p">:</span><span class="mi">55</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ProcessedPoints</span><span class="p">)</span>
 <span class="n">ProcessedPoints</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;Data/ProcessedPoints.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>   TEAReg         RegName   AACoho  AAnEnr  AAnComp  AApEnr  AApComp  HisCoho  \
-0       1        Edinburg     60.0    35.0     12.0    58.3     20.0  25584.0   
-1       2  Corpus Christi    306.0   151.0     40.0    49.3     13.1   5423.0   
-2       3        Victoria    447.0   222.0     71.0    49.7     15.9   1821.0   
-3       4         Houston  17218.0  9734.0   2546.0    56.5     14.8  30026.0   
-4       5        Beaumont   1813.0   957.0    204.0    52.8     11.3    652.0   
-..    ...             ...      ...     ...      ...     ...      ...      ...   
-15     16        Amarillo    364.0   184.0     38.0    50.5     10.4   2213.0   
-16     17         Lubbock    480.0   202.0     31.0    42.1      6.5   2819.0   
-17     18         Midland    343.0   143.0     39.0    41.7     11.4   3393.0   
-18     19         El Paso    380.0   170.0     42.0    44.7     11.1  11690.0   
-19     20     San Antonio   2074.0  1095.0    342.0    52.8     16.5  18037.0   
-
-    HisnEnr  HisnComp    ...     HisEnrpDi  MaleEnrpDi  EcoEnrpDi  AAComppDi  \
-0   14376.0    5405.0    ...          -0.4        -3.7       -2.9       -1.6   
-1    2557.0     792.0    ...          -3.4        -5.4      -11.3       -5.0   
-2     736.0     229.0    ...         -13.1        -6.5      -14.8       -8.3   
-3   13183.0    4378.0    ...         -11.0        -3.9      -11.2       -7.4   
-4     270.0     105.0    ...         -11.5        -5.9      -11.7       -9.0   
-..      ...       ...    ...           ...         ...        ...        ...   
-15    987.0     350.0    ...          -9.6        -5.8      -11.6      -11.5   
-16   1145.0     351.0    ...         -10.0        -3.7      -12.8      -13.9   
-17   1429.0     424.0    ...          -6.1        -4.6      -11.8       -6.0   
-18   6927.0    2290.0    ...           0.9        -4.2       -3.1       -8.7   
-19   8618.0    2896.0    ...          -4.0        -4.5       -8.5       -4.1   
-
-    HisComppDi  MaleCpDi  EcoComppDi  AApCoho  HispCoho  EcopCoho  
-0         -0.5      -3.8        -2.4      0.2      96.2      85.6  
-1         -3.5      -3.4        -8.1      3.9      68.5      58.6  
-2        -11.6      -3.9       -12.6     10.9      44.3      52.4  
-3         -7.6      -4.1        -9.8     23.1      40.4      51.1  
-4         -4.2      -3.9       -10.3     29.8      10.7      50.1  
-..         ...       ...         ...      ...       ...       ...  
-15        -6.1      -4.7        -8.8      6.2      38.0      51.5  
-16        -7.9      -3.2       -10.1      8.5      50.0      56.7  
-17        -4.9      -3.0        -7.6      5.8      57.7      51.7  
-18        -0.1      -4.3        -2.8      2.9      88.5      75.3  
-19        -4.5      -3.6        -8.0      7.6      65.8      60.1  
-
-[20 rows x 38 columns]
-   TEAReg  TotpEnr_  TotpComp_  TotmpComp_  AApComp_  HispComp_  EcopComp_  \
-0       1      57.0       22.0        18.0      20.0       21.0       19.0   
-1       2      51.0       18.0        15.0      13.0       15.0       10.0   
-2       3      53.0       24.0        20.0      16.0       13.0       12.0   
-3       4      55.0       22.0        18.0      15.0       15.0       12.0   
-4       5      53.0       20.0        16.0      11.0       16.0       10.0   
-..    ...       ...        ...         ...       ...        ...        ...   
-15     16      54.0       22.0        17.0      10.0       16.0       13.0   
-16     17      51.0       20.0        17.0       6.0       12.0       10.0   
-17     18      48.0       17.0        14.0      11.0       12.0       10.0   
-18     19      58.0       20.0        15.0      11.0       20.0       17.0   
-19     20      52.0       21.0        17.0      16.0       16.0       13.0   
-
-    AApCoho_  HispCoho_  EcopCoho_  AAComppD_  HisComppD_  EcoComppD_  \
-0        0.0       96.0       86.0       -2.0        -1.0        -2.0   
-1        4.0       69.0       59.0       -5.0        -3.0        -8.0   
-2       11.0       44.0       52.0       -8.0       -12.0       -13.0   
-3       23.0       40.0       51.0       -7.0        -8.0       -10.0   
-4       30.0       11.0       50.0       -9.0        -4.0       -10.0   
-..       ...        ...        ...        ...         ...         ...   
-15       6.0       38.0       52.0      -11.0        -6.0        -9.0   
-16       9.0       50.0       57.0      -14.0        -8.0       -10.0   
-17       6.0       58.0       52.0       -6.0        -5.0        -8.0   
-18       3.0       88.0       75.0       -9.0        -0.0        -3.0   
-19       8.0       66.0       60.0       -4.0        -5.0        -8.0   
-
-    AAEnrpD_  HisEnrpD_  EcoEnrpD_  MaleEnrpD_  MaleCpD_  
-0        2.0       -0.0       -3.0        -4.0      -4.0  
-1       -1.0       -3.0      -11.0        -5.0      -3.0  
-2       -4.0      -13.0      -15.0        -6.0      -4.0  
-3        2.0      -11.0      -11.0        -4.0      -4.0  
-4       -0.0      -11.0      -12.0        -6.0      -4.0  
-..       ...        ...        ...         ...       ...  
-15      -4.0      -10.0      -12.0        -6.0      -5.0  
-16      -9.0      -10.0      -13.0        -4.0      -3.0  
-17      -7.0       -6.0      -12.0        -5.0      -3.0  
-18     -14.0        1.0       -3.0        -4.0      -4.0  
-19       1.0       -4.0       -9.0        -4.0      -4.0  
-
-[20 rows x 18 columns]
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12491,10 +12361,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="The-rest-of-the-code-prepares-the-shapefiles-for-mapping.">The rest of the code prepares the shapefiles for mapping.<a class="anchor-link" href="#The-rest-of-the-code-prepares-the-shapefiles-for-mapping.">&#182;</a></h1><h3 id="We'll-need:">We'll need:<a class="anchor-link" href="#We'll-need:">&#182;</a></h3><ul>
-<li>Polygons for TEA Regions <a href="http://schoolsdata2-tea-texas.opendata.arcgis.com">available from TEA</a></li>
-<li>Centroids (points) for TEA Regions</li>
-<li>An outline of the State of Texas</li>
+<h1 id="The-rest-of-the-code-prepares-the-shapefiles-for-mapping.">The rest of the code prepares the shapefiles for mapping.<a class="anchor-link" href="#The-rest-of-the-code-prepares-the-shapefiles-for-mapping.">&#182;</a></h1><h3 id="But-first,-download-and-save-the-Education-Service-Center-region-(TEA-region)-shapefiles:">But first, download and save the Education Service Center region (TEA region) shapefiles:<a class="anchor-link" href="#But-first,-download-and-save-the-Education-Service-Center-region-(TEA-region)-shapefiles:">&#182;</a></h3><ul>
+<li>Polygons for TEA Regions <a href="http://schoolsdata2-tea-texas.opendata.arcgis.com">available from TEA</a>. Download the <a href="http://opendata.arcgis.com/datasets/12142ff8beec4a1797334c9c41ba7b18_0.zip">Education Service Center Regions</a>. Unzip the file and store the contents in a new folder: Data/rawESC_Regions.</li>
 </ul>
 
 </div>
@@ -12502,70 +12370,11 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#get TEARegion file and unzip</span>
-<span class="n">URL</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://opendata.arcgis.com/datasets/12142ff8beec4a1797334c9c41ba7b18_0.zip&#39;</span><span class="p">)</span>
-<span class="n">zippedRegions</span><span class="o">=</span><span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">URL</span><span class="o">.</span><span class="n">content</span><span class="p">))</span>
-<span class="n">zippedRegions</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="s1">&#39;Data/rawESC_Regions&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#get State of Texas file and unzip</span>
-<span class="n">URLtexas</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://www2.census.gov/geo/tiger/GENZ2016/shp/cb_2016_us_state_5m.zip&#39;</span><span class="p">)</span>
-<span class="n">zippedState</span><span class="o">=</span><span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">URLtexas</span><span class="o">.</span><span class="n">content</span><span class="p">))</span>
-<span class="n">zippedState</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="s1">&#39;Data/TexasOutline&#39;</span><span class="p">)</span>
-
-<span class="c1">#Delete unnecessary fields</span>
-<span class="n">arcpy</span><span class="o">.</span><span class="n">DeleteField_management</span><span class="p">(</span><span class="s2">&quot;Data/TexasOutline/cb_2016_us_state_5m.shp&quot;</span><span class="p">,</span> 
-                             <span class="p">[</span><span class="s2">&quot;sTATENS&quot;</span><span class="p">,</span> <span class="s2">&quot;AFFGEOID&quot;</span><span class="p">,</span> <span class="s2">&quot;STUSPS&quot;</span><span class="p">,</span> <span class="s1">&#39;NAME&#39;</span><span class="p">,</span> <span class="s1">&#39;LSAD&#39;</span><span class="p">,</span> <span class="s1">&#39;ALAND&#39;</span><span class="p">,</span> <span class="s1">&#39;AWATER&#39;</span><span class="p">])</span>
-
-<span class="n">arcpy</span><span class="o">.</span><span class="n">MakeFeatureLayer_management</span> <span class="p">(</span><span class="s2">&quot;Data/TexasOutline/cb_2016_us_state_5m.shp&quot;</span><span class="p">,</span> <span class="s2">&quot;TexasOutline&quot;</span><span class="p">,</span> <span class="s2">&quot;STATEFP=&#39;48&#39;&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[11]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;Result &#39;TexasOutline&#39;&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#copy shapefiles to geodatabase</span>
 <span class="n">arcpy</span><span class="o">.</span><span class="n">FeatureClassToGeodatabase_conversion</span><span class="p">(</span><span class="s1">&#39;Data/rawESC_Regions/ESC_Regions.shp&#39;</span><span class="p">,</span> <span class="s1">&#39;Data/Cohort.gdb&#39;</span><span class="p">)</span>
-
 
 <span class="c1">#List fields in dataset</span>
 <span class="n">fields</span> <span class="o">=</span> <span class="n">arcpy</span><span class="o">.</span><span class="n">ListFields</span><span class="p">(</span><span class="s1">&#39;Data/Cohort.gdb/ESC_Regions&#39;</span><span class="p">)</span>
@@ -12610,11 +12419,14 @@ Shape_Area is a type of Double with a length of 8
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Delete unnecessary fields</span>
 <span class="n">arcpy</span><span class="o">.</span><span class="n">DeleteField_management</span><span class="p">(</span><span class="s2">&quot;Data/Cohort.gdb/ESC_Regions&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;FID_1&quot;</span><span class="p">,</span> <span class="s2">&quot;OBJECTID&quot;</span><span class="p">,</span> <span class="s2">&quot;CITY&quot;</span><span class="p">,</span> <span class="s1">&#39;REGION&#39;</span><span class="p">,</span> <span class="s1">&#39;ORG_E_ID&#39;</span><span class="p">,</span> <span class="s1">&#39;WEBSITE&#39;</span><span class="p">,</span> <span class="s1">&#39;SHAPE_Leng&#39;</span><span class="p">])</span>                            
+
+<span class="c1">#Create Texas Outline by dissolving the TEA region polygons</span>
+<span class="n">arcpy</span><span class="o">.</span><span class="n">Dissolve_management</span><span class="p">(</span><span class="s2">&quot;Data/Cohort.gdb/ESC_Regions&quot;</span><span class="p">,</span><span class="s2">&quot;Data/Cohort.gdb/TexasOutline&quot;</span><span class="p">)</span>
 
 <span class="c1">#Add datasets to GeoDataBase</span>
 <span class="n">arcpy</span><span class="o">.</span><span class="n">TableToTable_conversion</span><span class="p">(</span><span class="s1">&#39;Data/ProcessedPolys.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;Data/Cohort.gdb&#39;</span><span class="p">,</span> <span class="s1">&#39;PolygonData&#39;</span><span class="p">)</span>
@@ -12634,7 +12446,7 @@ Shape_Area is a type of Double with a length of 8
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[13]:</div>
+<div class="prompt output_prompt">Out[10]:</div>
 
 
 
@@ -12651,7 +12463,7 @@ Shape_Area is a type of Double with a length of 8
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Make folder if it doesn&#39;t exist</span>
@@ -12662,7 +12474,7 @@ Shape_Area is a type of Double with a length of 8
 <span class="n">arcpy</span><span class="o">.</span><span class="n">FeatureClassToShapefile_conversion</span> <span class="p">(</span><span class="s1">&#39;Data/Cohort.gdb/ESC_Regions&#39;</span><span class="p">,</span> <span class="s1">&#39;Data/FinalShapefiles&#39;</span><span class="p">)</span>
 
 <span class="c1">#Export TexasOutline to shapefile</span>
-<span class="n">arcpy</span><span class="o">.</span><span class="n">FeatureClassToShapefile_conversion</span> <span class="p">(</span><span class="s1">&#39;TexasOutline&#39;</span><span class="p">,</span> <span class="s1">&#39;Data/FinalShapefiles&#39;</span><span class="p">)</span>
+<span class="n">arcpy</span><span class="o">.</span><span class="n">FeatureClassToShapefile_conversion</span> <span class="p">(</span><span class="s1">&#39;Data/Cohort.gdb/TexasOutline&#39;</span><span class="p">,</span> <span class="s1">&#39;Data/FinalShapefiles&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12675,7 +12487,7 @@ Shape_Area is a type of Double with a length of 8
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[14]:</div>
+<div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -12701,7 +12513,7 @@ Shape_Area is a type of Double with a length of 8
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#  Set local variables</span>
@@ -12710,7 +12522,6 @@ Shape_Area is a type of Double with a length of 8
 
 <span class="c1"># Use FeatureToPoint function to find a point inside each park</span>
 <span class="n">arcpy</span><span class="o">.</span><span class="n">FeatureToPoint_management</span><span class="p">(</span><span class="n">inFeatures</span><span class="p">,</span> <span class="n">outFeatureClass</span><span class="p">)</span>
-
 
 <span class="c1">#Merge Cohort Data to TEA Region Polygons</span>
 <span class="n">arcpy</span><span class="o">.</span><span class="n">JoinField_management</span><span class="p">(</span><span class="s1">&#39;Data/Cohort.gdb/ESC_Points&#39;</span><span class="p">,</span> <span class="s1">&#39;OBJECTID_1&#39;</span><span class="p">,</span><span class="s1">&#39;Data/Cohort.gdb/PointData&#39;</span><span class="p">,</span> <span class="s1">&#39;TEAReg&#39;</span><span class="p">)</span>
@@ -12726,7 +12537,7 @@ Shape_Area is a type of Double with a length of 8
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[15]:</div>
+<div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -12743,7 +12554,7 @@ Shape_Area is a type of Double with a length of 8
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Export merged TEARegion Points to shapefile</span>
@@ -12760,7 +12571,7 @@ Shape_Area is a type of Double with a length of 8
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[16]:</div>
+<div class="prompt output_prompt">Out[13]:</div>
 
 
 
@@ -12779,14 +12590,101 @@ Shape_Area is a type of Double with a length of 8
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Now,-go-to-linux-and-use-the-GDAL-ogr2ogr-tool-to-convert-shapefiles-to-geojson.-Then-use-the-Tippecanoe-tool-to-make-.MBtiles">Now, go to linux and use the <a href="https://www.gdal.org/">GDAL</a> ogr2ogr tool to convert shapefiles to geojson. Then use the <a href="https://github.com/mapbox/tippecanoe">Tippecanoe</a> tool to make .MBtiles<a class="anchor-link" href="#Now,-go-to-linux-and-use-the-GDAL-ogr2ogr-tool-to-convert-shapefiles-to-geojson.-Then-use-the-Tippecanoe-tool-to-make-.MBtiles">&#182;</a></h3><p>I used the following commands:</p>
-<ul>
-<li>ogr2ogr -f GeoJSON Data/CohortTEARegionPolys.json Data/FinalShapefiles/ESC_Regions.shp -progress</li>
-<li>ogr2ogr -f GeoJSON Data/TexasOutline.json Data/FinalShapefiles/TexasOutline.shp -progress</li>
-<li>ogr2ogr -f GeoJSON Data/CohortTEARegionPoints.json Data/FinalShapefiles/ESC_Points.shp -progress</li>
-<li>tippecanoe --output=8thGradeCohort2007TEARegionData.mbtiles Data/CohortTEARegionPoints.json Data/CohortTEARegionPolys.json Data/TexasOutline.json -r1 --drop-fraction-as-needed  --simplification=9 --maximum-zoom=15 --minimum-zoom=3 --exclude=OBJECTID_1 --detect-shared-borders</li>
-</ul>
-<p>Finally, we uploaded the custom .MBtiles to mapbox studio and served them from there. You could also set up your own vector tile server using TileServer-GL</p>
+<h3 id="Make-a-mask-around-the-state-of-Texas">Make a mask around the state of Texas<a class="anchor-link" href="#Make-a-mask-around-the-state-of-Texas">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># A list coordinate pairs</span>
+<span class="n">feature_info</span> <span class="o">=</span> <span class="p">[[[</span><span class="o">-</span><span class="mi">140</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">60</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">60</span><span class="p">,</span> <span class="mi">45</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">140</span><span class="p">,</span> <span class="mi">45</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">140</span><span class="p">,</span> <span class="mi">15</span><span class="p">]]]</span>
+
+<span class="c1"># A list that will hold each of the Polygon objects</span>
+<span class="n">features</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">feature_info</span><span class="p">:</span>
+    <span class="c1"># Create a Polygon object based on the array of points</span>
+    <span class="n">features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">arcpy</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span>
+            <span class="n">arcpy</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="n">arcpy</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="o">*</span><span class="n">coords</span><span class="p">)</span> <span class="k">for</span> <span class="n">coords</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">])))</span>
+
+<span class="c1"># Persist a copy of the Polyline objects using CopyFeatures</span>
+<span class="n">arcpy</span><span class="o">.</span><span class="n">CopyFeatures_management</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="s2">&quot;Data/Cohort.gdb/TempMask&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[14]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;Result &#39;Data\\Cohort.gdb\\TempMask&#39;&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Carve out the shape of Texas for the mask</span>
+<span class="n">arcpy</span><span class="o">.</span><span class="n">Erase_analysis</span><span class="p">(</span><span class="s2">&quot;Data/Cohort.gdb/TempMask&quot;</span><span class="p">,</span> <span class="s2">&quot;Data/Cohort.gdb/TexasOutline&quot;</span><span class="p">,</span> <span class="s2">&quot;Data/FinalShapefiles/TexasMask.shp&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[15]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;Result &#39;Data\\FinalShapefiles\\TexasMask.shp&#39;&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Now,-go-to-linux-and-use-GDAL-to-convert-shapefiles-to-geojson.-Then-use-the-Tippecanoe-tool-to-make-.MBtiles">Now, go to linux and use GDAL to convert shapefiles to geojson. Then use the Tippecanoe tool to make .MBtiles<a class="anchor-link" href="#Now,-go-to-linux-and-use-GDAL-to-convert-shapefiles-to-geojson.-Then-use-the-Tippecanoe-tool-to-make-.MBtiles">&#182;</a></h3><p>I used the following commands:</p>
+<p><code>ogr2ogr -f GeoJSON Data/CohortTEARegionPolys.json Data/FinalShapefiles/ESC_Regions.shp -progress</code></p>
+<p><code>ogr2ogr -f GeoJSON Data/TexasOutline.json Data/FinalShapefiles/TexasOutline.shp -progress</code></p>
+<p><code>ogr2ogr -f GeoJSON Data/CohortTEARegionPoints.json Data/FinalShapefiles/ESC_Points.shp -progress</code></p>
+<p><code>ogr2ogr -f GeoJSON Data/TexasMask.json Data/FinalShapefiles/TexasMask.shp -progress</code></p>
+<p><code>tippecanoe --output=8thGradeCohort2008TEARegionData.mbtiles Data/CohortTEARegionPoints.json Data/CohortTEARegionPolys.json Data/TexasOutline.json Data/TexasMask.json -r1 --drop-fraction-as-needed  --simplification=9 --maximum-zoom=15 --minimum-zoom=3 --exclude=OBJECTID_1 --detect-shared-borders</code></p>
+<p>Finally, we uploaded the custom .MBtiles to mapbox studio and served them from there. You could also set up your own vector tile server using TileServer-GL.</p>
 
 </div>
 </div>

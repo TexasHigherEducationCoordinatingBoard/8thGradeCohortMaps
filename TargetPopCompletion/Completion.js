@@ -22,8 +22,21 @@ map.on('load', function () {
   map.dragRotate.disable();
   // Disable map rotation using touch rotation gesture
   map.touchZoomRotate.disableRotation();
+  map.dragPan.disable();
+  map.scrollZoom.disable();
   addLayerNav(map);  // The funtions defined in the separate js doc
   map.scrollZoom.disable(); //no mousewheel zoom
+  map.addLayer({
+    'id': 'MaskLayer',
+    'type': 'fill',
+    'source': 'Cohort',
+    'source-layer': 'TexasMask',
+    'layout': {},
+    'paint': {
+        'fill-color': '#a9c2c9',
+        'fill-opacity': 0.8
+    }
+}, "state");
   map.addLayer({
     'id': 'AApComp',
     'type': 'fill',

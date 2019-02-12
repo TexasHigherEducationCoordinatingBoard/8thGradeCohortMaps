@@ -23,9 +23,22 @@ bbox=[[-107.02, 25.62], [-93.38, 36.72]];
     map.dragRotate.disable();
     // Disable map rotation using touch rotation gesture
     map.touchZoomRotate.disableRotation();
+    map.dragPan.disable();
+    map.scrollZoom.disable();
     map.getCanvas().style.cursor = 'default'; //keep pointer
     map.scrollZoom.disable(); //no mousewheel zoom
     addLayerNav(map);
+    map.addLayer({
+      'id': 'MaskLayer',
+      'type': 'fill',
+      'source': 'Cohort',
+      'source-layer': 'TexasMask',
+      'layout': {},
+      'paint': {
+          'fill-color': '#a9c2c9',
+          'fill-opacity': 0.8
+      }
+  }, "state");
     map.addLayer({
       'id': 'TotpComp',
       'type': 'fill',

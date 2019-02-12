@@ -17,7 +17,7 @@ the distribution of these groups throughout the state as well as their enrollmen
 The data comes from 8th Grade Cohort Longitudinal Study excel workbooks. 
 The data is processed using free, open source python libraries and merged to the Texas Education Agency service center region polygons using proprietary ArcGIS Pro python tools. The 
 same results could also be accomplished without ArcGIS Pro by using the open source GDAL library. The complete code 
-for processing and preparing the data can be found in [this Jupyter Notebook](https://github.com/TexasHigherEducationCoordinatingBoard/8thGradeCohortMaps/blob/master/8thGradeCohort2007DataPrep.ipynb).
+for processing and preparing the data can be found in [this Jupyter Notebook](https://github.com/TexasHigherEducationCoordinatingBoard/8thGradeCohortMaps/blob/master/8thGradeCohort2008DataPrep.ipynb).
 
 The maps were created and rendered in the browser using the Mapbox GL javascript library. For questions about this project, please contact John Dinning, Program Director in Strategic Planning and Funding at the Texas Higher Education Coordinating Board: john.dinning@thecb.state.tx.us.
 
