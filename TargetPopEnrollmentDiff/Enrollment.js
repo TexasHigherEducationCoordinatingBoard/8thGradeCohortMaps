@@ -15,29 +15,17 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoiam9obmRpbm5pbmciLCJhIjoiY2oxazR5NjNvMDFveDJ5b
     map.on('load', function () {
       map.addSource('Cohort', {
         'type': 'vector',
-        'url': 'mapbox://johndinning.9koks5ed'
+        'url': 'mapbox://johndinning.81k2wx1r'
       });
       map.addControl(new mapboxgl.NavigationControl({ position: 'top-right' }));
       // Disable map rotation using right click + drag
       map.dragRotate.disable();
       // Disable map rotation using touch rotation gesture
       map.touchZoomRotate.disableRotation();
-      map.dragPan.disable();
       map.scrollZoom.disable();
       addLayerNav(map); // The funtions defined in the separate js doc
       map.scrollZoom.disable();
       map.fitBounds(bbox, linear = true); //fit Texas at any zoom and ease to
-      map.addLayer({
-        'id': 'MaskLayer',
-        'type': 'fill',
-        'source': 'Cohort',
-        'source-layer': 'TexasMask',
-        'layout': {},
-        'paint': {
-            'fill-color': '#a9c2c9',
-            'fill-opacity': 0.8
-        }
-    }, "state");
       map.addLayer({
         'id': 'AApEnrollDiff',
         'type': 'fill',
@@ -245,8 +233,6 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoiam9obmRpbm5pbmciLCJhIjoiY2oxazR5NjNvMDFveDJ5b
         }
       }
       );
-
-
       map.addLayer({
         "id": "RegionLines",
         "type": "line",
@@ -259,20 +245,28 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoiam9obmRpbm5pbmciLCJhIjoiY2oxazR5NjNvMDFveDJ5b
           "line-opacity": 0.3
         }
       });
-       map.addLayer({
+      map.addLayer({
         "id": "TexasOutline",
         "type": "line",
-        "source": {
-          'type': 'vector',
-          'url': 'mapbox://johndinning.7rzn4kl6'
-          },
-        'source-layer': 'Texas-d92wyb',
+        "source": 'Cohort',
+        'source-layer': 'TexasMask',
         "paint": {
           "line-color": "rgba(0,0,0, 1)",
           "line-width": 2,
           "line-opacity": 0.7
         }
       }, 'motorway-casing-Major');
+      map.addLayer({
+        'id': 'MaskLayer',
+        'type': 'fill',
+        'source': 'Cohort',
+        'source-layer': 'TexasMask',
+        'layout': {},
+        'paint': {
+            'fill-color': '#a9c2c9',
+            'fill-opacity': 0.8
+        }
+    }, "TexasOutline");
       map.addLayer({
         "id": "highlight-hover",
         "type": "fill",

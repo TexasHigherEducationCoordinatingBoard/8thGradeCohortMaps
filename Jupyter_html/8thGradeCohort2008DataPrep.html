@@ -12470,9 +12470,6 @@ Shape_Area is a type of Double with a length of 8
     
 <span class="c1">#Export merged TEARegions with Cohort data to shapefile</span>
 <span class="n">arcpy</span><span class="o">.</span><span class="n">FeatureClassToShapefile_conversion</span> <span class="p">(</span><span class="s1">&#39;Data/Cohort.gdb/ESC_Regions&#39;</span><span class="p">,</span> <span class="s1">&#39;Data/FinalShapefiles&#39;</span><span class="p">)</span>
-
-<span class="c1">#Export TexasOutline to shapefile</span>
-<span class="n">arcpy</span><span class="o">.</span><span class="n">FeatureClassToShapefile_conversion</span> <span class="p">(</span><span class="s1">&#39;Data/Cohort.gdb/TexasOutline&#39;</span><span class="p">,</span> <span class="s1">&#39;Data/FinalShapefiles&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12681,7 +12678,7 @@ Shape_Area is a type of Double with a length of 8
 <p><code>ogr2ogr -f GeoJSON Data/TexasOutline.json Data/FinalShapefiles/TexasOutline.shp -progress</code></p>
 <p><code>ogr2ogr -f GeoJSON Data/CohortTEARegionPoints.json Data/FinalShapefiles/ESC_Points.shp -progress</code></p>
 <p><code>ogr2ogr -f GeoJSON Data/TexasMask.json Data/FinalShapefiles/TexasMask.shp -progress</code></p>
-<p><code>tippecanoe --output=8thGradeCohort2008TEARegionData.mbtiles Data/CohortTEARegionPoints.json Data/CohortTEARegionPolys.json Data/TexasOutline.json Data/TexasMask.json -r1 --drop-fraction-as-needed  --simplification=9 --maximum-zoom=15 --minimum-zoom=3 --exclude=OBJECTID_1 --detect-shared-borders</code></p>
+<p><code>tippecanoe --output=8thGradeCohort2008TEARegionData.mbtiles Data/CohortTEARegionPoints.json Data/CohortTEARegionPolys.json Data/TexasMask.json -r1 --drop-fraction-as-needed  --simplification=9 --maximum-zoom=8 --minimum-zoom=3 --exclude=OBJECTID_1 --detect-shared-borders</code></p>
 <p>Finally, we uploaded the custom .MBtiles to mapbox studio and served them from there. You could also set up your own vector tile server using TileServer-GL.</p>
 
 </div>

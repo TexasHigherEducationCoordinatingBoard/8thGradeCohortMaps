@@ -15,28 +15,16 @@ var map = new mapboxgl.Map({
 map.on('load', function () {
   map.addSource('Cohort', {
     'type': 'vector',
-    'url': 'mapbox://johndinning.9koks5ed'
+    'url': 'mapbox://johndinning.81k2wx1r'
   });
   map.addControl(new mapboxgl.NavigationControl({ position: 'top-right' }));
   // Disable map rotation using right click + drag
   map.dragRotate.disable();
   // Disable map rotation using touch rotation gesture
   map.touchZoomRotate.disableRotation();
-  map.dragPan.disable();
   map.scrollZoom.disable();
   addLayerNav(map);  // The funtions defined in the separate js doc
   map.scrollZoom.disable(); //no mousewheel zoom
-  map.addLayer({
-    'id': 'MaskLayer',
-    'type': 'fill',
-    'source': 'Cohort',
-    'source-layer': 'TexasMask',
-    'layout': {},
-    'paint': {
-        'fill-color': '#a9c2c9',
-        'fill-opacity': 0.8
-    }
-}, "state");
   map.addLayer({
     'id': 'AApComp',
     'type': 'fill',
@@ -206,20 +194,28 @@ map.on('load', function () {
       "line-opacity": 0.3
     }
   });
-   map.addLayer({
+  map.addLayer({
     "id": "TexasOutline",
     "type": "line",
-    "source": {
-      'type': 'vector',
-      'url': 'mapbox://johndinning.7rzn4kl6'
-      },
-    'source-layer': 'Texas-d92wyb',
+    "source": 'Cohort',
+    'source-layer': 'TexasMask',
     "paint": {
       "line-color": "rgba(0,0,0, 1)",
       "line-width": 2,
       "line-opacity": 0.7
     }
   }, 'motorway-casing-Major');
+  map.addLayer({
+    'id': 'MaskLayer',
+    'type': 'fill',
+    'source': 'Cohort',
+    'source-layer': 'TexasMask',
+    'layout': {},
+    'paint': {
+        'fill-color': '#a9c2c9',
+        'fill-opacity': 0.8
+    }
+}, "TexasOutline");
   map.addLayer({
     "id": "highlight-hover",
     "type": "fill",
